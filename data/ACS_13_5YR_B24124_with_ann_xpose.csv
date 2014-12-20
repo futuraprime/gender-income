@@ -1,0 +1,1055 @@
+GEO.id,Id,0100000US
+GEO.id2,Id2,
+GEO.display-label,Geography,United States
+HD01_VD01,Estimate; Total:,97259723
+HD02_VD01,Margin of Error; Total:,71035
+HD01_VD02,Estimate; Total: - Chief executives,950329
+HD02_VD02,Margin of Error; Total: - Chief executives,6812
+HD01_VD03,Estimate; Total: - General and operations managers,893694
+HD02_VD03,Margin of Error; Total: - General and operations managers,7251
+HD01_VD04,Estimate; Total: - Legislators,12761
+HD02_VD04,Margin of Error; Total: - Legislators,797
+HD01_VD05,Estimate; Total: - Advertising and promotions managers,45566
+HD02_VD05,Margin of Error; Total: - Advertising and promotions managers,1657
+HD01_VD06,Estimate; Total: - Marketing and sales managers,727982
+HD02_VD06,Margin of Error; Total: - Marketing and sales managers,6056
+HD01_VD07,Estimate; Total: - Public relations and fundraising managers,46005
+HD02_VD07,Margin of Error; Total: - Public relations and fundraising managers,1395
+HD01_VD08,Estimate; Total: - Administrative services managers,105817
+HD02_VD08,Margin of Error; Total: - Administrative services managers,2121
+HD01_VD09,Estimate; Total: - Computer and information systems managers,473905
+HD02_VD09,Margin of Error; Total: - Computer and information systems managers,5468
+HD01_VD10,Estimate; Total: - Financial managers,974874
+HD02_VD10,Margin of Error; Total: - Financial managers,7689
+HD01_VD11,Estimate; Total: - Compensation and benefits managers,18127
+HD02_VD11,Margin of Error; Total: - Compensation and benefits managers,931
+HD01_VD12,Estimate; Total: - Human resources managers,300413
+HD02_VD12,Margin of Error; Total: - Human resources managers,4661
+HD01_VD13,Estimate; Total: - Training and development managers,40190
+HD02_VD13,Margin of Error; Total: - Training and development managers,1620
+HD01_VD14,Estimate; Total: - Industrial production managers,208126
+HD02_VD14,Margin of Error; Total: - Industrial production managers,3222
+HD01_VD15,Estimate; Total: - Purchasing managers,175469
+HD02_VD15,Margin of Error; Total: - Purchasing managers,3095
+HD01_VD16,"Estimate; Total: - Transportation, storage, and distribution managers",192923
+HD02_VD16,"Margin of Error; Total: - Transportation, storage, and distribution managers",2951
+HD01_VD17,"Estimate; Total: - Farmers, ranchers, and other agricultural managers",493423
+HD02_VD17,"Margin of Error; Total: - Farmers, ranchers, and other agricultural managers",3722
+HD01_VD18,Estimate; Total: - Construction managers,525652
+HD02_VD18,Margin of Error; Total: - Construction managers,5285
+HD01_VD19,Estimate; Total: - Education administrators,700519
+HD02_VD19,Margin of Error; Total: - Education administrators,7173
+HD01_VD20,Estimate; Total: - Architectural and engineering managers,136381
+HD02_VD20,Margin of Error; Total: - Architectural and engineering managers,2816
+HD01_VD21,Estimate; Total: - Food service managers,738932
+HD02_VD21,Margin of Error; Total: - Food service managers,9803
+HD01_VD22,Estimate; Total: - Funeral service managers,6285
+HD02_VD22,Margin of Error; Total: - Funeral service managers,609
+HD01_VD23,Estimate; Total: - Gaming managers,15396
+HD02_VD23,Margin of Error; Total: - Gaming managers,939
+HD01_VD24,Estimate; Total: - Lodging managers,99582
+HD02_VD24,Margin of Error; Total: - Lodging managers,2511
+HD01_VD25,Estimate; Total: - Medical and health services managers,517891
+HD02_VD25,Margin of Error; Total: - Medical and health services managers,4788
+HD01_VD26,Estimate; Total: - Natural sciences managers,19144
+HD02_VD26,Margin of Error; Total: - Natural sciences managers,851
+HD01_VD27,Estimate; Total: - Postmasters and mail superintendents,31115
+HD02_VD27,Margin of Error; Total: - Postmasters and mail superintendents,1121
+HD01_VD28,"Estimate; Total: - Property, real estate, and community association managers",409603
+HD02_VD28,"Margin of Error; Total: - Property, real estate, and community association managers",4568
+HD01_VD29,Estimate; Total: - Social and community service managers,265595
+HD02_VD29,Margin of Error; Total: - Social and community service managers,3525
+HD01_VD30,Estimate; Total: - Emergency management directors,6094
+HD02_VD30,Margin of Error; Total: - Emergency management directors,603
+HD01_VD31,"Estimate; Total: - Managers, all other",2795656
+HD02_VD31,"Margin of Error; Total: - Managers, all other",11631
+HD01_VD32,"Estimate; Total: - Agents and business managers of artists, performers, and athletes",29277
+HD02_VD32,"Margin of Error; Total: - Agents and business managers of artists, performers, and athletes",1537
+HD01_VD33,"Estimate; Total: - Buyers and purchasing agents, farm products",8838
+HD02_VD33,"Margin of Error; Total: - Buyers and purchasing agents, farm products",637
+HD01_VD34,"Estimate; Total: - Wholesale and retail buyers, except farm products",157692
+HD02_VD34,"Margin of Error; Total: - Wholesale and retail buyers, except farm products",2910
+HD01_VD35,"Estimate; Total: - Purchasing agents, except wholesale, retail, and farm products",224762
+HD02_VD35,"Margin of Error; Total: - Purchasing agents, except wholesale, retail, and farm products",3140
+HD01_VD36,"Estimate; Total: - Claims adjusters, appraisers, examiners, and investigators",261438
+HD02_VD36,"Margin of Error; Total: - Claims adjusters, appraisers, examiners, and investigators",4186
+HD01_VD37,Estimate; Total: - Compliance officers,179068
+HD02_VD37,Margin of Error; Total: - Compliance officers,3129
+HD01_VD38,Estimate; Total: - Cost estimators,105640
+HD02_VD38,Margin of Error; Total: - Cost estimators,2371
+HD01_VD39,Estimate; Total: - Human resources workers,526749
+HD02_VD39,Margin of Error; Total: - Human resources workers,5348
+HD01_VD40,"Estimate; Total: - Compensation, benefits, and job analysis specialists",64945
+HD02_VD40,"Margin of Error; Total: - Compensation, benefits, and job analysis specialists",1558
+HD01_VD41,Estimate; Total: - Training and development specialists,100878
+HD02_VD41,Margin of Error; Total: - Training and development specialists,2046
+HD01_VD42,Estimate; Total: - Logisticians,82418
+HD02_VD42,Margin of Error; Total: - Logisticians,2240
+HD01_VD43,Estimate; Total: - Management analysts,536117
+HD02_VD43,Margin of Error; Total: - Management analysts,5419
+HD01_VD44,"Estimate; Total: - Meeting, convention, and event planners",65307
+HD02_VD44,"Margin of Error; Total: - Meeting, convention, and event planners",1915
+HD01_VD45,Estimate; Total: - Fundraisers,64072
+HD02_VD45,Margin of Error; Total: - Fundraisers,1704
+HD01_VD46,Estimate; Total: - Market research analysts and marketing specialists,187357
+HD02_VD46,Margin of Error; Total: - Market research analysts and marketing specialists,2708
+HD01_VD47,"Estimate; Total: - Business operations specialists, all other",193727
+HD02_VD47,"Margin of Error; Total: - Business operations specialists, all other",2691
+HD01_VD48,Estimate; Total: - Accountants and auditors,1683978
+HD02_VD48,Margin of Error; Total: - Accountants and auditors,12355
+HD01_VD49,Estimate; Total: - Appraisers and assessors of real estate,75337
+HD02_VD49,Margin of Error; Total: - Appraisers and assessors of real estate,1812
+HD01_VD50,Estimate; Total: - Budget analysts,43591
+HD02_VD50,Margin of Error; Total: - Budget analysts,1335
+HD01_VD51,Estimate; Total: - Credit analysts,24059
+HD02_VD51,Margin of Error; Total: - Credit analysts,1058
+HD01_VD52,Estimate; Total: - Financial analysts,66108
+HD02_VD52,Margin of Error; Total: - Financial analysts,1806
+HD01_VD53,Estimate; Total: - Personal financial advisors,292437
+HD02_VD53,Margin of Error; Total: - Personal financial advisors,3821
+HD01_VD54,Estimate; Total: - Insurance underwriters,95368
+HD02_VD54,Margin of Error; Total: - Insurance underwriters,2100
+HD01_VD55,Estimate; Total: - Financial examiners,12418
+HD02_VD55,Margin of Error; Total: - Financial examiners,775
+HD01_VD56,Estimate; Total: - Credit counselors and loan officers,275032
+HD02_VD56,Margin of Error; Total: - Credit counselors and loan officers,4322
+HD01_VD57,"Estimate; Total: - Tax examiners and collectors, and revenue agents",51821
+HD02_VD57,"Margin of Error; Total: - Tax examiners and collectors, and revenue agents",1805
+HD01_VD58,Estimate; Total: - Tax preparers,44652
+HD02_VD58,Margin of Error; Total: - Tax preparers,1695
+HD01_VD59,"Estimate; Total: - Financial specialists, all other",60991
+HD02_VD59,"Margin of Error; Total: - Financial specialists, all other",1840
+HD01_VD60,Estimate; Total: - Computer and information research scientists,12935
+HD02_VD60,Margin of Error; Total: - Computer and information research scientists,664
+HD01_VD61,Estimate; Total: - Computer systems analysts,415028
+HD02_VD61,Margin of Error; Total: - Computer systems analysts,5365
+HD01_VD62,Estimate; Total: - Information security analysts,46593
+HD02_VD62,Margin of Error; Total: - Information security analysts,1568
+HD01_VD63,Estimate; Total: - Computer programmers,395989
+HD02_VD63,Margin of Error; Total: - Computer programmers,5002
+HD01_VD64,"Estimate; Total: - Software developers, applications and systems software",830360
+HD02_VD64,"Margin of Error; Total: - Software developers, applications and systems software",8328
+HD01_VD65,Estimate; Total: - Web developers,125442
+HD02_VD65,Margin of Error; Total: - Web developers,2672
+HD01_VD66,Estimate; Total: - Computer support specialists,440415
+HD02_VD66,Margin of Error; Total: - Computer support specialists,5223
+HD01_VD67,Estimate; Total: - Database administrators,95711
+HD02_VD67,Margin of Error; Total: - Database administrators,2013
+HD01_VD68,Estimate; Total: - Network and computer systems administrators,209882
+HD02_VD68,Margin of Error; Total: - Network and computer systems administrators,3292
+HD01_VD69,Estimate; Total: - Computer network architects,91349
+HD02_VD69,Margin of Error; Total: - Computer network architects,2280
+HD01_VD70,"Estimate; Total: - Computer occupations, all other",300898
+HD02_VD70,"Margin of Error; Total: - Computer occupations, all other",4381
+HD01_VD71,Estimate; Total: - Actuaries,22033
+HD02_VD71,Margin of Error; Total: - Actuaries,999
+HD01_VD72,Estimate; Total: - Mathematicians,1848
+HD02_VD72,Margin of Error; Total: - Mathematicians,298
+HD01_VD73,Estimate; Total: - Operations research analysts,120364
+HD02_VD73,Margin of Error; Total: - Operations research analysts,2616
+HD01_VD74,Estimate; Total: - Statisticians,31910
+HD02_VD74,Margin of Error; Total: - Statisticians,1175
+HD01_VD75,Estimate; Total: - Miscellaneous mathematical science occupations,2886
+HD02_VD75,Margin of Error; Total: - Miscellaneous mathematical science occupations,333
+HD01_VD76,"Estimate; Total: - Architects, except naval",137720
+HD02_VD76,"Margin of Error; Total: - Architects, except naval",2469
+HD01_VD77,"Estimate; Total: - Surveyors, cartographers, and photogrammetrists",29946
+HD02_VD77,"Margin of Error; Total: - Surveyors, cartographers, and photogrammetrists",1411
+HD01_VD78,Estimate; Total: - Aerospace engineers,124950
+HD02_VD78,Margin of Error; Total: - Aerospace engineers,2431
+HD01_VD79,Estimate; Total: - Agricultural engineers,2488
+HD02_VD79,Margin of Error; Total: - Agricultural engineers,389
+HD01_VD80,Estimate; Total: - Biomedical engineers,12120
+HD02_VD80,Margin of Error; Total: - Biomedical engineers,705
+HD01_VD81,Estimate; Total: - Chemical engineers,51880
+HD02_VD81,Margin of Error; Total: - Chemical engineers,1595
+HD01_VD82,Estimate; Total: - Civil engineers,262607
+HD02_VD82,Margin of Error; Total: - Civil engineers,3539
+HD01_VD83,Estimate; Total: - Computer hardware engineers,52628
+HD02_VD83,Margin of Error; Total: - Computer hardware engineers,1740
+HD01_VD84,Estimate; Total: - Electrical and electronics engineers,198103
+HD02_VD84,Margin of Error; Total: - Electrical and electronics engineers,3258
+HD01_VD85,Estimate; Total: - Environmental engineers,27611
+HD02_VD85,Margin of Error; Total: - Environmental engineers,1046
+HD01_VD86,"Estimate; Total: - Industrial engineers, including health and safety",157838
+HD02_VD86,"Margin of Error; Total: - Industrial engineers, including health and safety",3145
+HD01_VD87,Estimate; Total: - Marine engineers and naval architects,10574
+HD02_VD87,Margin of Error; Total: - Marine engineers and naval architects,711
+HD01_VD88,Estimate; Total: - Materials engineers,28885
+HD02_VD88,Margin of Error; Total: - Materials engineers,1071
+HD01_VD89,Estimate; Total: - Mechanical engineers,195150
+HD02_VD89,Margin of Error; Total: - Mechanical engineers,3868
+HD01_VD90,"Estimate; Total: - Mining and geological engineers, including mining safety engineers",8799
+HD02_VD90,"Margin of Error; Total: - Mining and geological engineers, including mining safety engineers",684
+HD01_VD91,Estimate; Total: - Nuclear engineers,6456
+HD02_VD91,Margin of Error; Total: - Nuclear engineers,583
+HD01_VD92,Estimate; Total: - Petroleum engineers,21984
+HD02_VD92,Margin of Error; Total: - Petroleum engineers,941
+HD01_VD93,"Estimate; Total: - Engineers, all other",401256
+HD02_VD93,"Margin of Error; Total: - Engineers, all other",5599
+HD01_VD94,Estimate; Total: - Drafters,132406
+HD02_VD94,Margin of Error; Total: - Drafters,2351
+HD01_VD95,"Estimate; Total: - Engineering technicians, except drafters",349198
+HD02_VD95,"Margin of Error; Total: - Engineering technicians, except drafters",4434
+HD01_VD96,Estimate; Total: - Surveying and mapping technicians,48903
+HD02_VD96,Margin of Error; Total: - Surveying and mapping technicians,1459
+HD01_VD97,Estimate; Total: - Agricultural and food scientists,24105
+HD02_VD97,Margin of Error; Total: - Agricultural and food scientists,902
+HD01_VD98,Estimate; Total: - Biological scientists,66448
+HD02_VD98,Margin of Error; Total: - Biological scientists,1828
+HD01_VD99,Estimate; Total: - Conservation scientists and foresters,20931
+HD02_VD99,Margin of Error; Total: - Conservation scientists and foresters,1077
+HD01_VD100,Estimate; Total: - Medical scientists,112474
+HD02_VD100,Margin of Error; Total: - Medical scientists,2560
+HD01_VD101,"Estimate; Total: - Life scientists, all other",746
+HD02_VD101,"Margin of Error; Total: - Life scientists, all other",192
+HD01_VD102,Estimate; Total: - Astronomers and physicists,10409
+HD02_VD102,Margin of Error; Total: - Astronomers and physicists,639
+HD01_VD103,Estimate; Total: - Atmospheric and space scientists,9112
+HD02_VD103,Margin of Error; Total: - Atmospheric and space scientists,693
+HD01_VD104,Estimate; Total: - Chemists and materials scientists,74628
+HD02_VD104,Margin of Error; Total: - Chemists and materials scientists,2013
+HD01_VD105,Estimate; Total: - Environmental scientists and geoscientists,63961
+HD02_VD105,Margin of Error; Total: - Environmental scientists and geoscientists,1721
+HD01_VD106,"Estimate; Total: - Physical scientists, all other",161854
+HD02_VD106,"Margin of Error; Total: - Physical scientists, all other",2925
+HD01_VD107,Estimate; Total: - Economists,21688
+HD02_VD107,Margin of Error; Total: - Economists,991
+HD01_VD108,Estimate; Total: - Survey researchers,1387
+HD02_VD108,Margin of Error; Total: - Survey researchers,265
+HD01_VD109,Estimate; Total: - Psychologists,113743
+HD02_VD109,Margin of Error; Total: - Psychologists,2578
+HD01_VD110,Estimate; Total: - Urban and regional planners,18976
+HD02_VD110,Margin of Error; Total: - Urban and regional planners,1019
+HD01_VD111,"Estimate; Total: - Miscellaneous social scientists and related workers, including sociologists",33831
+HD02_VD111,"Margin of Error; Total: - Miscellaneous social scientists and related workers, including sociologists",1353
+HD01_VD112,Estimate; Total: - Agricultural and food science technicians,23883
+HD02_VD112,Margin of Error; Total: - Agricultural and food science technicians,1069
+HD01_VD113,Estimate; Total: - Biological technicians,16010
+HD02_VD113,Margin of Error; Total: - Biological technicians,955
+HD01_VD114,Estimate; Total: - Chemical technicians,57212
+HD02_VD114,Margin of Error; Total: - Chemical technicians,1673
+HD01_VD115,Estimate; Total: - Geological and petroleum technicians,13164
+HD02_VD115,Margin of Error; Total: - Geological and petroleum technicians,973
+HD01_VD116,Estimate; Total: - Nuclear technicians,3257
+HD02_VD116,Margin of Error; Total: - Nuclear technicians,397
+HD01_VD117,Estimate; Total: - Social science research assistants,4377
+HD02_VD117,Margin of Error; Total: - Social science research assistants,508
+HD01_VD118,"Estimate; Total: - Miscellaneous life, physical, and social science technicians",99756
+HD02_VD118,"Margin of Error; Total: - Miscellaneous life, physical, and social science technicians",2198
+HD01_VD119,Estimate; Total: - Counselors,473801
+HD02_VD119,Margin of Error; Total: - Counselors,4852
+HD01_VD120,Estimate; Total: - Social workers,636298
+HD02_VD120,Margin of Error; Total: - Social workers,6487
+HD01_VD121,Estimate; Total: - Probation officers and correctional treatment specialists,86056
+HD02_VD121,Margin of Error; Total: - Probation officers and correctional treatment specialists,2469
+HD01_VD122,Estimate; Total: - Social and human service assistants,98609
+HD02_VD122,Margin of Error; Total: - Social and human service assistants,2437
+HD01_VD123,"Estimate; Total: - Miscellaneous community and social service specialists, including health educators and community health workers",65862
+HD02_VD123,"Margin of Error; Total: - Miscellaneous community and social service specialists, including health educators and community health workers",2010
+HD01_VD124,Estimate; Total: - Clergy,333653
+HD02_VD124,Margin of Error; Total: - Clergy,4048
+HD01_VD125,"Estimate; Total: - Directors, religious activities and education",33222
+HD02_VD125,"Margin of Error; Total: - Directors, religious activities and education",1272
+HD01_VD126,"Estimate; Total: - Religious workers, all other",44021
+HD02_VD126,"Margin of Error; Total: - Religious workers, all other",1561
+HD01_VD127,Estimate; Total: - Lawyers,838809
+HD02_VD127,Margin of Error; Total: - Lawyers,8317
+HD01_VD128,Estimate; Total: - Judicial law clerks,10436
+HD02_VD128,Margin of Error; Total: - Judicial law clerks,804
+HD01_VD129,"Estimate; Total: - Judges, magistrates, and other judicial workers",58398
+HD02_VD129,"Margin of Error; Total: - Judges, magistrates, and other judicial workers",1463
+HD01_VD130,Estimate; Total: - Paralegals and legal assistants,295914
+HD02_VD130,Margin of Error; Total: - Paralegals and legal assistants,4102
+HD01_VD131,Estimate; Total: - Miscellaneous legal support workers,159866
+HD02_VD131,Margin of Error; Total: - Miscellaneous legal support workers,2640
+HD01_VD132,Estimate; Total: - Postsecondary teachers,812565
+HD02_VD132,Margin of Error; Total: - Postsecondary teachers,8433
+HD01_VD133,Estimate; Total: - Preschool and kindergarten teachers,319390
+HD02_VD133,Margin of Error; Total: - Preschool and kindergarten teachers,4322
+HD01_VD134,Estimate; Total: - Elementary and middle school teachers,2241505
+HD02_VD134,Margin of Error; Total: - Elementary and middle school teachers,24018
+HD01_VD135,Estimate; Total: - Secondary school teachers,538935
+HD02_VD135,Margin of Error; Total: - Secondary school teachers,5158
+HD01_VD136,Estimate; Total: - Special education teachers,154333
+HD02_VD136,Margin of Error; Total: - Special education teachers,3033
+HD01_VD137,Estimate; Total: - Other teachers and instructors,355795
+HD02_VD137,Margin of Error; Total: - Other teachers and instructors,4040
+HD01_VD138,"Estimate; Total: - Archivists, curators, and museum technicians",30711
+HD02_VD138,"Margin of Error; Total: - Archivists, curators, and museum technicians",1176
+HD01_VD139,Estimate; Total: - Librarians,112785
+HD02_VD139,Margin of Error; Total: - Librarians,2325
+HD01_VD140,Estimate; Total: - Library technicians,17154
+HD02_VD140,Margin of Error; Total: - Library technicians,927
+HD01_VD141,Estimate; Total: - Teacher assistants,376210
+HD02_VD141,Margin of Error; Total: - Teacher assistants,4271
+HD01_VD142,"Estimate; Total: - Other education, training, and library workers, except teacher assistants",73891
+HD02_VD142,"Margin of Error; Total: - Other education, training, and library workers, except teacher assistants",1953
+HD01_VD143,Estimate; Total: - Artists and related workers,108595
+HD02_VD143,Margin of Error; Total: - Artists and related workers,2603
+HD01_VD144,Estimate; Total: - Designers,521712
+HD02_VD144,Margin of Error; Total: - Designers,5714
+HD01_VD145,Estimate; Total: - Actors,10286
+HD02_VD145,Margin of Error; Total: - Actors,745
+HD01_VD146,Estimate; Total: - Producers and directors,106563
+HD02_VD146,Margin of Error; Total: - Producers and directors,2301
+HD01_VD147,"Estimate; Total: - Athletes, coaches, umpires, and related workers",101386
+HD02_VD147,"Margin of Error; Total: - Athletes, coaches, umpires, and related workers",2413
+HD01_VD148,Estimate; Total: - Dancers and choreographers,6424
+HD02_VD148,Margin of Error; Total: - Dancers and choreographers,766
+HD01_VD149,"Estimate; Total: - Musicians, singers, and related workers",59375
+HD02_VD149,"Margin of Error; Total: - Musicians, singers, and related workers",1936
+HD01_VD150,"Estimate; Total: - Entertainers and performers, sports and related workers, all other",15328
+HD02_VD150,"Margin of Error; Total: - Entertainers and performers, sports and related workers, all other",986
+HD01_VD151,Estimate; Total: - Announcers,27542
+HD02_VD151,Margin of Error; Total: - Announcers,1389
+HD01_VD152,"Estimate; Total: - News analysts, reporters and correspondents",55949
+HD02_VD152,"Margin of Error; Total: - News analysts, reporters and correspondents",1567
+HD01_VD153,Estimate; Total: - Public relations specialists,101777
+HD02_VD153,Margin of Error; Total: - Public relations specialists,2356
+HD01_VD154,Estimate; Total: - Editors,115064
+HD02_VD154,Margin of Error; Total: - Editors,2539
+HD01_VD155,Estimate; Total: - Technical writers,45170
+HD02_VD155,Margin of Error; Total: - Technical writers,1570
+HD01_VD156,Estimate; Total: - Writers and authors,113826
+HD02_VD156,Margin of Error; Total: - Writers and authors,2361
+HD01_VD157,Estimate; Total: - Miscellaneous media and communication workers,43404
+HD02_VD157,Margin of Error; Total: - Miscellaneous media and communication workers,1619
+HD01_VD158,"Estimate; Total: - Miscellaneous media and communications equipment workers, including broadcast and sound engineering technicians and radio operators",60437
+HD02_VD158,"Margin of Error; Total: - Miscellaneous media and communications equipment workers, including broadcast and sound engineering technicians and radio operators",1887
+HD01_VD159,Estimate; Total: - Photographers,74518
+HD02_VD159,Margin of Error; Total: - Photographers,2291
+HD01_VD160,"Estimate; Total: - Television, video, and motion picture camera operators and editors",27176
+HD02_VD160,"Margin of Error; Total: - Television, video, and motion picture camera operators and editors",1128
+HD01_VD161,Estimate; Total: - Chiropractors,36453
+HD02_VD161,Margin of Error; Total: - Chiropractors,1285
+HD01_VD162,Estimate; Total: - Dentists,98883
+HD02_VD162,Margin of Error; Total: - Dentists,2069
+HD01_VD163,Estimate; Total: - Dietitians and nutritionists,57719
+HD02_VD163,Margin of Error; Total: - Dietitians and nutritionists,1597
+HD01_VD164,Estimate; Total: - Optometrists,25189
+HD02_VD164,Margin of Error; Total: - Optometrists,1207
+HD01_VD165,Estimate; Total: - Pharmacists,194996
+HD02_VD165,Margin of Error; Total: - Pharmacists,3363
+HD01_VD166,Estimate; Total: - Physicians and surgeons,722317
+HD02_VD166,Margin of Error; Total: - Physicians and surgeons,5992
+HD01_VD167,Estimate; Total: - Physician assistants,87003
+HD02_VD167,Margin of Error; Total: - Physician assistants,2076
+HD01_VD168,Estimate; Total: - Podiatrists,6790
+HD02_VD168,Margin of Error; Total: - Podiatrists,568
+HD01_VD169,Estimate; Total: - Audiologists,9881
+HD02_VD169,Margin of Error; Total: - Audiologists,703
+HD01_VD170,Estimate; Total: - Occupational therapists,56260
+HD02_VD170,Margin of Error; Total: - Occupational therapists,1684
+HD01_VD171,Estimate; Total: - Physical therapists,135358
+HD02_VD171,Margin of Error; Total: - Physical therapists,2735
+HD01_VD172,Estimate; Total: - Radiation therapists,11777
+HD02_VD172,Margin of Error; Total: - Radiation therapists,738
+HD01_VD173,Estimate; Total: - Recreational therapists,9346
+HD02_VD173,Margin of Error; Total: - Recreational therapists,752
+HD01_VD174,Estimate; Total: - Respiratory therapists,81887
+HD02_VD174,Margin of Error; Total: - Respiratory therapists,2106
+HD01_VD175,Estimate; Total: - Speech-language pathologists,73347
+HD02_VD175,Margin of Error; Total: - Speech-language pathologists,1933
+HD01_VD176,"Estimate; Total: - Miscellaneous therapists, including exercise physiologists",91428
+HD02_VD176,"Margin of Error; Total: - Miscellaneous therapists, including exercise physiologists",2421
+HD01_VD177,Estimate; Total: - Veterinarians,57089
+HD02_VD177,Margin of Error; Total: - Veterinarians,1573
+HD01_VD178,Estimate; Total: - Registered nurses,1981370
+HD02_VD178,Margin of Error; Total: - Registered nurses,10848
+HD01_VD179,Estimate; Total: - Nurse anesthetists,20914
+HD02_VD179,Margin of Error; Total: - Nurse anesthetists,1129
+HD01_VD180,Estimate; Total: - Nurse midwives,3013
+HD02_VD180,Margin of Error; Total: - Nurse midwives,342
+HD01_VD181,Estimate; Total: - Nurse practitioners,70617
+HD02_VD181,Margin of Error; Total: - Nurse practitioners,1812
+HD01_VD182,"Estimate; Total: - Health diagnosing and treating practitioners, all other",9902
+HD02_VD182,"Margin of Error; Total: - Health diagnosing and treating practitioners, all other",766
+HD01_VD183,Estimate; Total: - Clinical laboratory technologists and technicians,258711
+HD02_VD183,Margin of Error; Total: - Clinical laboratory technologists and technicians,3576
+HD01_VD184,Estimate; Total: - Dental hygienists,57080
+HD02_VD184,Margin of Error; Total: - Dental hygienists,1573
+HD01_VD185,Estimate; Total: - Diagnostic related technologists and technicians,233533
+HD02_VD185,Margin of Error; Total: - Diagnostic related technologists and technicians,3348
+HD01_VD186,Estimate; Total: - Emergency medical technicians and paramedics,146424
+HD02_VD186,Margin of Error; Total: - Emergency medical technicians and paramedics,3399
+HD01_VD187,Estimate; Total: - Health practitioner support technologists and technicians,344750
+HD02_VD187,Margin of Error; Total: - Health practitioner support technologists and technicians,3809
+HD01_VD188,Estimate; Total: - Licensed practical and licensed vocational nurses,456234
+HD02_VD188,Margin of Error; Total: - Licensed practical and licensed vocational nurses,3848
+HD01_VD189,Estimate; Total: - Medical records and health information technicians,84830
+HD02_VD189,Margin of Error; Total: - Medical records and health information technicians,2010
+HD01_VD190,"Estimate; Total: - Opticians, dispensing",38365
+HD02_VD190,"Margin of Error; Total: - Opticians, dispensing",1345
+HD01_VD191,Estimate; Total: - Miscellaneous health technologists and technicians,94884
+HD02_VD191,Margin of Error; Total: - Miscellaneous health technologists and technicians,2047
+HD01_VD192,Estimate; Total: - Other healthcare practitioners and technical occupations,69799
+HD02_VD192,Margin of Error; Total: - Other healthcare practitioners and technical occupations,1951
+HD01_VD193,"Estimate; Total: - Nursing, psychiatric, and home health aides",1326862
+HD02_VD193,"Margin of Error; Total: - Nursing, psychiatric, and home health aides",9930
+HD01_VD194,Estimate; Total: - Occupational therapy assistants and aides,9802
+HD02_VD194,Margin of Error; Total: - Occupational therapy assistants and aides,593
+HD01_VD195,Estimate; Total: - Physical therapist assistants and aides,42981
+HD02_VD195,Margin of Error; Total: - Physical therapist assistants and aides,1463
+HD01_VD196,Estimate; Total: - Massage therapists,48794
+HD02_VD196,Margin of Error; Total: - Massage therapists,1654
+HD01_VD197,Estimate; Total: - Dental assistants,145918
+HD02_VD197,Margin of Error; Total: - Dental assistants,2829
+HD01_VD198,Estimate; Total: - Medical assistants,297713
+HD02_VD198,Margin of Error; Total: - Medical assistants,4152
+HD01_VD199,Estimate; Total: - Medical transcriptionists,40581
+HD02_VD199,Margin of Error; Total: - Medical transcriptionists,1274
+HD01_VD200,Estimate; Total: - Pharmacy aides,23817
+HD02_VD200,Margin of Error; Total: - Pharmacy aides,1089
+HD01_VD201,Estimate; Total: - Veterinary assistants and laboratory animal caretakers,22045
+HD02_VD201,Margin of Error; Total: - Veterinary assistants and laboratory animal caretakers,1237
+HD01_VD202,Estimate; Total: - Phlebotomists,69287
+HD02_VD202,Margin of Error; Total: - Phlebotomists,2151
+HD01_VD203,"Estimate; Total: - Healthcare support workers, all other, including medical equipment preparers",90574
+HD02_VD203,"Margin of Error; Total: - Healthcare support workers, all other, including medical equipment preparers",2132
+HD01_VD204,Estimate; Total: - First-line supervisors of correctional officers,55423
+HD02_VD204,Margin of Error; Total: - First-line supervisors of correctional officers,1815
+HD01_VD205,Estimate; Total: - First-line supervisors of police and detectives,106895
+HD02_VD205,Margin of Error; Total: - First-line supervisors of police and detectives,2444
+HD01_VD206,Estimate; Total: - First-line supervisors of fire fighting and prevention workers,47244
+HD02_VD206,Margin of Error; Total: - First-line supervisors of fire fighting and prevention workers,1483
+HD01_VD207,"Estimate; Total: - First-line supervisors of protective service workers, all other",77569
+HD02_VD207,"Margin of Error; Total: - First-line supervisors of protective service workers, all other",1886
+HD01_VD208,Estimate; Total: - Firefighters,257162
+HD02_VD208,Margin of Error; Total: - Firefighters,3959
+HD01_VD209,Estimate; Total: - Fire inspectors,16954
+HD02_VD209,Margin of Error; Total: - Fire inspectors,856
+HD01_VD210,"Estimate; Total: - Bailiffs, correctional officers, and jailers",397124
+HD02_VD210,"Margin of Error; Total: - Bailiffs, correctional officers, and jailers",5585
+HD01_VD211,Estimate; Total: - Detectives and criminal investigators,121465
+HD02_VD211,Margin of Error; Total: - Detectives and criminal investigators,2567
+HD01_VD212,Estimate; Total: - Fish and game wardens,3418
+HD02_VD212,Margin of Error; Total: - Fish and game wardens,400
+HD01_VD213,Estimate; Total: - Parking enforcement workers,5371
+HD02_VD213,Margin of Error; Total: - Parking enforcement workers,472
+HD01_VD214,Estimate; Total: - Police and sheriff's patrol officers,632222
+HD02_VD214,Margin of Error; Total: - Police and sheriff's patrol officers,6230
+HD01_VD215,Estimate; Total: - Transit and railroad police,2509
+HD02_VD215,Margin of Error; Total: - Transit and railroad police,387
+HD01_VD216,Estimate; Total: - Animal control workers,9317
+HD02_VD216,Margin of Error; Total: - Animal control workers,746
+HD01_VD217,Estimate; Total: - Private detectives and investigators,65524
+HD02_VD217,Margin of Error; Total: - Private detectives and investigators,1945
+HD01_VD218,Estimate; Total: - Security guards and gaming surveillance officers,646785
+HD02_VD218,Margin of Error; Total: - Security guards and gaming surveillance officers,6425
+HD01_VD219,Estimate; Total: - Crossing guards,10204
+HD02_VD219,Margin of Error; Total: - Crossing guards,834
+HD01_VD220,Estimate; Total: - Transportation security screeners,19799
+HD02_VD220,Margin of Error; Total: - Transportation security screeners,1088
+HD01_VD221,"Estimate; Total: - Lifeguards and other recreational, and all other protective service workers",30960
+HD02_VD221,"Margin of Error; Total: - Lifeguards and other recreational, and all other protective service workers",1251
+HD01_VD222,Estimate; Total: - Chefs and head cooks,263771
+HD02_VD222,Margin of Error; Total: - Chefs and head cooks,4794
+HD01_VD223,Estimate; Total: - First-line supervisors of food preparation and serving workers,371338
+HD02_VD223,Margin of Error; Total: - First-line supervisors of food preparation and serving workers,5364
+HD01_VD224,Estimate; Total: - Cooks,1064678
+HD02_VD224,Margin of Error; Total: - Cooks,11356
+HD01_VD225,Estimate; Total: - Food preparation workers,277840
+HD02_VD225,Margin of Error; Total: - Food preparation workers,4898
+HD01_VD226,Estimate; Total: - Bartenders,181392
+HD02_VD226,Margin of Error; Total: - Bartenders,3863
+HD01_VD227,"Estimate; Total: - Combined food preparation and serving workers, including fast food",118723
+HD02_VD227,"Margin of Error; Total: - Combined food preparation and serving workers, including fast food",2891
+HD01_VD228,"Estimate; Total: - Counter attendants, cafeteria, food concession, and coffee shop",34531
+HD02_VD228,"Margin of Error; Total: - Counter attendants, cafeteria, food concession, and coffee shop",1526
+HD01_VD229,Estimate; Total: - Waiters and waitresses,655229
+HD02_VD229,Margin of Error; Total: - Waiters and waitresses,10112
+HD01_VD230,"Estimate; Total: - Food servers, nonrestaurant",76006
+HD02_VD230,"Margin of Error; Total: - Food servers, nonrestaurant",2157
+HD01_VD231,Estimate; Total: - Dining room and cafeteria attendants and bartender helpers,91674
+HD02_VD231,Margin of Error; Total: - Dining room and cafeteria attendants and bartender helpers,3119
+HD01_VD232,Estimate; Total: - Dishwashers,95360
+HD02_VD232,Margin of Error; Total: - Dishwashers,3453
+HD01_VD233,"Estimate; Total: - Hosts and hostesses, restaurant, lounge, and coffee shop",37945
+HD02_VD233,"Margin of Error; Total: - Hosts and hostesses, restaurant, lounge, and coffee shop",1641
+HD01_VD234,"Estimate; Total: - Food preparation and serving related workers, all other",3054
+HD02_VD234,"Margin of Error; Total: - Food preparation and serving related workers, all other",454
+HD01_VD235,Estimate; Total: - First-line supervisors of housekeeping and janitorial workers,183352
+HD02_VD235,Margin of Error; Total: - First-line supervisors of housekeeping and janitorial workers,3073
+HD01_VD236,"Estimate; Total: - First-line supervisors of landscaping, lawn service, and groundskeeping workers",127568
+HD02_VD236,"Margin of Error; Total: - First-line supervisors of landscaping, lawn service, and groundskeeping workers",3047
+HD01_VD237,Estimate; Total: - Janitors and building cleaners,1474913
+HD02_VD237,Margin of Error; Total: - Janitors and building cleaners,9613
+HD01_VD238,Estimate; Total: - Maids and housekeeping cleaners,693652
+HD02_VD238,Margin of Error; Total: - Maids and housekeeping cleaners,7380
+HD01_VD239,Estimate; Total: - Pest control workers,52722
+HD02_VD239,Margin of Error; Total: - Pest control workers,1758
+HD01_VD240,Estimate; Total: - Grounds maintenance workers,666473
+HD02_VD240,Margin of Error; Total: - Grounds maintenance workers,8440
+HD01_VD241,Estimate; Total: - First-line supervisors of gaming workers,57821
+HD02_VD241,Margin of Error; Total: - First-line supervisors of gaming workers,1994
+HD01_VD242,Estimate; Total: - First-line supervisors of personal service workers,119698
+HD02_VD242,Margin of Error; Total: - First-line supervisors of personal service workers,2733
+HD01_VD243,Estimate; Total: - Animal trainers,26100
+HD02_VD243,Margin of Error; Total: - Animal trainers,1239
+HD01_VD244,Estimate; Total: - Nonfarm animal caretakers,92292
+HD02_VD244,Margin of Error; Total: - Nonfarm animal caretakers,2380
+HD01_VD245,Estimate; Total: - Gaming services workers,65079
+HD02_VD245,Margin of Error; Total: - Gaming services workers,2206
+HD01_VD246,Estimate; Total: - Motion picture projectionists,3240
+HD02_VD246,Margin of Error; Total: - Motion picture projectionists,483
+HD01_VD247,"Estimate; Total: - Ushers, lobby attendants, and ticket takers",6389
+HD02_VD247,"Margin of Error; Total: - Ushers, lobby attendants, and ticket takers",458
+HD01_VD248,Estimate; Total: - Miscellaneous entertainment attendants and related workers,45543
+HD02_VD248,Margin of Error; Total: - Miscellaneous entertainment attendants and related workers,1663
+HD01_VD249,Estimate; Total: - Embalmers and funeral attendants,6424
+HD02_VD249,Margin of Error; Total: - Embalmers and funeral attendants,543
+HD01_VD250,"Estimate; Total: - Morticians, undertakers, and funeral directors",30638
+HD02_VD250,"Margin of Error; Total: - Morticians, undertakers, and funeral directors",1130
+HD01_VD251,Estimate; Total: - Barbers,65566
+HD02_VD251,Margin of Error; Total: - Barbers,2075
+HD01_VD252,"Estimate; Total: - Hairdressers, hairstylists, and cosmetologists",403861
+HD02_VD252,"Margin of Error; Total: - Hairdressers, hairstylists, and cosmetologists",5680
+HD01_VD253,Estimate; Total: - Miscellaneous personal appearance workers,143822
+HD02_VD253,Margin of Error; Total: - Miscellaneous personal appearance workers,3693
+HD01_VD254,"Estimate; Total: - Baggage porters, bellhops, and concierges",53762
+HD02_VD254,"Margin of Error; Total: - Baggage porters, bellhops, and concierges",1790
+HD01_VD255,Estimate; Total: - Tour and travel guides,14184
+HD02_VD255,Margin of Error; Total: - Tour and travel guides,821
+HD01_VD256,Estimate; Total: - Childcare workers,549517
+HD02_VD256,Margin of Error; Total: - Childcare workers,5802
+HD01_VD257,Estimate; Total: - Personal care aides,502278
+HD02_VD257,Margin of Error; Total: - Personal care aides,6723
+HD01_VD258,Estimate; Total: - Recreation and fitness workers,156579
+HD02_VD258,Margin of Error; Total: - Recreation and fitness workers,2693
+HD01_VD259,Estimate; Total: - Residential advisors,26050
+HD02_VD259,Margin of Error; Total: - Residential advisors,1099
+HD01_VD260,"Estimate; Total: - Personal care and service workers, all other",43992
+HD02_VD260,"Margin of Error; Total: - Personal care and service workers, all other",1891
+HD01_VD261,Estimate; Total: - First-line supervisors of retail sales workers,2511710
+HD02_VD261,Margin of Error; Total: - First-line supervisors of retail sales workers,13630
+HD01_VD262,Estimate; Total: - First-line supervisors of non-retail sales workers,1008478
+HD02_VD262,Margin of Error; Total: - First-line supervisors of non-retail sales workers,6874
+HD01_VD263,Estimate; Total: - Cashiers,1046748
+HD02_VD263,Margin of Error; Total: - Cashiers,10753
+HD01_VD264,Estimate; Total: - Counter and rental clerks,50475
+HD02_VD264,Margin of Error; Total: - Counter and rental clerks,1797
+HD01_VD265,Estimate; Total: - Parts salespersons,86221
+HD02_VD265,Margin of Error; Total: - Parts salespersons,1878
+HD01_VD266,Estimate; Total: - Retail salespersons,1687760
+HD02_VD266,Margin of Error; Total: - Retail salespersons,11069
+HD01_VD267,Estimate; Total: - Advertising sales agents,163031
+HD02_VD267,Margin of Error; Total: - Advertising sales agents,3382
+HD01_VD268,Estimate; Total: - Insurance sales agents,431466
+HD02_VD268,Margin of Error; Total: - Insurance sales agents,5175
+HD01_VD269,"Estimate; Total: - Securities, commodities, and financial services sales agents",242445
+HD02_VD269,"Margin of Error; Total: - Securities, commodities, and financial services sales agents",3888
+HD01_VD270,Estimate; Total: - Travel agents,49673
+HD02_VD270,Margin of Error; Total: - Travel agents,1922
+HD01_VD271,"Estimate; Total: - Sales representatives, services, all other",484091
+HD02_VD271,"Margin of Error; Total: - Sales representatives, services, all other",4803
+HD01_VD272,"Estimate; Total: - Sales representatives, wholesale and manufacturing",1164732
+HD02_VD272,"Margin of Error; Total: - Sales representatives, wholesale and manufacturing",7853
+HD01_VD273,"Estimate; Total: - Models, demonstrators, and product promoters",12566
+HD02_VD273,"Margin of Error; Total: - Models, demonstrators, and product promoters",942
+HD01_VD274,Estimate; Total: - Real estate brokers and sales agents,497528
+HD02_VD274,Margin of Error; Total: - Real estate brokers and sales agents,5763
+HD01_VD275,Estimate; Total: - Sales engineers,29126
+HD02_VD275,Margin of Error; Total: - Sales engineers,1029
+HD01_VD276,Estimate; Total: - Telemarketers,48342
+HD02_VD276,Margin of Error; Total: - Telemarketers,1862
+HD01_VD277,"Estimate; Total: - Door-to-door sales workers, news and street vendors, and related workers",56766
+HD02_VD277,"Margin of Error; Total: - Door-to-door sales workers, news and street vendors, and related workers",1891
+HD01_VD278,"Estimate; Total: - Sales and related workers, all other",166354
+HD02_VD278,"Margin of Error; Total: - Sales and related workers, all other",2961
+HD01_VD279,Estimate; Total: - First-line supervisors of office and administrative support workers,1183330
+HD02_VD279,Margin of Error; Total: - First-line supervisors of office and administrative support workers,7339
+HD01_VD280,"Estimate; Total: - Switchboard operators, including answering service",22660
+HD02_VD280,"Margin of Error; Total: - Switchboard operators, including answering service",1018
+HD01_VD281,Estimate; Total: - Telephone operators,28975
+HD02_VD281,Margin of Error; Total: - Telephone operators,1212
+HD01_VD282,"Estimate; Total: - Communications equipment operators, all other",7139
+HD02_VD282,"Margin of Error; Total: - Communications equipment operators, all other",606
+HD01_VD283,Estimate; Total: - Bill and account collectors,162714
+HD02_VD283,Margin of Error; Total: - Bill and account collectors,3274
+HD01_VD284,Estimate; Total: - Billing and posting clerks,377322
+HD02_VD284,Margin of Error; Total: - Billing and posting clerks,4108
+HD01_VD285,"Estimate; Total: - Bookkeeping, accounting, and auditing clerks",918705
+HD02_VD285,"Margin of Error; Total: - Bookkeeping, accounting, and auditing clerks",7733
+HD01_VD286,Estimate; Total: - Gaming cage workers,7509
+HD02_VD286,Margin of Error; Total: - Gaming cage workers,543
+HD01_VD287,Estimate; Total: - Payroll and timekeeping clerks,136593
+HD02_VD287,Margin of Error; Total: - Payroll and timekeeping clerks,2324
+HD01_VD288,Estimate; Total: - Procurement clerks,28772
+HD02_VD288,Margin of Error; Total: - Procurement clerks,1310
+HD01_VD289,Estimate; Total: - Tellers,245811
+HD02_VD289,Margin of Error; Total: - Tellers,3929
+HD01_VD290,"Estimate; Total: - Financial clerks, all other",74240
+HD02_VD290,"Margin of Error; Total: - Financial clerks, all other",2036
+HD01_VD291,Estimate; Total: - Brokerage clerks,7057
+HD02_VD291,Margin of Error; Total: - Brokerage clerks,497
+HD01_VD292,Estimate; Total: - Correspondence clerks,4375
+HD02_VD292,Margin of Error; Total: - Correspondence clerks,505
+HD01_VD293,"Estimate; Total: - Court, municipal, and license clerks",71574
+HD02_VD293,"Margin of Error; Total: - Court, municipal, and license clerks",1785
+HD01_VD294,"Estimate; Total: - Credit authorizers, checkers, and clerks",40370
+HD02_VD294,"Margin of Error; Total: - Credit authorizers, checkers, and clerks",1383
+HD01_VD295,Estimate; Total: - Customer service representatives,1518294
+HD02_VD295,Margin of Error; Total: - Customer service representatives,10237
+HD01_VD296,"Estimate; Total: - Eligibility interviewers, government programs",65580
+HD02_VD296,"Margin of Error; Total: - Eligibility interviewers, government programs",1889
+HD01_VD297,Estimate; Total: - File clerks,200207
+HD02_VD297,Margin of Error; Total: - File clerks,2919
+HD01_VD298,"Estimate; Total: - Hotel, motel, and resort desk clerks",73725
+HD02_VD298,"Margin of Error; Total: - Hotel, motel, and resort desk clerks",2161
+HD01_VD299,"Estimate; Total: - Interviewers, except eligibility and loan",85252
+HD02_VD299,"Margin of Error; Total: - Interviewers, except eligibility and loan",2323
+HD01_VD300,"Estimate; Total: - Library assistants, clerical",35304
+HD02_VD300,"Margin of Error; Total: - Library assistants, clerical",1435
+HD01_VD301,Estimate; Total: - Loan interviewers and clerks,100705
+HD02_VD301,Margin of Error; Total: - Loan interviewers and clerks,2750
+HD01_VD302,Estimate; Total: - New accounts clerks,17311
+HD02_VD302,Margin of Error; Total: - New accounts clerks,949
+HD01_VD303,Estimate; Total: - Order clerks,91991
+HD02_VD303,Margin of Error; Total: - Order clerks,2468
+HD01_VD304,"Estimate; Total: - Human resources assistants, except payroll and timekeeping",45593
+HD02_VD304,"Margin of Error; Total: - Human resources assistants, except payroll and timekeeping",1631
+HD01_VD305,Estimate; Total: - Receptionists and information clerks,642300
+HD02_VD305,Margin of Error; Total: - Receptionists and information clerks,5796
+HD01_VD306,Estimate; Total: - Reservation and transportation ticket agents and travel clerks,87178
+HD02_VD306,Margin of Error; Total: - Reservation and transportation ticket agents and travel clerks,2384
+HD01_VD307,"Estimate; Total: - Information and record clerks, all other",79699
+HD02_VD307,"Margin of Error; Total: - Information and record clerks, all other",2065
+HD01_VD308,Estimate; Total: - Cargo and freight agents,14951
+HD02_VD308,Margin of Error; Total: - Cargo and freight agents,974
+HD01_VD309,Estimate; Total: - Couriers and messengers,175335
+HD02_VD309,Margin of Error; Total: - Couriers and messengers,2984
+HD01_VD310,Estimate; Total: - Dispatchers,227859
+HD02_VD310,Margin of Error; Total: - Dispatchers,3630
+HD01_VD311,"Estimate; Total: - Meter readers, utilities",28883
+HD02_VD311,"Margin of Error; Total: - Meter readers, utilities",1238
+HD01_VD312,Estimate; Total: - Postal service clerks,105338
+HD02_VD312,Margin of Error; Total: - Postal service clerks,2482
+HD01_VD313,Estimate; Total: - Postal service mail carriers,268500
+HD02_VD313,Margin of Error; Total: - Postal service mail carriers,3795
+HD01_VD314,"Estimate; Total: - Postal service mail sorters, processors, and processing machine operators",64396
+HD02_VD314,"Margin of Error; Total: - Postal service mail sorters, processors, and processing machine operators",1860
+HD01_VD315,"Estimate; Total: - Production, planning, and expediting clerks",248000
+HD02_VD315,"Margin of Error; Total: - Production, planning, and expediting clerks",3625
+HD01_VD316,"Estimate; Total: - Shipping, receiving, and traffic clerks",426104
+HD02_VD316,"Margin of Error; Total: - Shipping, receiving, and traffic clerks",4586
+HD01_VD317,Estimate; Total: - Stock clerks and order fillers,811060
+HD02_VD317,Margin of Error; Total: - Stock clerks and order fillers,6890
+HD01_VD318,"Estimate; Total: - Weighers, measurers, checkers, and samplers, recordkeeping",57027
+HD02_VD318,"Margin of Error; Total: - Weighers, measurers, checkers, and samplers, recordkeeping",1555
+HD01_VD319,Estimate; Total: - Secretaries and administrative assistants,2472320
+HD02_VD319,Margin of Error; Total: - Secretaries and administrative assistants,12966
+HD01_VD320,Estimate; Total: - Computer operators,93842
+HD02_VD320,Margin of Error; Total: - Computer operators,2063
+HD01_VD321,Estimate; Total: - Data entry keyers,254847
+HD02_VD321,Margin of Error; Total: - Data entry keyers,3212
+HD01_VD322,Estimate; Total: - Word processors and typists,202496
+HD02_VD322,Margin of Error; Total: - Word processors and typists,4043
+HD01_VD323,Estimate; Total: - Desktop publishers,3078
+HD02_VD323,Margin of Error; Total: - Desktop publishers,396
+HD01_VD324,Estimate; Total: - Insurance claims and policy processing clerks,262047
+HD02_VD324,Margin of Error; Total: - Insurance claims and policy processing clerks,3820
+HD01_VD325,"Estimate; Total: - Mail clerks and mail machine operators, except postal service",63931
+HD02_VD325,"Margin of Error; Total: - Mail clerks and mail machine operators, except postal service",1563
+HD01_VD326,"Estimate; Total: - Office clerks, general",745269
+HD02_VD326,"Margin of Error; Total: - Office clerks, general",6053
+HD01_VD327,"Estimate; Total: - Office machine operators, except computer",27714
+HD02_VD327,"Margin of Error; Total: - Office machine operators, except computer",1257
+HD01_VD328,Estimate; Total: - Proofreaders and copy markers,7167
+HD02_VD328,Margin of Error; Total: - Proofreaders and copy markers,529
+HD01_VD329,Estimate; Total: - Statistical assistants,18419
+HD02_VD329,Margin of Error; Total: - Statistical assistants,830
+HD01_VD330,"Estimate; Total: - Office and administrative support workers, all other",408122
+HD02_VD330,"Margin of Error; Total: - Office and administrative support workers, all other",4690
+HD01_VD331,"Estimate; Total: - First-line supervisors of farming, fishing, and forestry workers",47712
+HD02_VD331,"Margin of Error; Total: - First-line supervisors of farming, fishing, and forestry workers",1530
+HD01_VD332,Estimate; Total: - Agricultural inspectors,14018
+HD02_VD332,Margin of Error; Total: - Agricultural inspectors,772
+HD01_VD333,Estimate; Total: - Animal breeders,2525
+HD02_VD333,Margin of Error; Total: - Animal breeders,285
+HD01_VD334,"Estimate; Total: - Graders and sorters, agricultural products",33303
+HD02_VD334,"Margin of Error; Total: - Graders and sorters, agricultural products",1469
+HD01_VD335,Estimate; Total: - Miscellaneous agricultural workers,432878
+HD02_VD335,Margin of Error; Total: - Miscellaneous agricultural workers,6122
+HD01_VD336,Estimate; Total: - Fishing and hunting workers,20023
+HD02_VD336,Margin of Error; Total: - Fishing and hunting workers,1127
+HD01_VD337,Estimate; Total: - Forest and conservation workers,8985
+HD02_VD337,Margin of Error; Total: - Forest and conservation workers,651
+HD01_VD338,Estimate; Total: - Logging workers,41812
+HD02_VD338,Margin of Error; Total: - Logging workers,1325
+HD01_VD339,Estimate; Total: - First-line supervisors of construction trades and extraction workers,638627
+HD02_VD339,Margin of Error; Total: - First-line supervisors of construction trades and extraction workers,5895
+HD01_VD340,Estimate; Total: - Boilermakers,12043
+HD02_VD340,Margin of Error; Total: - Boilermakers,883
+HD01_VD341,"Estimate; Total: - Brickmasons, blockmasons, and stonemasons",75425
+HD02_VD341,"Margin of Error; Total: - Brickmasons, blockmasons, and stonemasons",2276
+HD01_VD342,Estimate; Total: - Carpenters,672140
+HD02_VD342,Margin of Error; Total: - Carpenters,7175
+HD01_VD343,"Estimate; Total: - Carpet, floor, and tile installers and finishers",87087
+HD02_VD343,"Margin of Error; Total: - Carpet, floor, and tile installers and finishers",2783
+HD01_VD344,"Estimate; Total: - Cement masons, concrete finishers, and terrazzo workers",31405
+HD02_VD344,"Margin of Error; Total: - Cement masons, concrete finishers, and terrazzo workers",1624
+HD01_VD345,Estimate; Total: - Construction laborers,877582
+HD02_VD345,Margin of Error; Total: - Construction laborers,9652
+HD01_VD346,"Estimate; Total: - Paving, surfacing, and tamping equipment operators",8497
+HD02_VD346,"Margin of Error; Total: - Paving, surfacing, and tamping equipment operators",697
+HD01_VD347,"Estimate; Total: - Operating engineers and other construction equipment operators, including pile-driver operators",237920
+HD02_VD347,"Margin of Error; Total: - Operating engineers and other construction equipment operators, including pile-driver operators",3537
+HD01_VD348,"Estimate; Total: - Drywall installers, ceiling tile installers, and tapers",71511
+HD02_VD348,"Margin of Error; Total: - Drywall installers, ceiling tile installers, and tapers",2234
+HD01_VD349,Estimate; Total: - Electricians,545587
+HD02_VD349,Margin of Error; Total: - Electricians,5277
+HD01_VD350,Estimate; Total: - Glaziers,29807
+HD02_VD350,Margin of Error; Total: - Glaziers,1182
+HD01_VD351,Estimate; Total: - Insulation workers,30913
+HD02_VD351,Margin of Error; Total: - Insulation workers,1476
+HD01_VD352,"Estimate; Total: - Painters, construction and maintenance",292881
+HD02_VD352,"Margin of Error; Total: - Painters, construction and maintenance",5266
+HD01_VD353,Estimate; Total: - Paperhangers,2181
+HD02_VD353,Margin of Error; Total: - Paperhangers,354
+HD01_VD354,"Estimate; Total: - Pipelayers, plumbers, pipefitters, and steamfitters",372050
+HD02_VD354,"Margin of Error; Total: - Pipelayers, plumbers, pipefitters, and steamfitters",4618
+HD01_VD355,Estimate; Total: - Plasterers and stucco masons,16779
+HD02_VD355,Margin of Error; Total: - Plasterers and stucco masons,1310
+HD01_VD356,Estimate; Total: - Reinforcing iron and rebar workers,4000
+HD02_VD356,Margin of Error; Total: - Reinforcing iron and rebar workers,549
+HD01_VD357,Estimate; Total: - Roofers,110121
+HD02_VD357,Margin of Error; Total: - Roofers,3229
+HD01_VD358,Estimate; Total: - Sheet metal workers,92348
+HD02_VD358,Margin of Error; Total: - Sheet metal workers,2338
+HD01_VD359,Estimate; Total: - Structural iron and steel workers,42254
+HD02_VD359,Margin of Error; Total: - Structural iron and steel workers,1782
+HD01_VD360,"Estimate; Total: - Helpers, construction trades",26821
+HD02_VD360,"Margin of Error; Total: - Helpers, construction trades",1409
+HD01_VD361,Estimate; Total: - Construction and building inspectors,71468
+HD02_VD361,Margin of Error; Total: - Construction and building inspectors,1692
+HD01_VD362,Estimate; Total: - Elevator installers and repairers,22986
+HD02_VD362,Margin of Error; Total: - Elevator installers and repairers,1234
+HD01_VD363,Estimate; Total: - Fence erectors,16163
+HD02_VD363,Margin of Error; Total: - Fence erectors,1072
+HD01_VD364,Estimate; Total: - Hazardous materials removal workers,22540
+HD02_VD364,Margin of Error; Total: - Hazardous materials removal workers,1059
+HD01_VD365,Estimate; Total: - Highway maintenance workers,85266
+HD02_VD365,Margin of Error; Total: - Highway maintenance workers,2267
+HD01_VD366,Estimate; Total: - Rail-track laying and maintenance equipment operators,10157
+HD02_VD366,Margin of Error; Total: - Rail-track laying and maintenance equipment operators,703
+HD01_VD367,Estimate; Total: - Septic tank servicers and sewer pipe cleaners,7287
+HD02_VD367,Margin of Error; Total: - Septic tank servicers and sewer pipe cleaners,651
+HD01_VD368,"Estimate; Total: - Miscellaneous construction and related workers, including solar photovoltaic installers",22967
+HD02_VD368,"Margin of Error; Total: - Miscellaneous construction and related workers, including solar photovoltaic installers",1196
+HD01_VD369,"Estimate; Total: - Derrick, rotary drill, and service unit operators, oil, gas, and mining",24385
+HD02_VD369,"Margin of Error; Total: - Derrick, rotary drill, and service unit operators, oil, gas, and mining",1202
+HD01_VD370,"Estimate; Total: - Earth drillers, except oil and gas",20714
+HD02_VD370,"Margin of Error; Total: - Earth drillers, except oil and gas",1120
+HD01_VD371,"Estimate; Total: - Explosives workers, ordnance handling experts, and blasters",8409
+HD02_VD371,"Margin of Error; Total: - Explosives workers, ordnance handling experts, and blasters",573
+HD01_VD372,Estimate; Total: - Mining machine operators,56328
+HD02_VD372,Margin of Error; Total: - Mining machine operators,1621
+HD01_VD373,"Estimate; Total: - Roof bolters, mining",4359
+HD02_VD373,"Margin of Error; Total: - Roof bolters, mining",470
+HD01_VD374,"Estimate; Total: - Roustabouts, oil and gas",7026
+HD02_VD374,"Margin of Error; Total: - Roustabouts, oil and gas",582
+HD01_VD375,Estimate; Total: - Helpers--extraction workers,3584
+HD02_VD375,Margin of Error; Total: - Helpers--extraction workers,432
+HD01_VD376,Estimate; Total: - Other extraction workers,48078
+HD02_VD376,Margin of Error; Total: - Other extraction workers,1713
+HD01_VD377,"Estimate; Total: - First-line supervisors of mechanics, installers, and repairers",256088
+HD02_VD377,"Margin of Error; Total: - First-line supervisors of mechanics, installers, and repairers",3600
+HD01_VD378,"Estimate; Total: - Computer, automated teller, and office machine repairers",193381
+HD02_VD378,"Margin of Error; Total: - Computer, automated teller, and office machine repairers",2914
+HD01_VD379,Estimate; Total: - Radio and telecommunications equipment installers and repairers,138820
+HD02_VD379,Margin of Error; Total: - Radio and telecommunications equipment installers and repairers,2633
+HD01_VD380,Estimate; Total: - Avionics technicians,16010
+HD02_VD380,Margin of Error; Total: - Avionics technicians,960
+HD01_VD381,"Estimate; Total: - Electric motor, power tool, and related repairers",22977
+HD02_VD381,"Margin of Error; Total: - Electric motor, power tool, and related repairers",1050
+HD01_VD382,"Estimate; Total: - Electrical and electronics installers and repairers, transportation equipment",2531
+HD02_VD382,"Margin of Error; Total: - Electrical and electronics installers and repairers, transportation equipment",419
+HD01_VD383,"Estimate; Total: - Electrical and electronics repairers, industrial and utility",11729
+HD02_VD383,"Margin of Error; Total: - Electrical and electronics repairers, industrial and utility",773
+HD01_VD384,"Estimate; Total: - Electronic equipment installers and repairers, motor vehicles",11577
+HD02_VD384,"Margin of Error; Total: - Electronic equipment installers and repairers, motor vehicles",699
+HD01_VD385,Estimate; Total: - Electronic home entertainment equipment installers and repairers,41359
+HD02_VD385,Margin of Error; Total: - Electronic home entertainment equipment installers and repairers,1693
+HD01_VD386,Estimate; Total: - Security and fire alarm systems installers,43121
+HD02_VD386,Margin of Error; Total: - Security and fire alarm systems installers,1403
+HD01_VD387,Estimate; Total: - Aircraft mechanics and service technicians,140973
+HD02_VD387,Margin of Error; Total: - Aircraft mechanics and service technicians,3044
+HD01_VD388,Estimate; Total: - Automotive body and related repairers,123229
+HD02_VD388,Margin of Error; Total: - Automotive body and related repairers,2777
+HD01_VD389,Estimate; Total: - Automotive glass installers and repairers,14846
+HD02_VD389,Margin of Error; Total: - Automotive glass installers and repairers,860
+HD01_VD390,Estimate; Total: - Automotive service technicians and mechanics,659485
+HD02_VD390,Margin of Error; Total: - Automotive service technicians and mechanics,6218
+HD01_VD391,Estimate; Total: - Bus and truck mechanics and diesel engine specialists,252698
+HD02_VD391,Margin of Error; Total: - Bus and truck mechanics and diesel engine specialists,3587
+HD01_VD392,Estimate; Total: - Heavy vehicle and mobile equipment service technicians and mechanics,176686
+HD02_VD392,Margin of Error; Total: - Heavy vehicle and mobile equipment service technicians and mechanics,2926
+HD01_VD393,Estimate; Total: - Small engine mechanics,33122
+HD02_VD393,Margin of Error; Total: - Small engine mechanics,1400
+HD01_VD394,"Estimate; Total: - Miscellaneous vehicle and mobile equipment mechanics, installers, and repairers",54783
+HD02_VD394,"Margin of Error; Total: - Miscellaneous vehicle and mobile equipment mechanics, installers, and repairers",1973
+HD01_VD395,Estimate; Total: - Control and valve installers and repairers,18767
+HD02_VD395,Margin of Error; Total: - Control and valve installers and repairers,924
+HD01_VD396,"Estimate; Total: - Heating, air conditioning, and refrigeration mechanics and installers",267171
+HD02_VD396,"Margin of Error; Total: - Heating, air conditioning, and refrigeration mechanics and installers",4172
+HD01_VD397,Estimate; Total: - Home appliance repairers,29211
+HD02_VD397,Margin of Error; Total: - Home appliance repairers,1192
+HD01_VD398,Estimate; Total: - Industrial and refractory machinery mechanics,335257
+HD02_VD398,Margin of Error; Total: - Industrial and refractory machinery mechanics,4018
+HD01_VD399,"Estimate; Total: - Maintenance and repair workers, general",420728
+HD02_VD399,"Margin of Error; Total: - Maintenance and repair workers, general",4253
+HD01_VD400,"Estimate; Total: - Maintenance workers, machinery",25162
+HD02_VD400,"Margin of Error; Total: - Maintenance workers, machinery",1009
+HD01_VD401,Estimate; Total: - Millwrights,37500
+HD02_VD401,Margin of Error; Total: - Millwrights,1217
+HD01_VD402,Estimate; Total: - Electrical power-line installers and repairers,101383
+HD02_VD402,Margin of Error; Total: - Electrical power-line installers and repairers,2113
+HD01_VD403,Estimate; Total: - Telecommunications line installers and repairers,133499
+HD02_VD403,Margin of Error; Total: - Telecommunications line installers and repairers,2828
+HD01_VD404,Estimate; Total: - Precision instrument and equipment repairers,52450
+HD02_VD404,Margin of Error; Total: - Precision instrument and equipment repairers,1582
+HD01_VD405,"Estimate; Total: - Coin, vending, and amusement machine servicers and repairers",31040
+HD02_VD405,"Margin of Error; Total: - Coin, vending, and amusement machine servicers and repairers",1221
+HD01_VD406,Estimate; Total: - Commercial divers,2155
+HD02_VD406,Margin of Error; Total: - Commercial divers,344
+HD01_VD407,Estimate; Total: - Locksmiths and safe repairers,20146
+HD02_VD407,Margin of Error; Total: - Locksmiths and safe repairers,1089
+HD01_VD408,Estimate; Total: - Manufactured building and mobile home installers,3863
+HD02_VD408,Margin of Error; Total: - Manufactured building and mobile home installers,429
+HD01_VD409,Estimate; Total: - Riggers,8192
+HD02_VD409,Margin of Error; Total: - Riggers,668
+HD01_VD410,Estimate; Total: - Signal and track switch repairers,5209
+HD02_VD410,Margin of Error; Total: - Signal and track switch repairers,553
+HD01_VD411,"Estimate; Total: - Helpers--installation, maintenance, and repair workers",12114
+HD02_VD411,"Margin of Error; Total: - Helpers--installation, maintenance, and repair workers",807
+HD01_VD412,"Estimate; Total: - Other installation, maintenance, and repair workers, including wind turbine service technicians",161761
+HD02_VD412,"Margin of Error; Total: - Other installation, maintenance, and repair workers, including wind turbine service technicians",2614
+HD01_VD413,Estimate; Total: - First-line supervisors of production and operating workers,795537
+HD02_VD413,Margin of Error; Total: - First-line supervisors of production and operating workers,6985
+HD01_VD414,"Estimate; Total: - Aircraft structure, surfaces, rigging, and systems assemblers",7107
+HD02_VD414,"Margin of Error; Total: - Aircraft structure, surfaces, rigging, and systems assemblers",579
+HD01_VD415,"Estimate; Total: - Electrical, electronics, and electromechanical assemblers",115784
+HD02_VD415,"Margin of Error; Total: - Electrical, electronics, and electromechanical assemblers",2763
+HD01_VD416,Estimate; Total: - Engine and other machine assemblers,11510
+HD02_VD416,Margin of Error; Total: - Engine and other machine assemblers,794
+HD01_VD417,Estimate; Total: - Structural metal fabricators and fitters,20654
+HD02_VD417,Margin of Error; Total: - Structural metal fabricators and fitters,1038
+HD01_VD418,Estimate; Total: - Miscellaneous assemblers and fabricators,660978
+HD02_VD418,Margin of Error; Total: - Miscellaneous assemblers and fabricators,6382
+HD01_VD419,Estimate; Total: - Bakers,121606
+HD02_VD419,Margin of Error; Total: - Bakers,3226
+HD01_VD420,"Estimate; Total: - Butchers and other meat, poultry, and fish processing workers",201670
+HD02_VD420,"Margin of Error; Total: - Butchers and other meat, poultry, and fish processing workers",3955
+HD01_VD421,"Estimate; Total: - Food and tobacco roasting, baking, and drying machine operators and tenders",7383
+HD02_VD421,"Margin of Error; Total: - Food and tobacco roasting, baking, and drying machine operators and tenders",537
+HD01_VD422,Estimate; Total: - Food batchmakers,56081
+HD02_VD422,Margin of Error; Total: - Food batchmakers,1787
+HD01_VD423,Estimate; Total: - Food cooking machine operators and tenders,7176
+HD02_VD423,Margin of Error; Total: - Food cooking machine operators and tenders,673
+HD01_VD424,"Estimate; Total: - Food processing workers, all other",91530
+HD02_VD424,"Margin of Error; Total: - Food processing workers, all other",2442
+HD01_VD425,Estimate; Total: - Computer control programmers and operators,63270
+HD02_VD425,Margin of Error; Total: - Computer control programmers and operators,1614
+HD01_VD426,"Estimate; Total: - Extruding and drawing machine setters, operators, and tenders, metal and plastic",10376
+HD02_VD426,"Margin of Error; Total: - Extruding and drawing machine setters, operators, and tenders, metal and plastic",762
+HD01_VD427,"Estimate; Total: - Forging machine setters, operators, and tenders, metal and plastic",6587
+HD02_VD427,"Margin of Error; Total: - Forging machine setters, operators, and tenders, metal and plastic",473
+HD01_VD428,"Estimate; Total: - Rolling machine setters, operators, and tenders, metal and plastic",8161
+HD02_VD428,"Margin of Error; Total: - Rolling machine setters, operators, and tenders, metal and plastic",649
+HD01_VD429,"Estimate; Total: - Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",68857
+HD02_VD429,"Margin of Error; Total: - Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",1898
+HD01_VD430,"Estimate; Total: - Drilling and boring machine tool setters, operators, and tenders, metal and plastic",3390
+HD02_VD430,"Margin of Error; Total: - Drilling and boring machine tool setters, operators, and tenders, metal and plastic",441
+HD01_VD431,"Estimate; Total: - Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",36419
+HD02_VD431,"Margin of Error; Total: - Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",1475
+HD01_VD432,"Estimate; Total: - Lathe and turning machine tool setters, operators, and tenders, metal and plastic",8347
+HD02_VD432,"Margin of Error; Total: - Lathe and turning machine tool setters, operators, and tenders, metal and plastic",638
+HD01_VD433,"Estimate; Total: - Milling and planing machine setters, operators, and tenders, metal and plastic",2292
+HD02_VD433,"Margin of Error; Total: - Milling and planing machine setters, operators, and tenders, metal and plastic",333
+HD01_VD434,Estimate; Total: - Machinists,312355
+HD02_VD434,Margin of Error; Total: - Machinists,4174
+HD01_VD435,"Estimate; Total: - Metal furnace operators, tenders, pourers, and casters",18928
+HD02_VD435,"Margin of Error; Total: - Metal furnace operators, tenders, pourers, and casters",726
+HD01_VD436,"Estimate; Total: - Model makers and patternmakers, metal and plastic",4869
+HD02_VD436,"Margin of Error; Total: - Model makers and patternmakers, metal and plastic",466
+HD01_VD437,"Estimate; Total: - Molders and molding machine setters, operators, and tenders, metal and plastic",34436
+HD02_VD437,"Margin of Error; Total: - Molders and molding machine setters, operators, and tenders, metal and plastic",1271
+HD01_VD438,"Estimate; Total: - Multiple machine tool setters, operators, and tenders, metal and plastic",3154
+HD02_VD438,"Margin of Error; Total: - Multiple machine tool setters, operators, and tenders, metal and plastic",379
+HD01_VD439,Estimate; Total: - Tool and die makers,52840
+HD02_VD439,Margin of Error; Total: - Tool and die makers,1494
+HD01_VD440,"Estimate; Total: - Welding, soldering, and brazing workers",445816
+HD02_VD440,"Margin of Error; Total: - Welding, soldering, and brazing workers",4687
+HD01_VD441,"Estimate; Total: - Heat treating equipment setters, operators, and tenders, metal and plastic",6379
+HD02_VD441,"Margin of Error; Total: - Heat treating equipment setters, operators, and tenders, metal and plastic",496
+HD01_VD442,"Estimate; Total: - Layout workers, metal and plastic",6719
+HD02_VD442,"Margin of Error; Total: - Layout workers, metal and plastic",605
+HD01_VD443,"Estimate; Total: - Plating and coating machine setters, operators, and tenders, metal and plastic",13648
+HD02_VD443,"Margin of Error; Total: - Plating and coating machine setters, operators, and tenders, metal and plastic",790
+HD01_VD444,"Estimate; Total: - Tool grinders, filers, and sharpeners",4936
+HD02_VD444,"Margin of Error; Total: - Tool grinders, filers, and sharpeners",437
+HD01_VD445,"Estimate; Total: - Metal workers and plastic workers, all other",295706
+HD02_VD445,"Margin of Error; Total: - Metal workers and plastic workers, all other",4164
+HD01_VD446,Estimate; Total: - Prepress technicians and workers,25453
+HD02_VD446,Margin of Error; Total: - Prepress technicians and workers,997
+HD01_VD447,"Estimate; Total: - Printing workers, except prepress technicians and workers",178858
+HD02_VD447,"Margin of Error; Total: - Printing workers, except prepress technicians and workers",2878
+HD01_VD448,Estimate; Total: - Laundry and dry-cleaning workers,119157
+HD02_VD448,Margin of Error; Total: - Laundry and dry-cleaning workers,2760
+HD01_VD449,"Estimate; Total: - Pressers, textile, garment, and related materials",28631
+HD02_VD449,"Margin of Error; Total: - Pressers, textile, garment, and related materials",1175
+HD01_VD450,Estimate; Total: - Sewing machine operators,132533
+HD02_VD450,Margin of Error; Total: - Sewing machine operators,2608
+HD01_VD451,Estimate; Total: - Shoe and leather workers and repairers,6318
+HD02_VD451,Margin of Error; Total: - Shoe and leather workers and repairers,629
+HD01_VD452,Estimate; Total: - Shoe machine operators and tenders,3463
+HD02_VD452,Margin of Error; Total: - Shoe machine operators and tenders,363
+HD01_VD453,"Estimate; Total: - Tailors, dressmakers, and sewers",46025
+HD02_VD453,"Margin of Error; Total: - Tailors, dressmakers, and sewers",1570
+HD01_VD454,Estimate; Total: - Textile bleaching and dyeing machine operators and tenders,2602
+HD02_VD454,Margin of Error; Total: - Textile bleaching and dyeing machine operators and tenders,364
+HD01_VD455,"Estimate; Total: - Textile cutting machine setters, operators, and tenders",5108
+HD02_VD455,"Margin of Error; Total: - Textile cutting machine setters, operators, and tenders",541
+HD01_VD456,"Estimate; Total: - Textile knitting and weaving machine setters, operators, and tenders",6500
+HD02_VD456,"Margin of Error; Total: - Textile knitting and weaving machine setters, operators, and tenders",595
+HD01_VD457,"Estimate; Total: - Textile winding, twisting, and drawing out machine setters, operators, and tenders",9576
+HD02_VD457,"Margin of Error; Total: - Textile winding, twisting, and drawing out machine setters, operators, and tenders",862
+HD01_VD458,Estimate; Total: - Fabric and apparel patternmakers,3084
+HD02_VD458,Margin of Error; Total: - Fabric and apparel patternmakers,401
+HD01_VD459,Estimate; Total: - Upholsterers,25384
+HD02_VD459,Margin of Error; Total: - Upholsterers,1246
+HD01_VD460,"Estimate; Total: - Miscellaneous textile, apparel, and furnishings workers, including extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",12726
+HD02_VD460,"Margin of Error; Total: - Miscellaneous textile, apparel, and furnishings workers, including extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",850
+HD01_VD461,Estimate; Total: - Cabinetmakers and bench carpenters,39371
+HD02_VD461,Margin of Error; Total: - Cabinetmakers and bench carpenters,1267
+HD01_VD462,Estimate; Total: - Furniture finishers,9554
+HD02_VD462,Margin of Error; Total: - Furniture finishers,726
+HD01_VD463,"Estimate; Total: - Sawing machine setters, operators, and tenders, wood",22581
+HD02_VD463,"Margin of Error; Total: - Sawing machine setters, operators, and tenders, wood",1118
+HD01_VD464,"Estimate; Total: - Woodworking machine setters, operators, and tenders, except sawing",14753
+HD02_VD464,"Margin of Error; Total: - Woodworking machine setters, operators, and tenders, except sawing",862
+HD01_VD465,"Estimate; Total: - Miscellaneous woodworkers, including model makers and patternmakers",17781
+HD02_VD465,"Margin of Error; Total: - Miscellaneous woodworkers, including model makers and patternmakers",898
+HD01_VD466,"Estimate; Total: - Power plant operators, distributors, and dispatchers",43703
+HD02_VD466,"Margin of Error; Total: - Power plant operators, distributors, and dispatchers",1470
+HD01_VD467,Estimate; Total: - Stationary engineers and boiler operators,82688
+HD02_VD467,Margin of Error; Total: - Stationary engineers and boiler operators,1898
+HD01_VD468,Estimate; Total: - Water and wastewater treatment plant and system operators,76802
+HD02_VD468,Margin of Error; Total: - Water and wastewater treatment plant and system operators,1638
+HD01_VD469,Estimate; Total: - Miscellaneous plant and system operators,35543
+HD02_VD469,Margin of Error; Total: - Miscellaneous plant and system operators,1498
+HD01_VD470,"Estimate; Total: - Chemical processing machine setters, operators, and tenders",46265
+HD02_VD470,"Margin of Error; Total: - Chemical processing machine setters, operators, and tenders",1637
+HD01_VD471,"Estimate; Total: - Crushing, grinding, polishing, mixing, and blending workers",70306
+HD02_VD471,"Margin of Error; Total: - Crushing, grinding, polishing, mixing, and blending workers",1877
+HD01_VD472,Estimate; Total: - Cutting workers,47464
+HD02_VD472,Margin of Error; Total: - Cutting workers,1432
+HD01_VD473,"Estimate; Total: - Extruding, forming, pressing, and compacting machine setters, operators, and tenders",23870
+HD02_VD473,"Margin of Error; Total: - Extruding, forming, pressing, and compacting machine setters, operators, and tenders",1083
+HD01_VD474,"Estimate; Total: - Furnace, kiln, oven, drier, and kettle operators and tenders",9479
+HD02_VD474,"Margin of Error; Total: - Furnace, kiln, oven, drier, and kettle operators and tenders",660
+HD01_VD475,"Estimate; Total: - Inspectors, testers, sorters, samplers, and weighers",588346
+HD02_VD475,"Margin of Error; Total: - Inspectors, testers, sorters, samplers, and weighers",4940
+HD01_VD476,Estimate; Total: - Jewelers and precious stone and metal workers,25678
+HD02_VD476,Margin of Error; Total: - Jewelers and precious stone and metal workers,1243
+HD01_VD477,"Estimate; Total: - Medical, dental, and ophthalmic laboratory technicians",62901
+HD02_VD477,"Margin of Error; Total: - Medical, dental, and ophthalmic laboratory technicians",1790
+HD01_VD478,Estimate; Total: - Packaging and filling machine operators and tenders,184282
+HD02_VD478,Margin of Error; Total: - Packaging and filling machine operators and tenders,3271
+HD01_VD479,Estimate; Total: - Painting workers,108797
+HD02_VD479,Margin of Error; Total: - Painting workers,2781
+HD01_VD480,Estimate; Total: - Photographic process workers and processing machine operators,28943
+HD02_VD480,Margin of Error; Total: - Photographic process workers and processing machine operators,1292
+HD01_VD481,Estimate; Total: - Semiconductor processors,2388
+HD02_VD481,Margin of Error; Total: - Semiconductor processors,387
+HD01_VD482,Estimate; Total: - Adhesive bonding machine operators and tenders,8910
+HD02_VD482,Margin of Error; Total: - Adhesive bonding machine operators and tenders,591
+HD01_VD483,"Estimate; Total: - Cleaning, washing, and metal pickling equipment operators and tenders",5919
+HD02_VD483,"Margin of Error; Total: - Cleaning, washing, and metal pickling equipment operators and tenders",703
+HD01_VD484,Estimate; Total: - Cooling and freezing equipment operators and tenders,2587
+HD02_VD484,Margin of Error; Total: - Cooling and freezing equipment operators and tenders,388
+HD01_VD485,Estimate; Total: - Etchers and engravers,6729
+HD02_VD485,Margin of Error; Total: - Etchers and engravers,611
+HD01_VD486,"Estimate; Total: - Molders, shapers, and casters, except metal and plastic",23266
+HD02_VD486,"Margin of Error; Total: - Molders, shapers, and casters, except metal and plastic",1026
+HD01_VD487,"Estimate; Total: - Paper goods machine setters, operators, and tenders",22436
+HD02_VD487,"Margin of Error; Total: - Paper goods machine setters, operators, and tenders",1045
+HD01_VD488,Estimate; Total: - Tire builders,12868
+HD02_VD488,Margin of Error; Total: - Tire builders,856
+HD01_VD489,Estimate; Total: - Helpers--production workers,26744
+HD02_VD489,Margin of Error; Total: - Helpers--production workers,1184
+HD01_VD490,"Estimate; Total: - Production workers, all other",828363
+HD02_VD490,"Margin of Error; Total: - Production workers, all other",7085
+HD01_VD491,Estimate; Total: - Supervisors of transportation and material moving workers,186050
+HD02_VD491,Margin of Error; Total: - Supervisors of transportation and material moving workers,2852
+HD01_VD492,Estimate; Total: - Aircraft pilots and flight engineers,88250
+HD02_VD492,Margin of Error; Total: - Aircraft pilots and flight engineers,2318
+HD01_VD493,Estimate; Total: - Air traffic controllers and airfield operations specialists,33411
+HD02_VD493,Margin of Error; Total: - Air traffic controllers and airfield operations specialists,1326
+HD01_VD494,Estimate; Total: - Flight attendants,47266
+HD02_VD494,Margin of Error; Total: - Flight attendants,1734
+HD01_VD495,"Estimate; Total: - Ambulance drivers and attendants, except emergency medical technicians",9635
+HD02_VD495,"Margin of Error; Total: - Ambulance drivers and attendants, except emergency medical technicians",809
+HD01_VD496,Estimate; Total: - Bus drivers,268779
+HD02_VD496,Margin of Error; Total: - Bus drivers,4221
+HD01_VD497,Estimate; Total: - Driver/sales workers and truck drivers,2315067
+HD02_VD497,Margin of Error; Total: - Driver/sales workers and truck drivers,12624
+HD01_VD498,Estimate; Total: - Taxi drivers and chauffeurs,199509
+HD02_VD498,Margin of Error; Total: - Taxi drivers and chauffeurs,3479
+HD01_VD499,"Estimate; Total: - Motor vehicle operators, all other",18703
+HD02_VD499,"Margin of Error; Total: - Motor vehicle operators, all other",1020
+HD01_VD500,Estimate; Total: - Locomotive engineers and operators,44444
+HD02_VD500,Margin of Error; Total: - Locomotive engineers and operators,1577
+HD01_VD501,"Estimate; Total: - Railroad brake, signal, and switch operators",4897
+HD02_VD501,"Margin of Error; Total: - Railroad brake, signal, and switch operators",465
+HD01_VD502,Estimate; Total: - Railroad conductors and yardmasters,40679
+HD02_VD502,Margin of Error; Total: - Railroad conductors and yardmasters,1343
+HD01_VD503,"Estimate; Total: - Subway, streetcar, and other rail transportation workers",9149
+HD02_VD503,"Margin of Error; Total: - Subway, streetcar, and other rail transportation workers",663
+HD01_VD504,Estimate; Total: - Sailors and marine oilers,14526
+HD02_VD504,Margin of Error; Total: - Sailors and marine oilers,962
+HD01_VD505,Estimate; Total: - Ship and boat captains and operators,25735
+HD02_VD505,Margin of Error; Total: - Ship and boat captains and operators,1234
+HD01_VD506,Estimate; Total: - Ship engineers,3537
+HD02_VD506,Margin of Error; Total: - Ship engineers,356
+HD01_VD507,Estimate; Total: - Bridge and lock tenders,3472
+HD02_VD507,Margin of Error; Total: - Bridge and lock tenders,367
+HD01_VD508,Estimate; Total: - Parking lot attendants,39800
+HD02_VD508,Margin of Error; Total: - Parking lot attendants,1564
+HD01_VD509,Estimate; Total: - Automotive and watercraft service attendants,63937
+HD02_VD509,Margin of Error; Total: - Automotive and watercraft service attendants,2091
+HD01_VD510,Estimate; Total: - Transportation inspectors,40357
+HD02_VD510,Margin of Error; Total: - Transportation inspectors,1323
+HD01_VD511,"Estimate; Total: - Transportation attendants, except flight attendants",13257
+HD02_VD511,"Margin of Error; Total: - Transportation attendants, except flight attendants",928
+HD01_VD512,Estimate; Total: - Other transportation workers,14207
+HD02_VD512,Margin of Error; Total: - Other transportation workers,919
+HD01_VD513,Estimate; Total: - Conveyor operators and tenders,3817
+HD02_VD513,Margin of Error; Total: - Conveyor operators and tenders,405
+HD01_VD514,Estimate; Total: - Crane and tower operators,50856
+HD02_VD514,Margin of Error; Total: - Crane and tower operators,1542
+HD01_VD515,"Estimate; Total: - Dredge, excavating, and loading machine operators",27805
+HD02_VD515,"Margin of Error; Total: - Dredge, excavating, and loading machine operators",1131
+HD01_VD516,Estimate; Total: - Hoist and winch operators,6225
+HD02_VD516,Margin of Error; Total: - Hoist and winch operators,558
+HD01_VD517,Estimate; Total: - Industrial truck and tractor operators,396194
+HD02_VD517,Margin of Error; Total: - Industrial truck and tractor operators,4917
+HD01_VD518,Estimate; Total: - Cleaners of vehicles and equipment,191953
+HD02_VD518,Margin of Error; Total: - Cleaners of vehicles and equipment,3575
+HD01_VD519,"Estimate; Total: - Laborers and freight, stock, and material movers, hand",1152040
+HD02_VD519,"Margin of Error; Total: - Laborers and freight, stock, and material movers, hand",8873
+HD01_VD520,Estimate; Total: - Machine feeders and offbearers,21267
+HD02_VD520,Margin of Error; Total: - Machine feeders and offbearers,1118
+HD01_VD521,"Estimate; Total: - Packers and packagers, hand",260490
+HD02_VD521,"Margin of Error; Total: - Packers and packagers, hand",4364
+HD01_VD522,Estimate; Total: - Pumping station operators,21479
+HD02_VD522,Margin of Error; Total: - Pumping station operators,986
+HD01_VD523,Estimate; Total: - Refuse and recyclable material collectors,66097
+HD02_VD523,Margin of Error; Total: - Refuse and recyclable material collectors,2412
+HD01_VD524,Estimate; Total: - Mine shuttle car operators,1471
+HD02_VD524,Margin of Error; Total: - Mine shuttle car operators,250
+HD01_VD525,"Estimate; Total: - Tank car, truck, and ship loaders",4443
+HD02_VD525,"Margin of Error; Total: - Tank car, truck, and ship loaders",482
+HD01_VD526,"Estimate; Total: - Material moving workers, all other",32308
+HD02_VD526,"Margin of Error; Total: - Material moving workers, all other",1373
