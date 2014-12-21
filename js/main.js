@@ -20,13 +20,15 @@ var codes = {
   'B24126': 'DETAILED OCCUPATION FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED FEMALE POPULATION 16 YEARS AND OVER'
 };
 
+var padding = 20;
+
 var xScale = d3.scale.linear()
   .domain([0,1])
-  .range([0,width]);
+  .range([padding,width - padding]);
 
 var yScale = d3.scale.linear()
   .domain([0,200000])
-  .range([height, 0]);
+  .range([height - padding, padding]);
 
 var sizeScale = d3.scale.log()
   .domain([1,100000000])
