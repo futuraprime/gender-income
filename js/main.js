@@ -107,7 +107,7 @@ data.done(function(fullData) {
   window.fullData = fullData;
   console.log('done');
 
-  items.data(fullData.professions)
+  items.data(fullData.groups)
     .enter().append('svg:circle')
     .classed('item', true)
     .attr('cx', function(d) { return xScale(
