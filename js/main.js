@@ -215,20 +215,19 @@ data.done(function(fullData) {
   }
 
   var altRightScale = d3.scale.linear()
-    .domain([1,2])
+    .domain([0.45,1])
     .range([padding, height - padding]);
 
   var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
   var rightFn = function(d) {
-    // console.log(d.B24122.total / d.B24123.total, altRightScale(d.B24122.total / d.B24123.total));
     // return rightScale(d.B24121.total);
-    return altRightScale(d.B24122.total / d.B24123.total);
+    return altRightScale(d.B24123.total / d.B24122.total);
   };
   var sizeFn = function(d) { return sizeScale(d.B24124.total); };
 
   var leftTextFn = function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; };
   // var rightTextFn = function(d) { return '$' + commaNumber(d.B24121.total); };
-  var rightTextFn = function(d) { return Math.round(100 * d.B24122.total / d.B24123.total) + "%"; };
+  var rightTextFn = function(d) { return Math.round(100 * d.B24123.total / d.B24122.total) + "%"; };
   var centerTextFn = function(d) { return groupings[d.group].name; };
 
   mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
@@ -253,17 +252,31 @@ data.done(function(fullData) {
 
   firstInteractive.append('svg:text')
     .classed('centerlabel', true)
+    .classed('mainlabel', true)
+    .text('Percent Male')
+    .attr('x', leftSide)
+    .attr('y', 20);
+
+  firstInteractive.append('svg:text')
+    .classed('centerlabel', true)
     .classed('label', true)
     .text('more equal')
     .attr('x', rightSide)
-    .attr('y', altRightScale(1.02));
+    .attr('y', altRightScale(0.98));
 
   firstInteractive.append('svg:text')
     .classed('centerlabel', true)
     .classed('label', true)
     .text('less equal')
     .attr('x', rightSide)
-    .attr('y', altRightScale(2));
+    .attr('y', altRightScale(0.49));
+
+  firstInteractive.append('svg:text')
+    .classed('centerlabel', true)
+    .classed('mainlabel', true)
+    .text('Wage Gap')
+    .attr('x', rightSide)
+    .attr('y', 20);
 });
 
 
