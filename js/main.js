@@ -149,23 +149,26 @@ data.done(function(fullData) {
   var group = collection.enter().append('svg:g')
     .classed('profession-group', true);
 
+  var leftSide = 200;
+  var rightSide = width - 200;
+
   group.append('svg:line')
     .classed('item', true)
-    .attr('x1', 200)
-    .attr('x2', width - 200)
+    .attr('x1', leftSide)
+    .attr('x2', rightSide)
     .attr('y1', function(d) { return leftScale(
       d.B24125.total / d.B24124.total
     ); })
     .attr('y2', function(d) { return rightScale(d.B24121.total); })
+    // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
     .attr('stroke-width', function(d) {
       return sizeScale(d.B24124.total);
     });
-    // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; });
   group.append('svg:text')
     .classed('leftlabel', true)
     .classed('label', true)
     .text(function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; })
-    .attr('x', 200 - 5)
+    .attr('x', leftSide - 5)
     .attr('y', function(d) { return leftScale(
       d.B24125.total / d.B24124.total
     ) + 5; });
@@ -175,7 +178,7 @@ data.done(function(fullData) {
     .text(function(d) {
       return '$' + commaNumber(d.B24121.total);
     })
-    .attr('x', width - 200 + 5)
+    .attr('x', rightSide + 5)
     .attr('y', function(d) { return rightScale(d.B24121.total) + 5; });
   group.append('svg:text')
     .classed('centerlabel', true)
@@ -185,12 +188,12 @@ data.done(function(fullData) {
     })
     .attr('x', width/2)
     .attr('y', function(d) {
-      return (leftScale(d.B24125.total / d.B24124.total) + rightScale(d.B24121.total)) / 2;
+      return (leftScale(d.B24125.total / d.B24124.total) + rightScale(d.B24121.total)) / 2 - 10;
     });
   group.append('svg:line')
     .classed('hoverline', true)
-    .attr('x1', 200)
-    .attr('x2', width - 200)
+    .attr('x1', leftSide)
+    .attr('x2', rightSide)
     .attr('y1', function(d) { return leftScale(
       d.B24125.total / d.B24124.total
     ); })
