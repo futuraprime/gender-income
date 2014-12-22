@@ -35,7 +35,7 @@ function commaNumber (amount, dollar) {
 
   // finally construct the return string joining
   // dollars with cents in amount_array
-  var amount_string = amount_array.join("."); 
+  var amount_string = amount_array.join(".");
   if (dollar) {
     amount_string = "$"+amount_string;
   }
@@ -100,8 +100,7 @@ var colors = {
 
 var groupings = {
             'management' : { color : colors.red[1],    name : 'Management' },
-            'operations' : { color : colors.red[2],    name : 'Business Operations Specialists' },
-               'finance' : { color : colors.red[3],    name : 'Financial Specialists' },
+    'operations_finance' : { color : colors.red[2],    name : 'Business and Financial Operations' },
              'computers' : { color : colors.red[4],    name : 'Computer and Mathematical' },
            'engineering' : { color : colors.red[5],    name : 'Architecture and Engineering' },
                'science' : { color : colors.green[1],  name : 'Life, Physical, and Social Science' },
@@ -118,8 +117,7 @@ var groupings = {
           'sales_retail' : { color : colors.yellow[2], name : 'Sales and Related' },
          'admin_support' : { color : colors.yellow[3], name : 'Office and Administrative Support' },
       'farm_fish_forest' : { color : colors.yellow[4], name : 'Farming, Fishing, and Forestry' },
-          'construction' : { color : colors.yellow[5], name : 'Construction' },
-            'extraction' : { color : colors.grey[1],   name : 'Extraction' },
+          'construction' : { color : colors.yellow[5], name : 'Construction and Extraction' },
            'maintenance' : { color : colors.grey[2],   name : 'Installation, Maintenance, and Repair' },
             'production' : { color : colors.grey[3],   name : 'Production' },
         'transportation' : { color : colors.grey[4],   name : 'Transportation and Material Moving' }
@@ -163,21 +161,6 @@ data.done(function(fullData) {
       return sizeScale(d.B24124.total);
     });
     // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; });
-  group.append('svg:line')
-    .classed('hoverline', true)
-    .attr('x1', 200)
-    .attr('x2', width - 200)
-    .attr('y1', function(d) { return leftScale(
-      d.B24125.total / d.B24124.total
-    ); })
-    .attr('y2', function(d) { return rightScale(d.B24121.total); })
-    .on('mouseenter', function(d) {
-      this.parentNode.classList.add('active');
-      console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
-    })
-    .on('mouseleave', function(d) {
-      this.parentNode.classList.remove('active');
-    });
   group.append('svg:text')
     .classed('leftlabel', true)
     .classed('label', true)
@@ -194,6 +177,31 @@ data.done(function(fullData) {
     })
     .attr('x', width - 200 + 5)
     .attr('y', function(d) { return rightScale(d.B24121.total) + 5; });
+  group.append('svg:text')
+    .classed('centerlabel', true)
+    .classed('label', true)
+    .text(function(d) {
+      return groupings[d.group].name;
+    })
+    .attr('x', width/2)
+    .attr('y', function(d) {
+      return (leftScale(d.B24125.total / d.B24124.total) + rightScale(d.B24121.total)) / 2;
+    });
+  group.append('svg:line')
+    .classed('hoverline', true)
+    .attr('x1', 200)
+    .attr('x2', width - 200)
+    .attr('y1', function(d) { return leftScale(
+      d.B24125.total / d.B24124.total
+    ); })
+    .attr('y2', function(d) { return rightScale(d.B24121.total); })
+    .on('mouseenter', function(d) {
+      this.parentNode.classList.add('active');
+      console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
+    })
+    .on('mouseleave', function(d) {
+      this.parentNode.classList.remove('active');
+    });
 });
 
 
