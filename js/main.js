@@ -118,7 +118,7 @@ var groupings = {
         'transportation' : { color : colors.grey[4],   name : 'Transportation and Material Moving' }
 };
 
-var padding = 20;
+var padding = 40;
 
 var data = oboe('./data/data_5yr.json');
 
@@ -227,13 +227,14 @@ data.done(function(fullData) {
   var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
   var rightFn = function(d) {
     // console.log(d.B24122.total / d.B24123.total, altRightScale(d.B24122.total / d.B24123.total));
-    return rightScale(d.B24121.total);
-    // return altRightScale(d.B24122.total / d.B24123.total);
+    // return rightScale(d.B24121.total);
+    return altRightScale(d.B24122.total / d.B24123.total);
   };
   var sizeFn = function(d) { return sizeScale(d.B24124.total); };
 
   var leftTextFn = function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; };
-  var rightTextFn = function(d) { return '$' + commaNumber(d.B24121.total); };
+  // var rightTextFn = function(d) { return '$' + commaNumber(d.B24121.total); };
+  var rightTextFn = function(d) { return Math.round(100 * d.B24122.total / d.B24123.total) + "%"; };
   var centerTextFn = function(d) { return groupings[d.group].name; };
 
   mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
@@ -243,8 +244,18 @@ data.done(function(fullData) {
   hoverLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
 
   firstInteractive.append('svg:text')
+    .classed('centerlabel', true)
+    .classed('label', true)
     .text('more men')
-    .attr('x');
+    .attr('x', leftSide)
+    .attr('y', 20);
+
+  firstInteractive.append('svg:text')
+    .classed('centerlabel', true)
+    .classed('label', true)
+    .text('more women')
+    .attr('x', leftSide)
+    .attr('y', leftScale(0.06));
 });
 
 
