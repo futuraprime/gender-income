@@ -2,531 +2,619 @@
   "groups": [
     {
       "B24121": {
-        "total": 26090
+        "margin": "68", 
+        "total": "25563"
       }, 
       "B24122": {
-        "total": 29188
+        "margin": "135", 
+        "total": "28570"
       }, 
       "B24123": {
-        "total": 21139
+        "margin": "73", 
+        "total": "21009"
       }, 
       "B24124": {
-        "total": 3198680
+        "margin": "20217", 
+        "total": "3198680"
       }, 
       "B24125": {
-        "total": 2148941
+        "margin": "0.2", 
+        "total": 2149512.96
       }, 
       "B24126": {
-        "total": 1049739
+        "margin": "0.2", 
+        "total": 1049167.0399999998
       }, 
       "group": "building_maintenance", 
       "name": "building_maintenance"
     }, 
     {
       "B24121": {
-        "total": 36039
+        "margin": "46", 
+        "total": "35257"
       }, 
       "B24122": {
-        "total": 40521
+        "margin": "157", 
+        "total": "39739"
       }, 
       "B24123": {
-        "total": 34704
+        "margin": "41", 
+        "total": "34136"
       }, 
       "B24124": {
-        "total": 13346990
+        "margin": "29284", 
+        "total": "13346990"
       }, 
       "B24125": {
-        "total": 3660192
+        "margin": "0.1", 
+        "total": 3657075.2599999993
       }, 
       "B24126": {
-        "total": 9686798
+        "margin": "0.1", 
+        "total": 9689914.74
       }, 
       "group": "admin_support", 
       "name": "admin_support"
     }, 
     {
       "B24121": {
-        "total": 78062
+        "margin": "179", 
+        "total": "76999"
       }, 
       "B24122": {
-        "total": 80058
+        "margin": "352", 
+        "total": "79285"
       }, 
       "B24123": {
-        "total": 66527
+        "margin": "390", 
+        "total": "65900"
       }, 
       "B24124": {
-        "total": 2261502
+        "margin": "17615", 
+        "total": "2261502"
       }, 
       "B24125": {
-        "total": 1957912
+        "margin": "0.2", 
+        "total": 1958460.732
       }, 
       "B24126": {
-        "total": 303590
+        "margin": "0.2", 
+        "total": 303041.26800000004
       }, 
       "group": "engineering", 
       "name": "engineering"
     }, 
     {
       "B24121": {
-        "total": 40487
+        "margin": "130", 
+        "total": "60591"
       }, 
       "B24122": {
-        "total": 40578
+        "margin": "214", 
+        "total": "71638"
       }, 
       "B24123": {
-        "total": 36399
+        "margin": "126", 
+        "total": "53360"
       }, 
       "B24124": {
-        "total": 4536813
+        "margin": "26447", 
+        "total": "5514077"
       }, 
       "B24125": {
-        "total": 4429834
+        "margin": "0.1", 
+        "total": 2553017.6509999996
       }, 
       "B24126": {
-        "total": 106979
+        "margin": "0.1", 
+        "total": 2961059.3490000004
       }, 
-      "group": "construction", 
-      "name": "construction"
+      "group": "operations_finance", 
+      "name": "operations_finance"
     }, 
     {
       "B24121": {
-        "total": 37043
+        "margin": "152", 
+        "total": "51233"
       }, 
       "B24122": {
-        "total": 40639
+        "margin": "227", 
+        "total": "54320"
       }, 
       "B24123": {
-        "total": 27616
+        "margin": "286", 
+        "total": "46670"
       }, 
       "B24124": {
-        "total": 6589236
+        "margin": "9513", 
+        "total": "1594532"
       }, 
       "B24125": {
-        "total": 4877174
+        "margin": "0.3", 
+        "total": 921639.4959999999
       }, 
       "B24126": {
-        "total": 1712062
-      }, 
-      "group": "production", 
-      "name": "production"
-    }, 
-    {
-      "B24121": {
-        "total": 27716
-      }, 
-      "B24122": {
-        "total": 31578
-      }, 
-      "B24123": {
-        "total": 27252
-      }, 
-      "B24124": {
-        "total": 2118374
-      }, 
-      "B24125": {
-        "total": 294287
-      }, 
-      "B24126": {
-        "total": 1824087
-      }, 
-      "group": "health_support", 
-      "name": "health_support"
-    }, 
-    {
-      "B24121": {
-        "total": 42864
-      }, 
-      "B24122": {
-        "total": 44438
-      }, 
-      "B24123": {
-        "total": 42006
-      }, 
-      "B24124": {
-        "total": 1771522
-      }, 
-      "B24125": {
-        "total": 688016
-      }, 
-      "B24126": {
-        "total": 1083506
-      }, 
-      "group": "social_services", 
-      "name": "social_services"
-    }, 
-    {
-      "B24121": {
-        "total": 65548
-      }, 
-      "B24122": {
-        "total": 71384
-      }, 
-      "B24123": {
-        "total": 58849
-      }, 
-      "B24124": {
-        "total": 951952
-      }, 
-      "B24125": {
-        "total": 553228
-      }, 
-      "B24126": {
-        "total": 398724
-      }, 
-      "group": "science", 
-      "name": "science"
-    }, 
-    {
-      "B24121": {
-        "total": 21872
-      }, 
-      "B24122": {
-        "total": 23658
-      }, 
-      "B24123": {
-        "total": 19868
-      }, 
-      "B24124": {
-        "total": 3271541
-      }, 
-      "B24125": {
-        "total": 1737245
-      }, 
-      "B24126": {
-        "total": 1534296
-      }, 
-      "group": "food_preparation", 
-      "name": "food_preparation"
-    }, 
-    {
-      "B24121": {
-        "total": 44191
-      }, 
-      "B24122": {
-        "total": 52101
-      }, 
-      "B24123": {
-        "total": 34355
-      }, 
-      "B24124": {
-        "total": 9737512
-      }, 
-      "B24125": {
-        "total": 5786399
-      }, 
-      "B24126": {
-        "total": 3951113
-      }, 
-      "group": "sales_retail", 
-      "name": "sales_retail"
-    }, 
-    {
-      "B24121": {
-        "total": 94741
-      }, 
-      "B24122": {
-        "total": 119954
-      }, 
-      "B24123": {
-        "total": 70004
-      }, 
-      "B24124": {
-        "total": 1363423
-      }, 
-      "B24125": {
-        "total": 697993
-      }, 
-      "B24126": {
-        "total": 665430
-      }, 
-      "group": "law", 
-      "name": "law"
-    }, 
-    {
-      "B24121": {
-        "total": 25769
-      }, 
-      "B24122": {
-        "total": 26910
-      }, 
-      "B24123": {
-        "total": 20672
-      }, 
-      "B24124": {
-        "total": 601256
-      }, 
-      "B24125": {
-        "total": 506307
-      }, 
-      "B24126": {
-        "total": 94949
-      }, 
-      "group": "farm_fish_forest", 
-      "name": "farm_fish_forest"
-    }, 
-    {
-      "B24121": {
-        "total": 45117
-      }, 
-      "B24122": {
-        "total": 45238
-      }, 
-      "B24123": {
-        "total": 42116
-      }, 
-      "B24124": {
-        "total": 3859023
-      }, 
-      "B24125": {
-        "total": 3716542
-      }, 
-      "B24126": {
-        "total": 142481
-      }, 
-      "group": "maintenance", 
-      "name": "maintenance"
-    }, 
-    {
-      "B24121": {
-        "total": 73020
-      }, 
-      "B24122": {
-        "total": 81769
-      }, 
-      "B24123": {
-        "total": 60507
-      }, 
-      "B24124": {
-        "total": 11927449
-      }, 
-      "B24125": {
-        "total": 7450343
-      }, 
-      "B24126": {
-        "total": 4477106
-      }, 
-      "group": "management", 
-      "name": "management"
-    }, 
-    {
-      "B24121": {
-        "total": 51325
-      }, 
-      "B24122": {
-        "total": 54951
-      }, 
-      "B24123": {
-        "total": 46689
-      }, 
-      "B24124": {
-        "total": 1594532
-      }, 
-      "B24125": {
-        "total": 921415
-      }, 
-      "B24126": {
-        "total": 673117
+        "margin": "0.3", 
+        "total": 672892.5040000001
       }, 
       "group": "media_entertainment", 
       "name": "media_entertainment"
     }, 
     {
       "B24121": {
-        "total": 48726
+        "margin": "62", 
+        "total": "27334"
       }, 
       "B24122": {
-        "total": 58426
+        "margin": "199", 
+        "total": "31192"
       }, 
       "B24123": {
-        "total": 45011
+        "margin": "64", 
+        "total": "26962"
       }, 
       "B24124": {
-        "total": 5033274
+        "margin": "12386", 
+        "total": "2118374"
       }, 
       "B24125": {
-        "total": 1478561
+        "margin": "0.2", 
+        "total": 294453.98600000003
       }, 
       "B24126": {
-        "total": 3554713
+        "margin": "0.2", 
+        "total": 1823920.014
+      }, 
+      "group": "health_support", 
+      "name": "health_support"
+    }, 
+    {
+      "B24121": {
+        "margin": "114", 
+        "total": "42846"
+      }, 
+      "B24122": {
+        "margin": "211", 
+        "total": "44417"
+      }, 
+      "B24123": {
+        "margin": "106", 
+        "total": "42036"
+      }, 
+      "B24124": {
+        "margin": "11231", 
+        "total": "1771522"
+      }, 
+      "B24125": {
+        "margin": "0.3", 
+        "total": 687350.536
+      }, 
+      "B24126": {
+        "margin": "0.3", 
+        "total": 1084171.464
+      }, 
+      "group": "social_services", 
+      "name": "social_services"
+    }, 
+    {
+      "B24121": {
+        "margin": "301", 
+        "total": "63037"
+      }, 
+      "B24122": {
+        "margin": "539", 
+        "total": "67557"
+      }, 
+      "B24123": {
+        "margin": "517", 
+        "total": "57821"
+      }, 
+      "B24124": {
+        "margin": "9262", 
+        "total": "951952"
+      }, 
+      "B24125": {
+        "margin": "0.3", 
+        "total": 553084.112
+      }, 
+      "B24126": {
+        "margin": "0.3", 
+        "total": 398867.888
+      }, 
+      "group": "science", 
+      "name": "science"
+    }, 
+    {
+      "B24121": {
+        "margin": "52", 
+        "total": "21304"
+      }, 
+      "B24122": {
+        "margin": "126", 
+        "total": "22719"
+      }, 
+      "B24123": {
+        "margin": "75", 
+        "total": "19842"
+      }, 
+      "B24124": {
+        "margin": "31250", 
+        "total": "3271541"
+      }, 
+      "B24125": {
+        "margin": "0.2", 
+        "total": 1737188.2710000002
+      }, 
+      "B24126": {
+        "margin": "0.2", 
+        "total": 1534352.7289999998
+      }, 
+      "group": "food_preparation", 
+      "name": "food_preparation"
+    }, 
+    {
+      "B24121": {
+        "margin": "111", 
+        "total": "41975"
+      }, 
+      "B24122": {
+        "margin": "125", 
+        "total": "50404"
+      }, 
+      "B24123": {
+        "margin": "88", 
+        "total": "31970"
+      }, 
+      "B24124": {
+        "margin": "25350", 
+        "total": "9737512"
+      }, 
+      "B24125": {
+        "margin": "0.1", 
+        "total": 5784082.128
+      }, 
+      "B24126": {
+        "margin": "0.1", 
+        "total": 3953429.8720000004
+      }, 
+      "group": "sales_retail", 
+      "name": "sales_retail"
+    }, 
+    {
+      "B24121": {
+        "margin": "423", 
+        "total": "85163"
+      }, 
+      "B24122": {
+        "margin": "994", 
+        "total": "117882"
+      }, 
+      "B24123": {
+        "margin": "427", 
+        "total": "60593"
+      }, 
+      "B24124": {
+        "margin": "10052", 
+        "total": "1363423"
+      }, 
+      "B24125": {
+        "margin": "0.3", 
+        "total": 698072.576
+      }, 
+      "B24126": {
+        "margin": "0.3", 
+        "total": 665350.424
+      }, 
+      "group": "law", 
+      "name": "law"
+    }, 
+    {
+      "B24121": {
+        "margin": "194", 
+        "total": "24881"
+      }, 
+      "B24122": {
+        "margin": "151", 
+        "total": "25905"
+      }, 
+      "B24123": {
+        "margin": "289", 
+        "total": "19251"
+      }, 
+      "B24124": {
+        "margin": "7500", 
+        "total": "601256"
+      }, 
+      "B24125": {
+        "margin": "0.3", 
+        "total": 506257.552
+      }, 
+      "B24126": {
+        "margin": "0.3", 
+        "total": 94998.448
+      }, 
+      "group": "farm_fish_forest", 
+      "name": "farm_fish_forest"
+    }, 
+    {
+      "B24121": {
+        "margin": "119", 
+        "total": "44480"
+      }, 
+      "B24122": {
+        "margin": "119", 
+        "total": "44600"
+      }, 
+      "B24123": {
+        "margin": "495", 
+        "total": "41270"
+      }, 
+      "B24124": {
+        "margin": "13271", 
+        "total": "3859023"
+      }, 
+      "B24125": {
+        "margin": "0.1", 
+        "total": 3716239.1489999997
+      }, 
+      "B24126": {
+        "margin": "0.1", 
+        "total": 142783.85100000002
+      }, 
+      "group": "maintenance", 
+      "name": "maintenance"
+    }, 
+    {
+      "B24121": {
+        "margin": "178", 
+        "total": "70681"
+      }, 
+      "B24122": {
+        "margin": "296", 
+        "total": "79607"
+      }, 
+      "B24123": {
+        "margin": "224", 
+        "total": "58873"
+      }, 
+      "B24124": {
+        "margin": "32908", 
+        "total": "11927449"
+      }, 
+      "B24125": {
+        "margin": "0.1", 
+        "total": 7454655.625
+      }, 
+      "B24126": {
+        "margin": "0.1", 
+        "total": 4472793.375
+      }, 
+      "group": "management", 
+      "name": "management"
+    }, 
+    {
+      "B24121": {
+        "margin": "89", 
+        "total": "35746"
+      }, 
+      "B24122": {
+        "margin": "92", 
+        "total": "40033"
+      }, 
+      "B24123": {
+        "margin": "69", 
+        "total": "26688"
+      }, 
+      "B24124": {
+        "margin": "19639", 
+        "total": "6589236"
+      }, 
+      "B24125": {
+        "margin": "0.1", 
+        "total": 4876034.64
+      }, 
+      "B24126": {
+        "margin": "0.1", 
+        "total": 1713201.36
+      }, 
+      "group": "production", 
+      "name": "production"
+    }, 
+    {
+      "B24121": {
+        "margin": "86", 
+        "total": "48845"
+      }, 
+      "B24122": {
+        "margin": "175", 
+        "total": "56483"
+      }, 
+      "B24123": {
+        "margin": "99", 
+        "total": "45836"
+      }, 
+      "B24124": {
+        "margin": "33783", 
+        "total": "5033274"
+      }, 
+      "B24125": {
+        "margin": "0.1", 
+        "total": 1479782.5559999999
+      }, 
+      "B24126": {
+        "margin": "0.1", 
+        "total": 3553491.4439999997
       }, 
       "group": "education", 
       "name": "education"
     }, 
     {
       "B24121": {
-        "total": 51205
+        "margin": "170", 
+        "total": "50309"
       }, 
       "B24122": {
-        "total": 53483
+        "margin": "181", 
+        "total": "52577"
       }, 
       "B24123": {
-        "total": 42319
+        "margin": "240", 
+        "total": "40979"
       }, 
       "B24124": {
-        "total": 2505945
+        "margin": "14098", 
+        "total": "2505945"
       }, 
       "B24125": {
-        "total": 2018974
+        "margin": "0.2", 
+        "total": 2019791.67
       }, 
       "B24126": {
-        "total": 486971
+        "margin": "0.2", 
+        "total": 486153.32999999996
       }, 
       "group": "protective", 
       "name": "protective"
     }, 
     {
       "B24121": {
-        "total": 76424
+        "margin": "128", 
+        "total": "61489"
       }, 
       "B24122": {
-        "total": 114820
+        "margin": "403", 
+        "total": "81983"
       }, 
       "B24123": {
-        "total": 61839
+        "margin": "151", 
+        "total": "56854"
       }, 
       "B24124": {
-        "total": 5626149
+        "margin": "21812", 
+        "total": "5626149"
       }, 
       "B24125": {
-        "total": 1612942
+        "margin": "0.1", 
+        "total": 1614704.7629999998
       }, 
       "B24126": {
-        "total": 4013207
+        "margin": "0.1", 
+        "total": 4011444.2369999997
       }, 
       "group": "health_practitioner", 
       "name": "health_practitioner"
     }, 
     {
       "B24121": {
-        "total": 60441
+        "margin": "101", 
+        "total": "40504"
       }, 
       "B24122": {
-        "total": 69881
+        "margin": "101", 
+        "total": "40583"
       }, 
       "B24123": {
-        "total": 54309
+        "margin": "775", 
+        "total": "36057"
       }, 
       "B24124": {
-        "total": 2788285
+        "margin": "23179", 
+        "total": "4709696"
       }, 
       "B24125": {
-        "total": 1289430
+        "margin": "0.1", 
+        "total": 4596663.296
       }, 
       "B24126": {
-        "total": 1498855
+        "margin": "0.1", 
+        "total": 113032.704
       }, 
-      "group": "operations", 
-      "name": "operations"
+      "group": "construction", 
+      "name": "construction"
     }, 
     {
       "B24121": {
-        "total": 55474
+        "margin": "161", 
+        "total": "77108"
       }, 
       "B24122": {
-        "total": 55601
+        "margin": "177", 
+        "total": "80669"
       }, 
       "B24123": {
-        "total": 49421
+        "margin": "356", 
+        "total": "69733"
       }, 
       "B24124": {
-        "total": 172883
+        "margin": "20628", 
+        "total": "3143643"
       }, 
       "B24125": {
-        "total": 168863
+        "margin": "0.2", 
+        "total": 2335726.749
       }, 
       "B24126": {
-        "total": 4020
-      }, 
-      "group": "extraction", 
-      "name": "extraction"
-    }, 
-    {
-      "B24121": {
-        "total": 76675
-      }, 
-      "B24122": {
-        "total": 80417
-      }, 
-      "B24123": {
-        "total": 67976
-      }, 
-      "B24124": {
-        "total": 3249286
-      }, 
-      "B24125": {
-        "total": 2382543
-      }, 
-      "B24126": {
-        "total": 866743
+        "margin": "0.2", 
+        "total": 807916.251
       }, 
       "group": "computers", 
       "name": "computers"
     }, 
     {
       "B24121": {
-        "total": 24902
+        "margin": "103", 
+        "total": "24061"
       }, 
       "B24122": {
-        "total": 32029
+        "margin": "167", 
+        "total": "31059"
       }, 
       "B24123": {
-        "total": 22641
+        "margin": "71", 
+        "total": "22123"
       }, 
       "B24124": {
-        "total": 2412835
+        "margin": "16994", 
+        "total": "2412835"
       }, 
       "B24125": {
-        "total": 620137
+        "margin": "0.2", 
+        "total": 620098.595
       }, 
       "B24126": {
-        "total": 1792698
+        "margin": "0.2", 
+        "total": 1792736.405
       }, 
       "group": "service", 
       "name": "service"
     }, 
     {
       "B24121": {
-        "total": 37533
+        "margin": "100", 
+        "total": "40711"
       }, 
       "B24122": {
-        "total": 38982
+        "margin": "109", 
+        "total": "41612"
       }, 
       "B24123": {
-        "total": 28027
+        "margin": "209", 
+        "total": "30941"
       }, 
       "B24124": {
-        "total": 5721112
+        "margin": "15046", 
+        "total": "3484667"
       }, 
       "B24125": {
-        "total": 4964644
+        "margin": "0.1", 
+        "total": 3143169.634
       }, 
       "B24126": {
-        "total": 756468
+        "margin": "0.1", 
+        "total": 341497.36600000004
       }, 
       "group": "transportation", 
       "name": "transportation"
-    }, 
-    {
-      "B24121": {
-        "total": 63468
-      }, 
-      "B24122": {
-        "total": 78572
-      }, 
-      "B24123": {
-        "total": 54098
-      }, 
-      "B24124": {
-        "total": 2620149
-      }, 
-      "B24125": {
-        "total": 1216300
-      }, 
-      "B24126": {
-        "total": 1403849
-      }, 
-      "group": "finance", 
-      "name": "finance"
     }
   ], 
   "professions": [
@@ -2845,7 +2933,7 @@
         "margin": "202", 
         "total": "832"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD371", 
       "name": "Explosives workers, ordnance handling experts, and blasters"
     }, 
@@ -2874,7 +2962,7 @@
         "margin": "155", 
         "total": "358"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD370", 
       "name": "Earth drillers, except oil and gas"
     }, 
@@ -2903,7 +2991,7 @@
         "margin": "28", 
         "total": "0"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD373", 
       "name": "Roof bolters, mining"
     }, 
@@ -2932,7 +3020,7 @@
         "margin": "269", 
         "total": "1556"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD372", 
       "name": "Mining machine operators"
     }, 
@@ -2961,7 +3049,7 @@
         "margin": "52", 
         "total": "65"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD375", 
       "name": "Helpers--extraction workers"
     }, 
@@ -2990,7 +3078,7 @@
         "margin": "59", 
         "total": "68"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD374", 
       "name": "Roustabouts, oil and gas"
     }, 
@@ -3048,7 +3136,7 @@
         "margin": "211", 
         "total": "975"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD376", 
       "name": "Other extraction workers"
     }, 
@@ -4556,7 +4644,7 @@
         "margin": "1903", 
         "total": "99199"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD46", 
       "name": "Market research analysts and marketing specialists"
     }, 
@@ -4585,7 +4673,7 @@
         "margin": "2233", 
         "total": "108018"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD47", 
       "name": "Business operations specialists, all other"
     }, 
@@ -4614,7 +4702,7 @@
         "margin": "1613", 
         "total": "51331"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD44", 
       "name": "Meeting, convention, and event planners"
     }, 
@@ -4643,7 +4731,7 @@
         "margin": "1411", 
         "total": "45710"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD45", 
       "name": "Fundraisers"
     }, 
@@ -4672,7 +4760,7 @@
         "margin": "1063", 
         "total": "28052"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD42", 
       "name": "Logisticians"
     }, 
@@ -4701,7 +4789,7 @@
         "margin": "3163", 
         "total": "214608"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD43", 
       "name": "Management analysts"
     }, 
@@ -4730,7 +4818,7 @@
         "margin": "1447", 
         "total": "51313"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD40", 
       "name": "Compensation, benefits, and job analysis specialists"
     }, 
@@ -4759,7 +4847,7 @@
         "margin": "1513", 
         "total": "53935"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD41", 
       "name": "Training and development specialists"
     }, 
@@ -4788,7 +4876,7 @@
         "margin": "8625", 
         "total": "979760"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD48", 
       "name": "Accountants and auditors"
     }, 
@@ -4817,7 +4905,7 @@
         "margin": "1006", 
         "total": "24996"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD49", 
       "name": "Appraisers and assessors of real estate"
     }, 
@@ -7282,7 +7370,7 @@
         "margin": "66", 
         "total": "166"
       }, 
-      "group": "extraction", 
+      "group": "construction", 
       "key": "VD369", 
       "name": "Derrick, rotary drill, and service unit operators, oil, gas, and mining"
     }, 
@@ -8529,7 +8617,7 @@
         "margin": "894", 
         "total": "13378"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD51", 
       "name": "Credit analysts"
     }, 
@@ -8558,7 +8646,7 @@
         "margin": "1078", 
         "total": "27720"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD50", 
       "name": "Budget analysts"
     }, 
@@ -8587,7 +8675,7 @@
         "margin": "1943", 
         "total": "84970"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD53", 
       "name": "Personal financial advisors"
     }, 
@@ -8616,7 +8704,7 @@
         "margin": "934", 
         "total": "22496"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD52", 
       "name": "Financial analysts"
     }, 
@@ -8645,7 +8733,7 @@
         "margin": "546", 
         "total": "5590"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD55", 
       "name": "Financial examiners"
     }, 
@@ -8674,7 +8762,7 @@
         "margin": "1683", 
         "total": "63045"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD54", 
       "name": "Insurance underwriters"
     }, 
@@ -8703,7 +8791,7 @@
         "margin": "1400", 
         "total": "32280"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD57", 
       "name": "Tax examiners and collectors, and revenue agents"
     }, 
@@ -8732,7 +8820,7 @@
         "margin": "2800", 
         "total": "149614"
       }, 
-      "group": "finance", 
+      "group": "operations_finance", 
       "key": "VD56", 
       "name": "Credit counselors and loan officers"
     }, 
@@ -13546,7 +13634,7 @@
         "margin": "2012", 
         "total": "86897"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD37", 
       "name": "Compliance officers"
     }, 
@@ -13575,7 +13663,7 @@
         "margin": "3043", 
         "total": "162584"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD36", 
       "name": "Claims adjusters, appraisers, examiners, and investigators"
     }, 
@@ -13604,7 +13692,7 @@
         "margin": "2386", 
         "total": "118275"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD35", 
       "name": "Purchasing agents, except wholesale, retail, and farm products"
     }, 
@@ -13633,7 +13721,7 @@
         "margin": "2273", 
         "total": "75444"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD34", 
       "name": "Wholesale and retail buyers, except farm products"
     }, 
@@ -13662,7 +13750,7 @@
         "margin": "289", 
         "total": "2107"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD33", 
       "name": "Buyers and purchasing agents, farm products"
     }, 
@@ -13691,7 +13779,7 @@
         "margin": "888", 
         "total": "11880"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD32", 
       "name": "Agents and business managers of artists, performers, and athletes"
     }, 
@@ -13836,7 +13924,7 @@
         "margin": "4111", 
         "total": "376422"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD39", 
       "name": "Human resources workers"
     }, 
@@ -13865,7 +13953,7 @@
         "margin": "800", 
         "total": "13080"
       }, 
-      "group": "operations", 
+      "group": "operations_finance", 
       "key": "VD38", 
       "name": "Cost estimators"
     }, 

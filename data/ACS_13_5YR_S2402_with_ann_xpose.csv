@@ -1,0 +1,447 @@
+GEO.id,Id,0100000US
+GEO.id2,Id2,
+GEO.display-label,Geography,United States
+HC01_EST_VC01,"Total; Estimate; Full-time, year-round civilian employed population 16 years and over",97259723
+HC01_MOE_VC01,"Total; Margin of Error; Full-time, year-round civilian employed population 16 years and over",71035
+HC02_EST_VC01,"Male; Estimate; Full-time, year-round civilian employed population 16 years and over",56.7
+HC02_MOE_VC01,"Male; Margin of Error; Full-time, year-round civilian employed population 16 years and over",0.1
+HC03_EST_VC01,"Female; Estimate; Full-time, year-round civilian employed population 16 years and over",43.3
+HC03_MOE_VC01,"Female; Margin of Error; Full-time, year-round civilian employed population 16 years and over",0.1
+HC04_EST_VC01,"Median earnings (dollars); Estimate; Full-time, year-round civilian employed population 16 years and over",43880
+HC04_MOE_VC01,"Median earnings (dollars); Margin of Error; Full-time, year-round civilian employed population 16 years and over",101
+HC05_EST_VC01,"Median earnings (dollars) for male; Estimate; Full-time, year-round civilian employed population 16 years and over",49410
+HC05_MOE_VC01,"Median earnings (dollars) for male; Margin of Error; Full-time, year-round civilian employed population 16 years and over",147
+HC06_EST_VC01,"Median earnings (dollars) for female; Estimate; Full-time, year-round civilian employed population 16 years and over",38729
+HC06_MOE_VC01,"Median earnings (dollars) for female; Margin of Error; Full-time, year-round civilian employed population 16 years and over",83
+HC01_EST_VC02,"Total; Estimate; Management, business, science, and arts occupations:",39187523
+HC01_MOE_VC02,"Total; Margin of Error; Management, business, science, and arts occupations:",149776
+HC02_EST_VC02,"Male; Estimate; Management, business, science, and arts occupations:",51.7
+HC02_MOE_VC02,"Male; Margin of Error; Management, business, science, and arts occupations:",0.1
+HC03_EST_VC02,"Female; Estimate; Management, business, science, and arts occupations:",48.3
+HC03_MOE_VC02,"Female; Margin of Error; Management, business, science, and arts occupations:",0.1
+HC04_EST_VC02,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations:",62189
+HC04_MOE_VC02,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations:",79
+HC05_EST_VC02,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations:",74135
+HC05_MOE_VC02,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations:",146
+HC06_EST_VC02,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations:",53123
+HC06_MOE_VC02,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations:",59
+HC01_EST_VC03,"Total; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations:",17441526
+HC01_MOE_VC03,"Total; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations:",54331
+HC02_EST_VC03,"Male; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations:",57.4
+HC02_MOE_VC03,"Male; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations:",0.1
+HC03_EST_VC03,"Female; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations:",42.6
+HC03_MOE_VC03,"Female; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations:",0.1
+HC04_EST_VC03,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations:",66384
+HC04_MOE_VC03,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations:",136
+HC05_EST_VC03,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations:",76939
+HC05_MOE_VC03,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations:",139
+HC06_EST_VC03,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations:",55982
+HC06_MOE_VC03,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations:",137
+HC01_EST_VC04,"Total; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",11927449
+HC01_MOE_VC04,"Total; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",32908
+HC02_EST_VC04,"Male; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",62.5
+HC02_MOE_VC04,"Male; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",0.1
+HC03_EST_VC04,"Female; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",37.5
+HC03_MOE_VC04,"Female; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",0.1
+HC04_EST_VC04,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",70681
+HC04_MOE_VC04,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",178
+HC05_EST_VC04,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",79607
+HC05_MOE_VC04,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",296
+HC06_EST_VC04,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",58873
+HC06_MOE_VC04,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Management occupations",224
+HC01_EST_VC05,"Total; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",5514077
+HC01_MOE_VC05,"Total; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",26447
+HC02_EST_VC05,"Male; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",46.3
+HC02_MOE_VC05,"Male; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",0.1
+HC03_EST_VC05,"Female; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",53.7
+HC03_MOE_VC05,"Female; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",0.1
+HC04_EST_VC05,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",60591
+HC04_MOE_VC05,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",130
+HC05_EST_VC05,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",71638
+HC05_MOE_VC05,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",214
+HC06_EST_VC05,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",53360
+HC06_MOE_VC05,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Management, business, and financial occupations: - Business and financial operations occupations",126
+HC01_EST_VC06,"Total; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",6357097
+HC01_MOE_VC06,"Total; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",41379
+HC02_EST_VC06,"Male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",76.2
+HC02_MOE_VC06,"Male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",0.1
+HC03_EST_VC06,"Female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",23.8
+HC03_MOE_VC06,"Female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",0.1
+HC04_EST_VC06,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",75537
+HC04_MOE_VC06,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",121
+HC05_EST_VC06,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",78739
+HC05_MOE_VC06,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",224
+HC06_EST_VC06,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",65624
+HC06_MOE_VC06,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations:",218
+HC01_EST_VC07,"Total; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",3143643
+HC01_MOE_VC07,"Total; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",20628
+HC02_EST_VC07,"Male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",74.3
+HC02_MOE_VC07,"Male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",0.2
+HC03_EST_VC07,"Female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",25.7
+HC03_MOE_VC07,"Female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",0.2
+HC04_EST_VC07,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",77108
+HC04_MOE_VC07,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",161
+HC05_EST_VC07,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",80669
+HC05_MOE_VC07,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",177
+HC06_EST_VC07,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",69733
+HC06_MOE_VC07,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Computer and mathematical occupations",356
+HC01_EST_VC08,"Total; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",2261502
+HC01_MOE_VC08,"Total; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",17615
+HC02_EST_VC08,"Male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",86.6
+HC02_MOE_VC08,"Male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",0.2
+HC03_EST_VC08,"Female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",13.4
+HC03_MOE_VC08,"Female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",0.2
+HC04_EST_VC08,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",76999
+HC04_MOE_VC08,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",179
+HC05_EST_VC08,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",79285
+HC05_MOE_VC08,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",352
+HC06_EST_VC08,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",65900
+HC06_MOE_VC08,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Architecture and engineering occupations",390
+HC01_EST_VC09,"Total; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",951952
+HC01_MOE_VC09,"Total; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",9262
+HC02_EST_VC09,"Male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",58.1
+HC02_MOE_VC09,"Male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",0.3
+HC03_EST_VC09,"Female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",41.9
+HC03_MOE_VC09,"Female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",0.3
+HC04_EST_VC09,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",63037
+HC04_MOE_VC09,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",301
+HC05_EST_VC09,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",67557
+HC05_MOE_VC09,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",539
+HC06_EST_VC09,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",57821
+HC06_MOE_VC09,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Computer, engineering, and science occupations: - Life, physical, and social science occupations",517
+HC01_EST_VC10,"Total; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",9762751
+HC01_MOE_VC10,"Total; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",48293
+HC02_EST_VC10,"Male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",38.8
+HC02_MOE_VC10,"Male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",0.1
+HC03_EST_VC10,"Female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",61.2
+HC03_MOE_VC10,"Female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",0.1
+HC04_EST_VC10,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",50175
+HC04_MOE_VC10,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",67
+HC05_EST_VC10,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",58223
+HC05_MOE_VC10,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",181
+HC06_EST_VC10,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",46137
+HC06_MOE_VC10,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations:",81
+HC01_EST_VC11,"Total; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",1771522
+HC01_MOE_VC11,"Total; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",11231
+HC02_EST_VC11,"Male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",38.8
+HC02_MOE_VC11,"Male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",0.3
+HC03_EST_VC11,"Female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",61.2
+HC03_MOE_VC11,"Female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",0.3
+HC04_EST_VC11,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",42846
+HC04_MOE_VC11,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",114
+HC05_EST_VC11,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",44417
+HC05_MOE_VC11,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",211
+HC06_EST_VC11,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",42036
+HC06_MOE_VC11,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Community and social services occupations",106
+HC01_EST_VC12,"Total; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",1363423
+HC01_MOE_VC12,"Total; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",10052
+HC02_EST_VC12,"Male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",51.2
+HC02_MOE_VC12,"Male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",0.3
+HC03_EST_VC12,"Female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",48.8
+HC03_MOE_VC12,"Female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",0.3
+HC04_EST_VC12,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",85163
+HC04_MOE_VC12,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",423
+HC05_EST_VC12,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",117882
+HC05_MOE_VC12,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",994
+HC06_EST_VC12,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",60593
+HC06_MOE_VC12,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Legal occupations",427
+HC01_EST_VC13,"Total; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",5033274
+HC01_MOE_VC13,"Total; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",33783
+HC02_EST_VC13,"Male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",29.4
+HC02_MOE_VC13,"Male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",0.1
+HC03_EST_VC13,"Female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",70.6
+HC03_MOE_VC13,"Female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",0.1
+HC04_EST_VC13,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",48845
+HC04_MOE_VC13,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",86
+HC05_EST_VC13,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",56483
+HC05_MOE_VC13,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",175
+HC06_EST_VC13,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",45836
+HC06_MOE_VC13,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Education, training, and library occupations",99
+HC01_EST_VC14,"Total; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",1594532
+HC01_MOE_VC14,"Total; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",9513
+HC02_EST_VC14,"Male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",57.8
+HC02_MOE_VC14,"Male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",0.3
+HC03_EST_VC14,"Female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",42.2
+HC03_MOE_VC14,"Female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",0.3
+HC04_EST_VC14,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",51233
+HC04_MOE_VC14,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",152
+HC05_EST_VC14,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",54320
+HC05_MOE_VC14,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",227
+HC06_EST_VC14,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",46670
+HC06_MOE_VC14,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Education, legal, community service, arts, and media occupations: - Arts, design, entertainment, sports, and media occupations",286
+HC01_EST_VC15,"Total; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",5626149
+HC01_MOE_VC15,"Total; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",21812
+HC02_EST_VC15,"Male; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",28.7
+HC02_MOE_VC15,"Male; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",0.1
+HC03_EST_VC15,"Female; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",71.3
+HC03_MOE_VC15,"Female; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",0.1
+HC04_EST_VC15,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",61489
+HC04_MOE_VC15,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",128
+HC05_EST_VC15,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",81983
+HC05_MOE_VC15,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",403
+HC06_EST_VC15,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",56854
+HC06_MOE_VC15,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations:",151
+HC01_EST_VC16,"Total; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",3911338
+HC01_MOE_VC16,"Total; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",18825
+HC02_EST_VC16,"Male; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",30.4
+HC02_MOE_VC16,"Male; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",0.2
+HC03_EST_VC16,"Female; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",69.6
+HC03_MOE_VC16,"Female; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",0.2
+HC04_EST_VC16,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",72051
+HC04_MOE_VC16,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",141
+HC05_EST_VC16,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",107453
+HC05_MOE_VC16,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",567
+HC06_EST_VC16,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",65710
+HC06_MOE_VC16,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health diagnosing and treating practitioners and other technical occupations",137
+HC01_EST_VC17,"Total; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",1714811
+HC01_MOE_VC17,"Total; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",9611
+HC02_EST_VC17,"Male; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",24.7
+HC02_MOE_VC17,"Male; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",0.3
+HC03_EST_VC17,"Female; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",75.3
+HC03_MOE_VC17,"Female; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",0.3
+HC04_EST_VC17,"Median earnings (dollars); Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",41088
+HC04_MOE_VC17,"Median earnings (dollars); Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",108
+HC05_EST_VC17,"Median earnings (dollars) for male; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",46816
+HC05_MOE_VC17,"Median earnings (dollars) for male; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",322
+HC06_EST_VC17,"Median earnings (dollars) for female; Estimate; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",39649
+HC06_MOE_VC17,"Median earnings (dollars) for female; Margin of Error; Management, business, science, and arts occupations: - Healthcare practitioner and technical occupations: - Health technologists and technicians",128
+HC01_EST_VC18,Total; Estimate; Service occupations:,13507375
+HC01_MOE_VC18,Total; Margin of Error; Service occupations:,59925
+HC02_EST_VC18,Male; Estimate; Service occupations:,50.5
+HC02_MOE_VC18,Male; Margin of Error; Service occupations:,0.1
+HC03_EST_VC18,Female; Estimate; Service occupations:,49.5
+HC03_MOE_VC18,Female; Margin of Error; Service occupations:,0.1
+HC04_EST_VC18,Median earnings (dollars); Estimate; Service occupations:,26798
+HC04_MOE_VC18,Median earnings (dollars); Margin of Error; Service occupations:,44
+HC05_EST_VC18,Median earnings (dollars) for male; Estimate; Service occupations:,31699
+HC05_MOE_VC18,Median earnings (dollars) for male; Margin of Error; Service occupations:,80
+HC06_EST_VC18,Median earnings (dollars) for female; Estimate; Service occupations:,23549
+HC06_MOE_VC18,Median earnings (dollars) for female; Margin of Error; Service occupations:,49
+HC01_EST_VC19,Total; Estimate; Service occupations: - Healthcare support occupations,2118374
+HC01_MOE_VC19,Total; Margin of Error; Service occupations: - Healthcare support occupations,12386
+HC02_EST_VC19,Male; Estimate; Service occupations: - Healthcare support occupations,13.9
+HC02_MOE_VC19,Male; Margin of Error; Service occupations: - Healthcare support occupations,0.2
+HC03_EST_VC19,Female; Estimate; Service occupations: - Healthcare support occupations,86.1
+HC03_MOE_VC19,Female; Margin of Error; Service occupations: - Healthcare support occupations,0.2
+HC04_EST_VC19,Median earnings (dollars); Estimate; Service occupations: - Healthcare support occupations,27334
+HC04_MOE_VC19,Median earnings (dollars); Margin of Error; Service occupations: - Healthcare support occupations,62
+HC05_EST_VC19,Median earnings (dollars) for male; Estimate; Service occupations: - Healthcare support occupations,31192
+HC05_MOE_VC19,Median earnings (dollars) for male; Margin of Error; Service occupations: - Healthcare support occupations,199
+HC06_EST_VC19,Median earnings (dollars) for female; Estimate; Service occupations: - Healthcare support occupations,26962
+HC06_MOE_VC19,Median earnings (dollars) for female; Margin of Error; Service occupations: - Healthcare support occupations,64
+HC01_EST_VC20,Total; Estimate; Service occupations: - Protective service occupations:,2505945
+HC01_MOE_VC20,Total; Margin of Error; Service occupations: - Protective service occupations:,14098
+HC02_EST_VC20,Male; Estimate; Service occupations: - Protective service occupations:,80.6
+HC02_MOE_VC20,Male; Margin of Error; Service occupations: - Protective service occupations:,0.2
+HC03_EST_VC20,Female; Estimate; Service occupations: - Protective service occupations:,19.4
+HC03_MOE_VC20,Female; Margin of Error; Service occupations: - Protective service occupations:,0.2
+HC04_EST_VC20,Median earnings (dollars); Estimate; Service occupations: - Protective service occupations:,50309
+HC04_MOE_VC20,Median earnings (dollars); Margin of Error; Service occupations: - Protective service occupations:,170
+HC05_EST_VC20,Median earnings (dollars) for male; Estimate; Service occupations: - Protective service occupations:,52577
+HC05_MOE_VC20,Median earnings (dollars) for male; Margin of Error; Service occupations: - Protective service occupations:,181
+HC06_EST_VC20,Median earnings (dollars) for female; Estimate; Service occupations: - Protective service occupations:,40979
+HC06_MOE_VC20,Median earnings (dollars) for female; Margin of Error; Service occupations: - Protective service occupations:,240
+HC01_EST_VC21,"Total; Estimate; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",1181518
+HC01_MOE_VC21,"Total; Margin of Error; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",8899
+HC02_EST_VC21,"Male; Estimate; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",80.4
+HC02_MOE_VC21,"Male; Margin of Error; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",0.3
+HC03_EST_VC21,"Female; Estimate; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",19.6
+HC03_MOE_VC21,"Female; Margin of Error; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",0.3
+HC04_EST_VC21,"Median earnings (dollars); Estimate; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",41360
+HC04_MOE_VC21,"Median earnings (dollars); Margin of Error; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",175
+HC05_EST_VC21,"Median earnings (dollars) for male; Estimate; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",43385
+HC05_MOE_VC21,"Median earnings (dollars) for male; Margin of Error; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",267
+HC06_EST_VC21,"Median earnings (dollars) for female; Estimate; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",34259
+HC06_MOE_VC21,"Median earnings (dollars) for female; Margin of Error; Service occupations: - Protective service occupations: - Fire fighting and prevention, and other protective service workers including supervisors",435
+HC01_EST_VC22,Total; Estimate; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,1324427
+HC01_MOE_VC22,Total; Margin of Error; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,9986
+HC02_EST_VC22,Male; Estimate; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,80.7
+HC02_MOE_VC22,Male; Margin of Error; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,0.3
+HC03_EST_VC22,Female; Estimate; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,19.3
+HC03_MOE_VC22,Female; Margin of Error; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,0.3
+HC04_EST_VC22,Median earnings (dollars); Estimate; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,57091
+HC04_MOE_VC22,Median earnings (dollars); Margin of Error; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,279
+HC05_EST_VC22,Median earnings (dollars) for male; Estimate; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,59897
+HC05_MOE_VC22,Median earnings (dollars) for male; Margin of Error; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,328
+HC06_EST_VC22,Median earnings (dollars) for female; Estimate; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,47321
+HC06_MOE_VC22,Median earnings (dollars) for female; Margin of Error; Service occupations: - Protective service occupations: - Law enforcement workers including supervisors,469
+HC01_EST_VC23,Total; Estimate; Service occupations: - Food preparation and serving related occupations,3271541
+HC01_MOE_VC23,Total; Margin of Error; Service occupations: - Food preparation and serving related occupations,31250
+HC02_EST_VC23,Male; Estimate; Service occupations: - Food preparation and serving related occupations,53.1
+HC02_MOE_VC23,Male; Margin of Error; Service occupations: - Food preparation and serving related occupations,0.2
+HC03_EST_VC23,Female; Estimate; Service occupations: - Food preparation and serving related occupations,46.9
+HC03_MOE_VC23,Female; Margin of Error; Service occupations: - Food preparation and serving related occupations,0.2
+HC04_EST_VC23,Median earnings (dollars); Estimate; Service occupations: - Food preparation and serving related occupations,21304
+HC04_MOE_VC23,Median earnings (dollars); Margin of Error; Service occupations: - Food preparation and serving related occupations,52
+HC05_EST_VC23,Median earnings (dollars) for male; Estimate; Service occupations: - Food preparation and serving related occupations,22719
+HC05_MOE_VC23,Median earnings (dollars) for male; Margin of Error; Service occupations: - Food preparation and serving related occupations,126
+HC06_EST_VC23,Median earnings (dollars) for female; Estimate; Service occupations: - Food preparation and serving related occupations,19842
+HC06_MOE_VC23,Median earnings (dollars) for female; Margin of Error; Service occupations: - Food preparation and serving related occupations,75
+HC01_EST_VC24,Total; Estimate; Service occupations: - Building and grounds cleaning and maintenance occupations,3198680
+HC01_MOE_VC24,Total; Margin of Error; Service occupations: - Building and grounds cleaning and maintenance occupations,20217
+HC02_EST_VC24,Male; Estimate; Service occupations: - Building and grounds cleaning and maintenance occupations,67.2
+HC02_MOE_VC24,Male; Margin of Error; Service occupations: - Building and grounds cleaning and maintenance occupations,0.2
+HC03_EST_VC24,Female; Estimate; Service occupations: - Building and grounds cleaning and maintenance occupations,32.8
+HC03_MOE_VC24,Female; Margin of Error; Service occupations: - Building and grounds cleaning and maintenance occupations,0.2
+HC04_EST_VC24,Median earnings (dollars); Estimate; Service occupations: - Building and grounds cleaning and maintenance occupations,25563
+HC04_MOE_VC24,Median earnings (dollars); Margin of Error; Service occupations: - Building and grounds cleaning and maintenance occupations,68
+HC05_EST_VC24,Median earnings (dollars) for male; Estimate; Service occupations: - Building and grounds cleaning and maintenance occupations,28570
+HC05_MOE_VC24,Median earnings (dollars) for male; Margin of Error; Service occupations: - Building and grounds cleaning and maintenance occupations,135
+HC06_EST_VC24,Median earnings (dollars) for female; Estimate; Service occupations: - Building and grounds cleaning and maintenance occupations,21009
+HC06_MOE_VC24,Median earnings (dollars) for female; Margin of Error; Service occupations: - Building and grounds cleaning and maintenance occupations,73
+HC01_EST_VC25,Total; Estimate; Service occupations: - Personal care and service occupations,2412835
+HC01_MOE_VC25,Total; Margin of Error; Service occupations: - Personal care and service occupations,16994
+HC02_EST_VC25,Male; Estimate; Service occupations: - Personal care and service occupations,25.7
+HC02_MOE_VC25,Male; Margin of Error; Service occupations: - Personal care and service occupations,0.2
+HC03_EST_VC25,Female; Estimate; Service occupations: - Personal care and service occupations,74.3
+HC03_MOE_VC25,Female; Margin of Error; Service occupations: - Personal care and service occupations,0.2
+HC04_EST_VC25,Median earnings (dollars); Estimate; Service occupations: - Personal care and service occupations,24061
+HC04_MOE_VC25,Median earnings (dollars); Margin of Error; Service occupations: - Personal care and service occupations,103
+HC05_EST_VC25,Median earnings (dollars) for male; Estimate; Service occupations: - Personal care and service occupations,31059
+HC05_MOE_VC25,Median earnings (dollars) for male; Margin of Error; Service occupations: - Personal care and service occupations,167
+HC06_EST_VC25,Median earnings (dollars) for female; Estimate; Service occupations: - Personal care and service occupations,22123
+HC06_MOE_VC25,Median earnings (dollars) for female; Margin of Error; Service occupations: - Personal care and service occupations,71
+HC01_EST_VC26,Total; Estimate; Sales and office occupations:,23084502
+HC01_MOE_VC26,Total; Margin of Error; Sales and office occupations:,33464
+HC02_EST_VC26,Male; Estimate; Sales and office occupations:,40.9
+HC02_MOE_VC26,Male; Margin of Error; Sales and office occupations:,0.1
+HC03_EST_VC26,Female; Estimate; Sales and office occupations:,59.1
+HC03_MOE_VC26,Female; Margin of Error; Sales and office occupations:,0.1
+HC04_EST_VC26,Median earnings (dollars); Estimate; Sales and office occupations:,37271
+HC04_MOE_VC26,Median earnings (dollars); Margin of Error; Sales and office occupations:,57
+HC05_EST_VC26,Median earnings (dollars) for male; Estimate; Sales and office occupations:,45139
+HC05_MOE_VC26,Median earnings (dollars) for male; Margin of Error; Sales and office occupations:,129
+HC06_EST_VC26,Median earnings (dollars) for female; Estimate; Sales and office occupations:,33658
+HC06_MOE_VC26,Median earnings (dollars) for female; Margin of Error; Sales and office occupations:,46
+HC01_EST_VC27,Total; Estimate; Sales and office occupations: - Sales and related occupations,9737512
+HC01_MOE_VC27,Total; Margin of Error; Sales and office occupations: - Sales and related occupations,25350
+HC02_EST_VC27,Male; Estimate; Sales and office occupations: - Sales and related occupations,59.4
+HC02_MOE_VC27,Male; Margin of Error; Sales and office occupations: - Sales and related occupations,0.1
+HC03_EST_VC27,Female; Estimate; Sales and office occupations: - Sales and related occupations,40.6
+HC03_MOE_VC27,Female; Margin of Error; Sales and office occupations: - Sales and related occupations,0.1
+HC04_EST_VC27,Median earnings (dollars); Estimate; Sales and office occupations: - Sales and related occupations,41975
+HC04_MOE_VC27,Median earnings (dollars); Margin of Error; Sales and office occupations: - Sales and related occupations,111
+HC05_EST_VC27,Median earnings (dollars) for male; Estimate; Sales and office occupations: - Sales and related occupations,50404
+HC05_MOE_VC27,Median earnings (dollars) for male; Margin of Error; Sales and office occupations: - Sales and related occupations,125
+HC06_EST_VC27,Median earnings (dollars) for female; Estimate; Sales and office occupations: - Sales and related occupations,31970
+HC06_MOE_VC27,Median earnings (dollars) for female; Margin of Error; Sales and office occupations: - Sales and related occupations,88
+HC01_EST_VC28,Total; Estimate; Sales and office occupations: - Office and administrative support occupations,13346990
+HC01_MOE_VC28,Total; Margin of Error; Sales and office occupations: - Office and administrative support occupations,29284
+HC02_EST_VC28,Male; Estimate; Sales and office occupations: - Office and administrative support occupations,27.4
+HC02_MOE_VC28,Male; Margin of Error; Sales and office occupations: - Office and administrative support occupations,0.1
+HC03_EST_VC28,Female; Estimate; Sales and office occupations: - Office and administrative support occupations,72.6
+HC03_MOE_VC28,Female; Margin of Error; Sales and office occupations: - Office and administrative support occupations,0.1
+HC04_EST_VC28,Median earnings (dollars); Estimate; Sales and office occupations: - Office and administrative support occupations,35257
+HC04_MOE_VC28,Median earnings (dollars); Margin of Error; Sales and office occupations: - Office and administrative support occupations,46
+HC05_EST_VC28,Median earnings (dollars) for male; Estimate; Sales and office occupations: - Office and administrative support occupations,39739
+HC05_MOE_VC28,Median earnings (dollars) for male; Margin of Error; Sales and office occupations: - Office and administrative support occupations,157
+HC06_EST_VC28,Median earnings (dollars) for female; Estimate; Sales and office occupations: - Office and administrative support occupations,34136
+HC06_MOE_VC28,Median earnings (dollars) for female; Margin of Error; Sales and office occupations: - Office and administrative support occupations,41
+HC01_EST_VC29,"Total; Estimate; Natural resources, construction, and maintenance occupations:",9169975
+HC01_MOE_VC29,"Total; Margin of Error; Natural resources, construction, and maintenance occupations:",28610
+HC02_EST_VC29,"Male; Estimate; Natural resources, construction, and maintenance occupations:",96.2
+HC02_MOE_VC29,"Male; Margin of Error; Natural resources, construction, and maintenance occupations:",0.1
+HC03_EST_VC29,"Female; Estimate; Natural resources, construction, and maintenance occupations:",3.8
+HC03_MOE_VC29,"Female; Margin of Error; Natural resources, construction, and maintenance occupations:",0.1
+HC04_EST_VC29,"Median earnings (dollars); Estimate; Natural resources, construction, and maintenance occupations:",41147
+HC04_MOE_VC29,"Median earnings (dollars); Margin of Error; Natural resources, construction, and maintenance occupations:",91
+HC05_EST_VC29,"Median earnings (dollars) for male; Estimate; Natural resources, construction, and maintenance occupations:",41396
+HC05_MOE_VC29,"Median earnings (dollars) for male; Margin of Error; Natural resources, construction, and maintenance occupations:",88
+HC06_EST_VC29,"Median earnings (dollars) for female; Estimate; Natural resources, construction, and maintenance occupations:",32185
+HC06_MOE_VC29,"Median earnings (dollars) for female; Margin of Error; Natural resources, construction, and maintenance occupations:",272
+HC01_EST_VC30,"Total; Estimate; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",601256
+HC01_MOE_VC30,"Total; Margin of Error; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",7500
+HC02_EST_VC30,"Male; Estimate; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",84.2
+HC02_MOE_VC30,"Male; Margin of Error; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",0.3
+HC03_EST_VC30,"Female; Estimate; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",15.8
+HC03_MOE_VC30,"Female; Margin of Error; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",0.3
+HC04_EST_VC30,"Median earnings (dollars); Estimate; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",24881
+HC04_MOE_VC30,"Median earnings (dollars); Margin of Error; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",194
+HC05_EST_VC30,"Median earnings (dollars) for male; Estimate; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",25905
+HC05_MOE_VC30,"Median earnings (dollars) for male; Margin of Error; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",151
+HC06_EST_VC30,"Median earnings (dollars) for female; Estimate; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",19251
+HC06_MOE_VC30,"Median earnings (dollars) for female; Margin of Error; Natural resources, construction, and maintenance occupations: - Farming, fishing, and forestry occupations",289
+HC01_EST_VC31,"Total; Estimate; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",4709696
+HC01_MOE_VC31,"Total; Margin of Error; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",23179
+HC02_EST_VC31,"Male; Estimate; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",97.6
+HC02_MOE_VC31,"Male; Margin of Error; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",0.1
+HC03_EST_VC31,"Female; Estimate; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",2.4
+HC03_MOE_VC31,"Female; Margin of Error; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",0.1
+HC04_EST_VC31,"Median earnings (dollars); Estimate; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",40504
+HC04_MOE_VC31,"Median earnings (dollars); Margin of Error; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",101
+HC05_EST_VC31,"Median earnings (dollars) for male; Estimate; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",40583
+HC05_MOE_VC31,"Median earnings (dollars) for male; Margin of Error; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",101
+HC06_EST_VC31,"Median earnings (dollars) for female; Estimate; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",36057
+HC06_MOE_VC31,"Median earnings (dollars) for female; Margin of Error; Natural resources, construction, and maintenance occupations: - Construction and extraction occupations",775
+HC01_EST_VC32,"Total; Estimate; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",3859023
+HC01_MOE_VC32,"Total; Margin of Error; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",13271
+HC02_EST_VC32,"Male; Estimate; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",96.3
+HC02_MOE_VC32,"Male; Margin of Error; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",0.1
+HC03_EST_VC32,"Female; Estimate; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",3.7
+HC03_MOE_VC32,"Female; Margin of Error; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",0.1
+HC04_EST_VC32,"Median earnings (dollars); Estimate; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",44480
+HC04_MOE_VC32,"Median earnings (dollars); Margin of Error; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",119
+HC05_EST_VC32,"Median earnings (dollars) for male; Estimate; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",44600
+HC05_MOE_VC32,"Median earnings (dollars) for male; Margin of Error; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",119
+HC06_EST_VC32,"Median earnings (dollars) for female; Estimate; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",41270
+HC06_MOE_VC32,"Median earnings (dollars) for female; Margin of Error; Natural resources, construction, and maintenance occupations: - Installation, maintenance, and repair occupations",495
+HC01_EST_VC33,"Total; Estimate; Production, transportation, and material moving occupations:",12310348
+HC01_MOE_VC33,"Total; Margin of Error; Production, transportation, and material moving occupations:",33662
+HC02_EST_VC33,"Male; Estimate; Production, transportation, and material moving occupations:",79.9
+HC02_MOE_VC33,"Male; Margin of Error; Production, transportation, and material moving occupations:",0.1
+HC03_EST_VC33,"Female; Estimate; Production, transportation, and material moving occupations:",20.1
+HC03_MOE_VC33,"Female; Margin of Error; Production, transportation, and material moving occupations:",0.1
+HC04_EST_VC33,"Median earnings (dollars); Estimate; Production, transportation, and material moving occupations:",35558
+HC04_MOE_VC33,"Median earnings (dollars); Margin of Error; Production, transportation, and material moving occupations:",78
+HC05_EST_VC33,"Median earnings (dollars) for male; Estimate; Production, transportation, and material moving occupations:",38493
+HC05_MOE_VC33,"Median earnings (dollars) for male; Margin of Error; Production, transportation, and material moving occupations:",101
+HC06_EST_VC33,"Median earnings (dollars) for female; Estimate; Production, transportation, and material moving occupations:",26662
+HC06_MOE_VC33,"Median earnings (dollars) for female; Margin of Error; Production, transportation, and material moving occupations:",56
+HC01_EST_VC34,"Total; Estimate; Production, transportation, and material moving occupations: - Production occupations",6589236
+HC01_MOE_VC34,"Total; Margin of Error; Production, transportation, and material moving occupations: - Production occupations",19639
+HC02_EST_VC34,"Male; Estimate; Production, transportation, and material moving occupations: - Production occupations",74.0
+HC02_MOE_VC34,"Male; Margin of Error; Production, transportation, and material moving occupations: - Production occupations",0.1
+HC03_EST_VC34,"Female; Estimate; Production, transportation, and material moving occupations: - Production occupations",26.0
+HC03_MOE_VC34,"Female; Margin of Error; Production, transportation, and material moving occupations: - Production occupations",0.1
+HC04_EST_VC34,"Median earnings (dollars); Estimate; Production, transportation, and material moving occupations: - Production occupations",35746
+HC04_MOE_VC34,"Median earnings (dollars); Margin of Error; Production, transportation, and material moving occupations: - Production occupations",89
+HC05_EST_VC34,"Median earnings (dollars) for male; Estimate; Production, transportation, and material moving occupations: - Production occupations",40033
+HC05_MOE_VC34,"Median earnings (dollars) for male; Margin of Error; Production, transportation, and material moving occupations: - Production occupations",92
+HC06_EST_VC34,"Median earnings (dollars) for female; Estimate; Production, transportation, and material moving occupations: - Production occupations",26688
+HC06_MOE_VC34,"Median earnings (dollars) for female; Margin of Error; Production, transportation, and material moving occupations: - Production occupations",69
+HC01_EST_VC35,"Total; Estimate; Production, transportation, and material moving occupations: - Transportation occupations",3484667
+HC01_MOE_VC35,"Total; Margin of Error; Production, transportation, and material moving occupations: - Transportation occupations",15046
+HC02_EST_VC35,"Male; Estimate; Production, transportation, and material moving occupations: - Transportation occupations",90.2
+HC02_MOE_VC35,"Male; Margin of Error; Production, transportation, and material moving occupations: - Transportation occupations",0.1
+HC03_EST_VC35,"Female; Estimate; Production, transportation, and material moving occupations: - Transportation occupations",9.8
+HC03_MOE_VC35,"Female; Margin of Error; Production, transportation, and material moving occupations: - Transportation occupations",0.1
+HC04_EST_VC35,"Median earnings (dollars); Estimate; Production, transportation, and material moving occupations: - Transportation occupations",40711
+HC04_MOE_VC35,"Median earnings (dollars); Margin of Error; Production, transportation, and material moving occupations: - Transportation occupations",100
+HC05_EST_VC35,"Median earnings (dollars) for male; Estimate; Production, transportation, and material moving occupations: - Transportation occupations",41612
+HC05_MOE_VC35,"Median earnings (dollars) for male; Margin of Error; Production, transportation, and material moving occupations: - Transportation occupations",109
+HC06_EST_VC35,"Median earnings (dollars) for female; Estimate; Production, transportation, and material moving occupations: - Transportation occupations",30941
+HC06_MOE_VC35,"Median earnings (dollars) for female; Margin of Error; Production, transportation, and material moving occupations: - Transportation occupations",209
+HC01_EST_VC36,"Total; Estimate; Production, transportation, and material moving occupations: - Material moving occupations",2236445
+HC01_MOE_VC36,"Total; Margin of Error; Production, transportation, and material moving occupations: - Material moving occupations",14377
+HC02_EST_VC36,"Male; Estimate; Production, transportation, and material moving occupations: - Material moving occupations",81.5
+HC02_MOE_VC36,"Male; Margin of Error; Production, transportation, and material moving occupations: - Material moving occupations",0.2
+HC03_EST_VC36,"Female; Estimate; Production, transportation, and material moving occupations: - Material moving occupations",18.5
+HC03_MOE_VC36,"Female; Margin of Error; Production, transportation, and material moving occupations: - Material moving occupations",0.2
+HC04_EST_VC36,"Median earnings (dollars); Estimate; Production, transportation, and material moving occupations: - Material moving occupations",29509
+HC04_MOE_VC36,"Median earnings (dollars); Margin of Error; Production, transportation, and material moving occupations: - Material moving occupations",131
+HC05_EST_VC36,"Median earnings (dollars) for male; Estimate; Production, transportation, and material moving occupations: - Material moving occupations",30784
+HC05_MOE_VC36,"Median earnings (dollars) for male; Margin of Error; Production, transportation, and material moving occupations: - Material moving occupations",92
+HC06_EST_VC36,"Median earnings (dollars) for female; Estimate; Production, transportation, and material moving occupations: - Material moving occupations",24461
+HC06_MOE_VC36,"Median earnings (dollars) for female; Margin of Error; Production, transportation, and material moving occupations: - Material moving occupations",156
+HC01_EST_VC39,Total; Estimate; PERCENT IMPUTED - Occupation,7.0
+HC01_MOE_VC39,Total; Margin of Error; PERCENT IMPUTED - Occupation,(X)
+HC02_EST_VC39,Male; Estimate; PERCENT IMPUTED - Occupation,(X)
+HC02_MOE_VC39,Male; Margin of Error; PERCENT IMPUTED - Occupation,(X)
+HC03_EST_VC39,Female; Estimate; PERCENT IMPUTED - Occupation,(X)
+HC03_MOE_VC39,Female; Margin of Error; PERCENT IMPUTED - Occupation,(X)
+HC04_EST_VC39,Median earnings (dollars); Estimate; PERCENT IMPUTED - Occupation,(X)
+HC04_MOE_VC39,Median earnings (dollars); Margin of Error; PERCENT IMPUTED - Occupation,(X)
+HC05_EST_VC39,Median earnings (dollars) for male; Estimate; PERCENT IMPUTED - Occupation,(X)
+HC05_MOE_VC39,Median earnings (dollars) for male; Margin of Error; PERCENT IMPUTED - Occupation,(X)
+HC06_EST_VC39,Median earnings (dollars) for female; Estimate; PERCENT IMPUTED - Occupation,(X)
+HC06_MOE_VC39,Median earnings (dollars) for female; Margin of Error; PERCENT IMPUTED - Occupation,(X)
