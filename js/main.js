@@ -138,7 +138,7 @@ data.done(function(fullData) {
   
   var leftScale = d3.scale.linear()
     .domain([0,1])
-    .range([height - padding, padding]);
+    .range([height - padding, padding + 10]);
 
   var rightScale = d3.scale.linear()
     .domain([0,100000])
@@ -216,7 +216,7 @@ data.done(function(fullData) {
 
   var altRightScale = d3.scale.linear()
     .domain([0.45,1])
-    .range([padding, height - padding]);
+    .range([height - padding, padding + 20]);
 
   var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
   var rightFn = function(d) {
@@ -227,7 +227,7 @@ data.done(function(fullData) {
 
   var leftTextFn = function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; };
   // var rightTextFn = function(d) { return '$' + commaNumber(d.B24121.total); };
-  var rightTextFn = function(d) { return Math.round(100 * d.B24123.total / d.B24122.total) + "%"; };
+  var rightTextFn = function(d) { return Math.round(100 * d.B24123.total / d.B24122.total) + "¢"; };
   var centerTextFn = function(d) { return groupings[d.group].name; };
 
   mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
@@ -237,46 +237,56 @@ data.done(function(fullData) {
   hoverLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
 
   firstInteractive.append('svg:text')
-    .classed('centerlabel', true)
+    .classed('leftlabel', true)
     .classed('label', true)
     .text('more men')
-    .attr('x', leftSide)
+    .attr('x', leftSide + 40)
     .attr('y', leftScale(1.01));
 
   firstInteractive.append('svg:text')
-    .classed('centerlabel', true)
+    .classed('leftlabel', true)
     .classed('label', true)
     .text('more women')
-    .attr('x', leftSide)
+    .attr('x', leftSide + 40)
     .attr('y', leftScale(0.06));
 
   firstInteractive.append('svg:text')
-    .classed('centerlabel', true)
+    .classed('leftlabel', true)
     .classed('mainlabel', true)
     .text('Percent Male')
-    .attr('x', leftSide)
-    .attr('y', 20);
+    .attr('x', leftSide + 40)
+    .attr('y', 15);
 
   firstInteractive.append('svg:text')
-    .classed('centerlabel', true)
+    // .classed('centerlabel', true)
     .classed('label', true)
     .text('more equal')
-    .attr('x', rightSide)
-    .attr('y', altRightScale(0.98));
+    .attr('x', rightSide - 40)
+    .attr('y', altRightScale(0.97));
 
   firstInteractive.append('svg:text')
-    .classed('centerlabel', true)
+    // .classed('centerlabel', true)
     .classed('label', true)
     .text('less equal')
-    .attr('x', rightSide)
-    .attr('y', altRightScale(0.49));
+    .attr('x', rightSide - 40)
+    .attr('y', altRightScale(0.47));
 
   firstInteractive.append('svg:text')
-    .classed('centerlabel', true)
+    // .classed('centerlabel', true)
     .classed('mainlabel', true)
     .text('Wage Gap')
-    .attr('x', rightSide)
-    .attr('y', 20);
+    .attr('x', rightSide - 42)
+    .attr('y', 15);
+  firstInteractive.append('svg:text')
+    .classed(['label'], true)
+    .text('cents earned by women')
+    .attr('x', rightSide - 40)
+    .attr('y', 33);
+  firstInteractive.append('svg:text')
+    .classed('label', true)
+    .text('per dollar earned by men')
+    .attr('x', rightSide - 40)
+    .attr('y', 49);
 });
 
 
