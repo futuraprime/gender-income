@@ -196,14 +196,20 @@ data.done(function(fullData) {
       });
   }
   function hoverLine(group, leftSide, rightSide, leftFn, rightFn) {
-    return group.append('svg:line')
+    return group.append('svg:polygon')
       .classed('hoverline', true)
-      .attr('x1', leftSide)
-      .attr('x2', rightSide)
-      .attr('y1', function(d) { return leftScale(
-        d.B24125.total / d.B24124.total
-      ); })
-      .attr('y2', function(d) { return rightScale(d.B24121.total); })
+      .attr('points', function(d) {
+        return leftSide + ',' + (leftFn(d) - 5) + ',' +
+          rightSide + ',' + (rightFn(d) - 5) + ',' +
+          rightSide + ',' + (rightFn(d) + 5) + ',' +
+          leftSide  + ',' + (leftFn(d) + 5);
+      })
+      // .attr('x1', leftSide)
+      // .attr('x2', rightSide)
+      // .attr('y1', function(d) { return leftScale(
+      //   d.B24125.total / d.B24124.total
+      // ); })
+      // .attr('y2', function(d) { return rightScale(d.B24121.total); })
       .on('mouseenter', function(d) {
         this.parentNode.classList.add('active');
         this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack

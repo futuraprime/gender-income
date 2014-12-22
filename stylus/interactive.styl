@@ -7,8 +7,14 @@
   position: relative;
   z-index: 1;
   
+  .label {
+    opacity: 0;
+  }
+  
   &.active {
-    z-index: 5;
+    .label {
+      opacity: 5;
+    }
   }
 }
 
@@ -22,23 +28,19 @@
 }
 
 .hoverline {
+  fill: transparent;
   stroke: transparent;
-  stroke-width: 10;
+  stroke-width: 0;
 }
 
 .label {
   @extend .sans;
   fill: #353131;
-  opacity: 0;
   transition: opacity 250ms ease-out;
   font-size: 16px;
   
   user-select: none;
   cursor: default;
-
-  .active & {
-    opacity: 1;
-  }
 }
 
 .leftlabel {
