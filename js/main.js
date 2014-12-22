@@ -87,12 +87,12 @@ var groupings = {
 
 var padding = 20;
 
-var xScale = d3.scale.linear()
+var leftScale = d3.scale.linear()
   .domain([0,1])
-  .range([padding,width - padding]);
+  .range([height - padding, padding]);
 
-var yScale = d3.scale.linear()
-  .domain([0,200000])
+var rightScale = d3.scale.linear()
+  .domain([0,100000])
   .range([height - padding, padding]);
 
 var sizeScale = d3.scale.log()
@@ -100,7 +100,7 @@ var sizeScale = d3.scale.log()
   .range([1, 20]);
 
 
-var items = interactive.selectAll('circle.item');
+var items = interactive.selectAll('line.item');
 var data = oboe('./data/data_5yr.json');
 
 data.done(function(fullData) {
@@ -108,18 +108,19 @@ data.done(function(fullData) {
   console.log('done');
 
   items.data(fullData.groups)
-    .enter().append('svg:circle')
+    .enter().append('svg:line')
     .classed('item', true)
-    .attr('cx', function(d) { return xScale(
+    .attr('x1', 20)
+    .attr('x2', 200)
+    .attr('y1', function(d) { return leftScale(
       d.B24125.total / d.B24124.total
     ); })
-    .attr('cy', function(d) { return yScale(d.B24121.total); })
-    .attr('r', function(d) { return sizeScale(d.B24124.total); })
-    .attr('fill', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
+    .attr('y2', function(d) { return rightScale(d.B24121.total); })
+    // .attr('r', function(d) { return sizeScale(d.B24124.total); })
+    .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
     .on('mouseenter', function(d) {
       console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
     });
-
 });
 
 
