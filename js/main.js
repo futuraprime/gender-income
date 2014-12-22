@@ -205,16 +205,9 @@ data.done(function(fullData) {
                rightSide + ',' + (rightFn(d) + spacing) + ',' +
                leftSide  + ',' + ( leftFn(d) + spacing);
       })
-      // .attr('x1', leftSide)
-      // .attr('x2', rightSide)
-      // .attr('y1', function(d) { return leftScale(
-      //   d.B24125.total / d.B24124.total
-      // ); })
-      // .attr('y2', function(d) { return rightScale(d.B24121.total); })
       .on('mouseenter', function(d) {
         this.parentNode.classList.add('active');
         this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
-        // console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
       })
       .on('mouseleave', function(d) {
         this.parentNode.classList.remove('active');
