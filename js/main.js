@@ -197,7 +197,8 @@ data.done(function(fullData) {
     .attr('y2', function(d) { return rightScale(d.B24121.total); })
     .on('mouseenter', function(d) {
       this.parentNode.classList.add('active');
-      console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
+      this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
+      // console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
     })
     .on('mouseleave', function(d) {
       this.parentNode.classList.remove('active');
