@@ -189,7 +189,6 @@ data.done(function(fullData) {
         var rise = rightFn(d) - leftFn(d);
         return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(width/2)+', '+
           ((leftFn(d) + rightFn(d)) / 2) +')';
-        // return 'foo';
       })
       .attr('x', width/2)
       .attr('y', function(d) {
@@ -215,8 +214,16 @@ data.done(function(fullData) {
       });
   }
 
+  var altRightScale = d3.scale.linear()
+    .domain([1,2])
+    .range([height - padding, padding]);
+
   var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
-  var rightFn = function(d) { return rightScale(d.B24121.total); };
+  var rightFn = function(d) {
+    // console.log(d.B24122.total / d.B24123.total, altRightScale(d.B24122.total / d.B24123.total));
+    return rightScale(d.B24121.total);
+    // return altRightScale(d.B24122.total / d.B24123.total);
+  };
   var sizeFn = function(d) { return sizeScale(d.B24124.total); };
 
   var leftTextFn = function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; };
@@ -228,6 +235,10 @@ data.done(function(fullData) {
   rightLabel(group, rightSide, rightFn, rightTextFn);
   centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn, centerTextFn);
   hoverLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
+
+  firstInteractive.append('svg:text')
+    .text('more men')
+    .attr('x');
 });
 
 
