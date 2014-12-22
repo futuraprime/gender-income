@@ -196,13 +196,14 @@ data.done(function(fullData) {
       });
   }
   function hoverLine(group, leftSide, rightSide, leftFn, rightFn) {
+    var spacing = 7;
     return group.append('svg:polygon')
       .classed('hoverline', true)
       .attr('points', function(d) {
-        return leftSide + ',' + (leftFn(d) - 5) + ',' +
-          rightSide + ',' + (rightFn(d) - 5) + ',' +
-          rightSide + ',' + (rightFn(d) + 5) + ',' +
-          leftSide  + ',' + (leftFn(d) + 5);
+        return leftSide  + ',' + ( leftFn(d) - spacing) + ',' +
+               rightSide + ',' + (rightFn(d) - spacing) + ',' +
+               rightSide + ',' + (rightFn(d) + spacing) + ',' +
+               leftSide  + ',' + ( leftFn(d) + spacing);
       })
       // .attr('x1', leftSide)
       // .attr('x2', rightSide)
@@ -222,7 +223,7 @@ data.done(function(fullData) {
 
   var altRightScale = d3.scale.linear()
     .domain([1,2])
-    .range([height - padding, padding]);
+    .range([padding, height - padding]);
 
   var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
   var rightFn = function(d) {
@@ -248,7 +249,7 @@ data.done(function(fullData) {
     .classed('label', true)
     .text('more men')
     .attr('x', leftSide)
-    .attr('y', 20);
+    .attr('y', leftScale(1.01));
 
   firstInteractive.append('svg:text')
     .classed('centerlabel', true)
@@ -256,6 +257,20 @@ data.done(function(fullData) {
     .text('more women')
     .attr('x', leftSide)
     .attr('y', leftScale(0.06));
+
+  firstInteractive.append('svg:text')
+    .classed('centerlabel', true)
+    .classed('label', true)
+    .text('more equal')
+    .attr('x', rightSide)
+    .attr('y', altRightScale(1.02));
+
+  firstInteractive.append('svg:text')
+    .classed('centerlabel', true)
+    .classed('label', true)
+    .text('less equal')
+    .attr('x', rightSide)
+    .attr('y', altRightScale(2));
 });
 
 
