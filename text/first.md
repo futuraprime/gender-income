@@ -1,1 +1,1 @@
-# Something to say!
+In the United States, men earn more than women.

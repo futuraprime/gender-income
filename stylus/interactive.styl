@@ -2,3 +2,41 @@
   width: 100%;
   height: 500px;
 }
+
+.profession-group {
+  position: relative;
+  z-index: 1;
+  
+  &.active {
+    z-index: 5;
+  }
+}
+
+.item {
+  stroke: #B7B4B4;
+  transition: stroke 250ms ease-out;
+  
+  .active & {
+    stroke: #5E5959;
+  }
+}
+
+.hoverline {
+  stroke: transparent;
+  stroke-width: 10;
+}
+
+.label {
+  @extend .sans;
+  fill: #353131;
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+
+  .active & {
+    opacity: 1;
+  }
+}
+
+.leftlabel {
+  text-anchor: end;
+}

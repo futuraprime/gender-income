@@ -3,6 +3,46 @@ var interactiveElement = document.getElementById('interactive');
 var width = interactiveElement.clientWidth;
 var height = interactiveElement.clientHeight;
 
+function commaNumber (amount, dollar) {
+  // return a 0 dollar value if amount is not valid
+  // (you may optionally want to return an empty string)
+  if (isNaN(amount)) {
+    return "0";
+  }
+
+  // convert the number to a string
+  var amount_str = String(amount);
+
+  // split the string by the decimal point, separating the
+  // whole dollar value from the cents. Dollars are in
+  // amount_array[0], cents in amount_array[1]
+  var amount_array = amount_str.split(".");
+
+  // add the dollars portion of the amount to an
+  // array in sections of 3 to separate with commas
+  var dollar_array = [];
+  var start;
+  var end = amount_array[0].length;
+  while (end > 0) {
+    start = Math.max(end - 3, 0);
+    dollar_array.unshift(amount_array[0].slice(start, end));
+    end = start;
+  }
+
+  // assign dollar value back in amount_array with
+  // the a comma delimited value from dollar_array
+  amount_array[0] = dollar_array.join(",");
+
+  // finally construct the return string joining
+  // dollars with cents in amount_array
+  var amount_string = amount_array.join("."); 
+  if (dollar) {
+    amount_string = "$"+amount_string;
+  }
+  return (amount_string);
+} //commaNumber
+
+
 //  'B24121': 'DETAILED OCCUPATION BY MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2013 INFLATION-ADJUSTED DOLLARS) FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER',
 //  'B24122': 'DETAILED OCCUPATION BY MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2013 INFLATION-ADJUSTED DOLLARS) FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED MALE POPULATION 16 YEARS AND OVER',
 //  'B24123': 'DETAILED OCCUPATION BY MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2013 INFLATION-ADJUSTED DOLLARS) FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED FEMALE POPULATION 16 YEARS AND OVER',
@@ -95,9 +135,9 @@ var rightScale = d3.scale.linear()
   .domain([0,100000])
   .range([height - padding, padding]);
 
-var sizeScale = d3.scale.log()
-  .domain([1,100000000])
-  .range([1, 20]);
+var sizeScale = d3.scale.linear()
+  .domain([1,10000000])
+  .range([1, 10]);
 
 
 var items = interactive.selectAll('line.item');
@@ -107,20 +147,53 @@ data.done(function(fullData) {
   window.fullData = fullData;
   console.log('done');
 
-  items.data(fullData.groups)
-    .enter().append('svg:line')
+  var collection = items.data(fullData.groups);
+  var group = collection.enter().append('svg:g')
+    .classed('profession-group', true);
+
+  group.append('svg:line')
     .classed('item', true)
-    .attr('x1', 20)
-    .attr('x2', 200)
+    .attr('x1', 200)
+    .attr('x2', width - 200)
     .attr('y1', function(d) { return leftScale(
       d.B24125.total / d.B24124.total
     ); })
     .attr('y2', function(d) { return rightScale(d.B24121.total); })
-    // .attr('r', function(d) { return sizeScale(d.B24124.total); })
-    .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
-    .on('mouseenter', function(d) {
-      console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
+    .attr('stroke-width', function(d) {
+      return sizeScale(d.B24124.total);
     });
+    // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; });
+  group.append('svg:line')
+    .classed('hoverline', true)
+    .attr('x1', 200)
+    .attr('x2', width - 200)
+    .attr('y1', function(d) { return leftScale(
+      d.B24125.total / d.B24124.total
+    ); })
+    .attr('y2', function(d) { return rightScale(d.B24121.total); })
+    .on('mouseenter', function(d) {
+      this.parentNode.classList.add('active');
+      console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
+    })
+    .on('mouseleave', function(d) {
+      this.parentNode.classList.remove('active');
+    });
+  group.append('svg:text')
+    .classed('leftlabel', true)
+    .classed('label', true)
+    .text(function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; })
+    .attr('x', 200 - 5)
+    .attr('y', function(d) { return leftScale(
+      d.B24125.total / d.B24124.total
+    ) + 5; });
+  group.append('svg:text')
+    .classed('rightlabel', true)
+    .classed('label', true)
+    .text(function(d) {
+      return '$' + commaNumber(d.B24121.total);
+    })
+    .attr('x', width - 200 + 5)
+    .attr('y', function(d) { return rightScale(d.B24121.total) + 5; });
 });
 
 
