@@ -1,8 +1,3 @@
-var interactive = d3.select('#interactive').append('svg');
-var interactiveElement = document.getElementById('interactive');
-var width = interactiveElement.clientWidth;
-var height = interactiveElement.clientHeight;
-
 function commaNumber (amount, dollar) {
   // return a 0 dollar value if amount is not valid
   // (you may optionally want to return an empty string)
@@ -125,87 +120,114 @@ var groupings = {
 
 var padding = 20;
 
-var leftScale = d3.scale.linear()
-  .domain([0,1])
-  .range([height - padding, padding]);
-
-var rightScale = d3.scale.linear()
-  .domain([0,100000])
-  .range([height - padding, padding]);
-
-var sizeScale = d3.scale.linear()
-  .domain([1,10000000])
-  .range([1, 10]);
-
-
-var items = interactive.selectAll('line.item');
 var data = oboe('./data/data_5yr.json');
 
 data.done(function(fullData) {
   window.fullData = fullData;
   console.log('done');
 
+  var firstInteractive = d3.select('#firstInteractive').append('svg');
+  var firstInteractiveElement = document.getElementById('firstInteractive');
+  var width = firstInteractiveElement.clientWidth;
+  var height = firstInteractiveElement.clientHeight;
+  var items = firstInteractive.selectAll('line.item');
+
   var collection = items.data(fullData.groups);
   var group = collection.enter().append('svg:g')
     .classed('profession-group', true);
+  
+  var leftScale = d3.scale.linear()
+    .domain([0,1])
+    .range([height - padding, padding]);
+
+  var rightScale = d3.scale.linear()
+    .domain([0,100000])
+    .range([height - padding, padding]);
+
+  var sizeScale = d3.scale.linear()
+    .domain([1,10000000])
+    .range([1, 10]);
+
 
   var leftSide = 200;
   var rightSide = width - 200;
 
-  group.append('svg:line')
-    .classed('item', true)
-    .attr('x1', leftSide)
-    .attr('x2', rightSide)
-    .attr('y1', function(d) { return leftScale(
-      d.B24125.total / d.B24124.total
-    ); })
-    .attr('y2', function(d) { return rightScale(d.B24121.total); })
-    // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
-    .attr('stroke-width', function(d) {
-      return sizeScale(d.B24124.total);
-    });
-  group.append('svg:text')
-    .classed('leftlabel', true)
-    .classed('label', true)
-    .text(function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; })
-    .attr('x', leftSide - 5)
-    .attr('y', function(d) { return leftScale(
-      d.B24125.total / d.B24124.total
-    ) + 5; });
-  group.append('svg:text')
-    .classed('rightlabel', true)
-    .classed('label', true)
-    .text(function(d) {
-      return '$' + commaNumber(d.B24121.total);
-    })
-    .attr('x', rightSide + 5)
-    .attr('y', function(d) { return rightScale(d.B24121.total) + 5; });
-  group.append('svg:text')
-    .classed('centerlabel', true)
-    .classed('label', true)
-    .text(function(d) {
-      return groupings[d.group].name;
-    })
-    .attr('x', width/2)
-    .attr('y', function(d) {
-      return (leftScale(d.B24125.total / d.B24124.total) + rightScale(d.B24121.total)) / 2 - 10;
-    });
-  group.append('svg:line')
-    .classed('hoverline', true)
-    .attr('x1', leftSide)
-    .attr('x2', rightSide)
-    .attr('y1', function(d) { return leftScale(
-      d.B24125.total / d.B24124.total
-    ); })
-    .attr('y2', function(d) { return rightScale(d.B24121.total); })
-    .on('mouseenter', function(d) {
-      this.parentNode.classList.add('active');
-      this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
-      // console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
-    })
-    .on('mouseleave', function(d) {
-      this.parentNode.classList.remove('active');
-    });
+  function mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn) {
+    return group.append('svg:line')
+      .classed('item', true)
+      .attr('x1', leftSide)
+      .attr('x2', rightSide)
+      .attr('y1', leftFn)
+      .attr('y2', rightFn)
+      // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
+      .attr('stroke-width', sizeFn);
+  }
+  function leftLabel(group, leftSide, leftFn, textFn) {
+    return group.append('svg:text')
+      .classed('leftlabel', true)
+      .classed('label', true)
+      .text(textFn)
+      .attr('x', leftSide - 5)
+      .attr('y', function(d) { return leftFn(d) + 5; });
+  }
+  function rightLabel(group, rightSide, rightFn, textFn) {
+    return group.append('svg:text')
+      .classed('rightlabel', true)
+      .classed('label', true)
+      .text(textFn)
+      .attr('x', rightSide + 5)
+      .attr('y', function(d) { return rightFn(d) + 5; });
+  }
+  function centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn, textFn) {
+    var crossWidth = rightSide - leftSide;
+    return group.append('svg:text')
+      .classed('centerlabel', true)
+      .classed('label', true)
+      .text(textFn)
+      .attr('transform', function(d) {
+        // this is tricky, we're going to angle them a bit...
+        var rise = rightFn(d) - leftFn(d);
+        return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(width/2)+', '+
+          ((leftFn(d) + rightFn(d)) / 2) +')';
+        // return 'foo';
+      })
+      .attr('x', width/2)
+      .attr('y', function(d) {
+        return (leftFn(d) + rightFn(d)) / 2 - sizeFn(d) / 2 - 3;
+      });
+  }
+  function hoverLine(group, leftSide, rightSide, leftFn, rightFn) {
+    return group.append('svg:line')
+      .classed('hoverline', true)
+      .attr('x1', leftSide)
+      .attr('x2', rightSide)
+      .attr('y1', function(d) { return leftScale(
+        d.B24125.total / d.B24124.total
+      ); })
+      .attr('y2', function(d) { return rightScale(d.B24121.total); })
+      .on('mouseenter', function(d) {
+        this.parentNode.classList.add('active');
+        this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
+        // console.log(d.name, d.B24125.total / d.B24124.total, d.group, groupings[d.group]);
+      })
+      .on('mouseleave', function(d) {
+        this.parentNode.classList.remove('active');
+      });
+  }
+
+  var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
+  var rightFn = function(d) { return rightScale(d.B24121.total); };
+  var sizeFn = function(d) { return sizeScale(d.B24124.total); };
+
+  var leftTextFn = function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; };
+  var rightTextFn = function(d) { return '$' + commaNumber(d.B24121.total); };
+  var centerTextFn = function(d) { return groupings[d.group].name; };
+
+  mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
+  leftLabel(group, leftSide, leftFn, leftTextFn);
+  rightLabel(group, rightSide, rightFn, rightTextFn);
+  centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn, centerTextFn);
+  hoverLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
 });
 
 
