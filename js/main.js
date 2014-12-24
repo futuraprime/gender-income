@@ -122,40 +122,42 @@ var padding = 40;
 
 var data = oboe('./data/data_5yr.json');
 
+var firstInteractive = d3.select('#firstInteractive').append('svg');
+var firstInteractiveElement = document.getElementById('firstInteractive');
+var width = firstInteractiveElement.clientWidth;
+var height = firstInteractiveElement.clientHeight;
+var items = firstInteractive.selectAll('g.line-group');
+
+var leftScale = d3.scale.linear()
+  .domain([0,1])
+  .range([height - padding, padding]);
+
+var rightScale = d3.scale.linear()
+  .domain([0,100000])
+  .range([height - padding, padding]);
+
+var altRightScale = window.altRightScale = d3.scale.log()
+  .base(2)
+  .domain([0.5,2])
+  .range([height - padding, padding]);
+
+var sizeScale = d3.scale.linear()
+  .domain([1,10000000])
+  .range([1, 6]);
+
+var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
+    .domain([20000,100000], 4)
+    .mode('hsv');
+
 data.done(function(fullData) {
   window.fullData = fullData;
   console.log('done');
 
-  var firstInteractive = d3.select('#firstInteractive').append('svg');
-  var firstInteractiveElement = document.getElementById('firstInteractive');
-  var width = firstInteractiveElement.clientWidth;
-  var height = firstInteractiveElement.clientHeight;
-  var items = firstInteractive.selectAll('line.item');
 
   var collection = items.data(fullData.groups);
   var group = collection.enter().append('svg:g')
-    .classed('profession-group', true);
+    .classed('line-group', true);
   
-  var leftScale = d3.scale.linear()
-    .domain([0,1])
-    .range([height - padding, padding]);
-
-  var rightScale = d3.scale.linear()
-    .domain([0,100000])
-    .range([height - padding, padding]);
-
-  var altRightScale = window.altRightScale = d3.scale.log()
-    .base(2)
-    .domain([0.5,2])
-    .range([height - padding, padding]);
-
-  var sizeScale = d3.scale.linear()
-    .domain([1,10000000])
-    .range([1, 6]);
-
-  var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
-      .domain([20000,100000], 4)
-      .mode('hsv');
 
 
   var leftSide = 200;
