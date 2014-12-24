@@ -266,7 +266,7 @@ data.done(function(fullData) {
 
   firstInteractive.append('svg:text')
     // .classed('centerlabel', true)
-    .classed('label', true)
+    .classed('label unitlabel', true)
     .text('less equal')
     .attr('x', rightSide - 40)
     .attr('y', altRightScale(0.47));
@@ -278,12 +278,12 @@ data.done(function(fullData) {
     .attr('x', rightSide - 42)
     .attr('y', 15);
   firstInteractive.append('svg:text')
-    .classed(['label'], true)
+    .classed('label unitlabel', true)
     .text('cents earned by women')
     .attr('x', rightSide - 40)
     .attr('y', 33);
   firstInteractive.append('svg:text')
-    .classed('label', true)
+    .classed('label unitlabel', true)
     .text('per dollar earned by men')
     .attr('x', rightSide - 40)
     .attr('y', 49);
