@@ -132,7 +132,7 @@ data.done(function(fullData) {
   var height = firstInteractiveElement.clientHeight;
   var items = firstInteractive.selectAll('line.item');
 
-  var collection = items.data(fullData.groups);
+  var collection = items.data(fullData.professions);
   var group = collection.enter().append('svg:g')
     .classed('profession-group', true);
   
@@ -144,9 +144,13 @@ data.done(function(fullData) {
     .domain([0,100000])
     .range([height - padding, padding]);
 
+  var altRightScale = d3.scale.linear()
+    .domain([0,1.5])
+    .range([height - padding, padding + 20]);
+
   var sizeScale = d3.scale.linear()
     .domain([1,10000000])
-    .range([1, 10]);
+    .range([1, 1.1]);
 
 
   var leftSide = 200;
@@ -196,6 +200,7 @@ data.done(function(fullData) {
       });
   }
   function hoverLine(group, leftSide, rightSide, leftFn, rightFn) {
+    console.log('adding hoverLine...');
     var spacing = 7;
     return group.append('svg:polygon')
       .classed('hoverline', true)
@@ -214,10 +219,6 @@ data.done(function(fullData) {
       });
   }
 
-  var altRightScale = d3.scale.linear()
-    .domain([0.45,1])
-    .range([height - padding, padding + 20]);
-
   var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
   var rightFn = function(d) {
     // return rightScale(d.B24121.total);
@@ -233,7 +234,9 @@ data.done(function(fullData) {
   mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
   leftLabel(group, leftSide, leftFn, leftTextFn);
   rightLabel(group, rightSide, rightFn, rightTextFn);
-  centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn, centerTextFn);
+  centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn, function(d) {
+    return d.name;
+  });
   hoverLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
 
   firstInteractive.append('svg:text')
@@ -266,7 +269,7 @@ data.done(function(fullData) {
 
   firstInteractive.append('svg:text')
     // .classed('centerlabel', true)
-    .classed('label unitlabel', true)
+    .classed('label', true)
     .text('less equal')
     .attr('x', rightSide - 40)
     .attr('y', altRightScale(0.47));
