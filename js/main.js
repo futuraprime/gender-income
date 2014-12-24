@@ -76,22 +76,72 @@ d3.chart("slopegraph", {
   initialize : function() {
     var chart = this;
 
+    chart.base.classed('slopegraph', true);
+
     chart.leftScale = d3.scale.linear();
     chart.rightScale = d3.scale.linear();
 
-    chart.leftMargin = 200;
-    chart.rightMargin = 200;
-
-    this.layer('lines', this.base.append('g'), {
+    chart.layer('lines', chart.base.append('g'), {
       dataBind : function(data) {
-        return this.selectAll('g.linegroup')
+        return chart.selectAll('g.linegroup')
           .data(data);
       },
 
       insert : function() {
-        var groups = this.append('g')
+        var groups = chart.append('g')
           .classed('linegroup', true);
+
+        group.append('svg:line')
+          .classed('item', true)
+          .attr('x1', chart.leftSide)
+          .attr('x2', chart.rightSide)
+          .attr('y1', chart.leftFn)
+          .attr('y2', chart.rightFn)
+          // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
+          .attr('stroke-width', chart.sizeFn);
       }
     });
+  },
+
+  leftMargin : function(newMargin) {
+    if(!arguments.length) {
+      return this._leftMargin;
+    }
+
+    this._leftMargin = newMargin;
+
+    return this;
+  },
+  rightMargin : function(newMargin) {
+    if(!arguments.length) {
+      return this._rightMargin;
+    }
+
+    this._rightMargin = newMargin;
+
+    return this;
+  },
+  width : function(newWidth) {
+    if(!arguments.length) {
+      return this.w;
+    }
+
+    this.w = newWidth;
+
+    return this;
+  },
+  height : function(newHeight) {
+    if(!arguments.length) {
+      return this.h;
+    }
+
+    this.h = newHeight;
+    
+    return this;
   }
 });
+
+
+var mainGraph = d3.select('#firstInteractive')
+  .append('svg')
+  .chart('slopegraph', {});
