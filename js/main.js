@@ -132,25 +132,30 @@ data.done(function(fullData) {
   var height = firstInteractiveElement.clientHeight;
   var items = firstInteractive.selectAll('line.item');
 
-  var collection = items.data(fullData.professions);
+  var collection = items.data(fullData.groups);
   var group = collection.enter().append('svg:g')
     .classed('profession-group', true);
   
   var leftScale = d3.scale.linear()
     .domain([0,1])
-    .range([height - padding, padding + 10]);
+    .range([height - padding, padding]);
 
   var rightScale = d3.scale.linear()
     .domain([0,100000])
     .range([height - padding, padding]);
 
-  var altRightScale = d3.scale.linear()
-    .domain([0,1.5])
-    .range([height - padding, padding + 20]);
+  var altRightScale = window.altRightScale = d3.scale.log()
+    .base(2)
+    .domain([0.5,2])
+    .range([height - padding, padding]);
 
   var sizeScale = d3.scale.linear()
     .domain([1,10000000])
-    .range([1, 1.1]);
+    .range([1, 6]);
+
+  var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
+      .domain([20000,100000], 4)
+      .mode('hsv');
 
 
   var leftSide = 200;
@@ -163,6 +168,7 @@ data.done(function(fullData) {
       .attr('x2', rightSide)
       .attr('y1', leftFn)
       .attr('y2', rightFn)
+      .attr('stroke', function(d) { return groupsColorScale(d.B24121.total); })
       // .attr('stroke', function(d) { return d.group && groupings[d.group] && groupings[d.group].color; })
       .attr('stroke-width', sizeFn);
   }
@@ -219,14 +225,14 @@ data.done(function(fullData) {
       });
   }
 
-  var leftFn = function(d) { return leftScale(d.B24125.total / d.B24124.total); };
+  var leftFn = function(d) { return leftScale(d.B24126.total / d.B24124.total); };
   var rightFn = function(d) {
     // return rightScale(d.B24121.total);
     return altRightScale(d.B24123.total / d.B24122.total);
   };
   var sizeFn = function(d) { return sizeScale(d.B24124.total); };
 
-  var leftTextFn = function(d) { return Math.round(100 * d.B24125.total / d.B24124.total) + "%"; };
+  var leftTextFn = function(d) { return Math.round(100 * d.B24126.total / d.B24124.total) + "%"; };
   // var rightTextFn = function(d) { return '$' + commaNumber(d.B24121.total); };
   var rightTextFn = function(d) { return Math.round(100 * d.B24123.total / d.B24122.total) + "¢"; };
   var centerTextFn = function(d) { return groupings[d.group].name; };
@@ -234,45 +240,46 @@ data.done(function(fullData) {
   mainLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
   leftLabel(group, leftSide, leftFn, leftTextFn);
   rightLabel(group, rightSide, rightFn, rightTextFn);
-  centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn, function(d) {
-    return d.name;
-  });
+  centerLabel(group, leftSide, rightSide, leftFn, rightFn, sizeFn,
+    // function(d) { return d.name; }
+    centerTextFn
+  );
   hoverLine(group, leftSide, rightSide, leftFn, rightFn, sizeFn);
-
-  firstInteractive.append('svg:text')
-    .classed('leftlabel', true)
-    .classed('label', true)
-    .text('more men')
-    .attr('x', leftSide + 40)
-    .attr('y', leftScale(1.01));
 
   firstInteractive.append('svg:text')
     .classed('leftlabel', true)
     .classed('label', true)
     .text('more women')
     .attr('x', leftSide + 40)
+    .attr('y', leftScale(1.01));
+
+  firstInteractive.append('svg:text')
+    .classed('leftlabel', true)
+    .classed('label', true)
+    .text('more men')
+    .attr('x', leftSide + 40)
     .attr('y', leftScale(0.06));
 
   firstInteractive.append('svg:text')
     .classed('leftlabel', true)
     .classed('mainlabel', true)
-    .text('Percent Male')
+    .text('Percent Female')
     .attr('x', leftSide + 40)
     .attr('y', 15);
 
   firstInteractive.append('svg:text')
     // .classed('centerlabel', true)
     .classed('label', true)
-    .text('more equal')
+    .text('women make more')
     .attr('x', rightSide - 40)
-    .attr('y', altRightScale(0.97));
+    .attr('y', altRightScale(1.25));
 
   firstInteractive.append('svg:text')
     // .classed('centerlabel', true)
     .classed('label', true)
-    .text('less equal')
+    .text('men make more')
     .attr('x', rightSide - 40)
-    .attr('y', altRightScale(0.47));
+    .attr('y', altRightScale(0.75));
 
   firstInteractive.append('svg:text')
     // .classed('centerlabel', true)
@@ -290,6 +297,14 @@ data.done(function(fullData) {
     .text('per dollar earned by men')
     .attr('x', rightSide - 40)
     .attr('y', 49);
+
+  firstInteractive.append('svg:line')
+    .classed('median-line', true)
+    .attr('x1', leftSide - 50)
+    .attr('x2', rightSide + 50)
+    .attr('y1', leftScale(0.5))
+    .attr('y2', altRightScale(1))
+    .attr('stroke-dasharray', '10 4 2 4');
 });
 
 
