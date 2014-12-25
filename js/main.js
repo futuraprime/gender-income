@@ -250,7 +250,7 @@ var topGraphFsm = new machina.Fsm({
     this.width = containerElement.clientWidth;
     this.height = containerElement.clientHeight;
 
-    this.padding = 40;
+    this.padding = 20;
 
     dataPromise.done(function(data) {
       self.handle('loaded', data);
@@ -298,9 +298,9 @@ var topGraphFsm = new machina.Fsm({
 
         var params = {
           width : self.width,
-          leftSide : 200,
+          leftSide : 40,
           leftScale : self.leftScale,
-          rightSide : self.width - 200,
+          rightSide : self.width - 40,
           rightScale : self.rightScale,
           colorScale : self.colorScale,
           widthScale : self.widthScale,

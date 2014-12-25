@@ -1,7 +1,23 @@
 .interactive svg {
   width: 100%;
   height: 500px;
+  height: 80vh;
 }
+
+.chart-pair {
+  overflow: hidden;
+  
+  .interactive {
+    width: 48%;
+    float: left;
+    margin-right: 4%;
+  }
+  
+  p {
+    margin-left: 50%;
+  }
+}
+
 
 .line-group {
   position: relative;
@@ -21,6 +37,7 @@
 .median-line {
   stroke: #5E5959;
   stroke-width: 1;
+  stroke-dasharray : 10 4 2 4;
 }
 
 .item {
