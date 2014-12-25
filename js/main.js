@@ -88,7 +88,7 @@ var groupings = {
         'transportation' : { color : colors.grey[4],   name : 'Transportation and Material Moving' }
 };
 
-var data = oboe('./data/data_5yr.json');
+var dataPromise = oboe('./data/data_5yr.json');
 
 var proportionScale = d3.scale.linear()
   .domain([0,1]);
@@ -99,6 +99,64 @@ var gapScale = d3.scale.log()
   .domain([0.5, 2]);
 var groupPopulationScale = d3.scale.linear()
   .domain([1,10000000]);
+
+function constructSlopegraphElement(enterGroup) {
+  // main line
+  enterGroup.append('svg:line')
+    .classed('item', true);
+
+  enterGroup.append('svg:text')
+    .classed('leftlabel label', true);
+
+  enterGroup.append('svg:text')
+    .classed('rightlabel label', true);
+
+  enterGroup.append('svg:text')
+    .classed('centerlabel label', true);
+
+  enterGroup.append('svg:polygon')
+    .classed('hoverline', true)
+    .on('mouseenter', function(d) {
+      this.parentNode.classList.add('active');
+      this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
+    })
+    .on('mouseleave', function(d) {
+      this.parentNode.classList.remove('active');
+    });
+
+  return enterGroup;
+}
+
+function updateSlopegraphElement(group, scales) {
+  console.log('updating');
+  var leftFn = function(d) { return scales.leftScale(scales.leftValue(d)); };
+  var rightFn = function(d) { return scales.rightScale(scales.rightValue(d)); };
+
+  group.select('line.item')
+    .attr('x1', scales.leftSide)
+    .attr('x2', scales.rightSide)
+    .attr('y1', leftFn)
+    .attr('y2', rightFn)
+    .attr('stroke', function(d) { return scales.strokeScale(scales.strokeValue(d)); })
+    .attr('stroke-width', function(d) { return scales.widthScale(scales.widthValue(d)); });
+
+  group.select('text.leftlabel')
+    .attr('x', scales.leftSide - 5)
+    .attr('y', function(d) { return leftFn(d) + 5; })
+    .text(function(d) { return scales.leftTextFormat(scales.leftValue(d)); });
+
+
+  var spacing = 7;
+  group.select('polygon.hoverline')
+    .attr('points', function(d) {
+      return scales.leftSide  + ',' + ( leftFn(d) - spacing) + ',' +
+             scales.rightSide + ',' + (rightFn(d) - spacing) + ',' +
+             scales.rightSide + ',' + (rightFn(d) + spacing) + ',' +
+             scales.leftSide  + ',' + ( leftFn(d) + spacing);
+    });
+
+  return group;
+}
 
 var topGraphFsm = new machina.Fsm({
   initialize : function() {
@@ -112,26 +170,67 @@ var topGraphFsm = new machina.Fsm({
 
     this.padding = 40;
 
-    data.done(function(data) {
+    dataPromise.done(function(data) {
       self.handle('loaded', data);
     });
   },
 
   initialState : 'loading',
 
-  handleData : function(data) {
+  updateData : function(data) {
     console.log('has data!!!!!!', data);
+
+    // this one works with groups
+    this.selection = this.container.selectAll('g.line-group')
+      .data(data.groups);
+
+    var enter = this.selection.enter().append('svg:g')
+      .classed('line-group', true);
+
+    constructSlopegraphElement(enter);
   },
 
   states : {
     'loading' : {
       loaded : function(data) {
-        this.handleData(data);
+        this.updateData(data);
         this.transition('first');
       }
     },
     'first' : {
+      _onEnter : function() {
+        var self = this;
 
+        console.log('in onEnter');
+
+        this.leftScale = proportionScale.copy()
+          .range([this.height - this.padding, this.padding]);
+        this.rightScale = gapScale.copy()
+          .range([this.height - this.padding, this.padding]);
+        this.strokeScale = chroma.scale([colors.blue[5], colors.blue[2]])
+          .domain([20000,100000], 4)
+          .mode('hsv')
+          .out('hex');
+        this.widthScale = groupPopulationScale.copy()
+          .range([1, 6]);
+
+        console.log('scales set');
+
+        updateSlopegraphElement(this.selection, {
+          leftSide : 200, rightSide : self.width - 200,
+          leftScale : self.leftScale,
+          rightScale : self.rightScale,
+          strokeScale : self.strokeScale,
+          widthScale : self.widthScale,
+          leftValue : function(d) { return d.B24126.total / d.B24124.total; },
+          rightValue : function(d) { return d.B24123.total / d.B24122.total; },
+          strokeValue : function(d) { return d.B24121.total; },
+          widthValue : function(d) { return d.B24124.total; },
+          leftTextFormat : function(v) { return Math.round(v * 100) + "%"; },
+          rightTextFormat : function(v) { return Math.round(v * 100) + "¢"; },
+          centerTextFormat : function(d) { return groupings[d.group].name; }
+        });
+      }
     }
   }
 });
@@ -143,7 +242,7 @@ var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
     .domain([20000,100000], 4)
     .mode('hsv');
 
-data.done(function(fullData) {
+dataPromise.done(function(fullData) {
   window.fullData = fullData;
   console.log('done');
 
@@ -151,8 +250,6 @@ data.done(function(fullData) {
   var group = collection.enter().append('svg:g')
     .classed('line-group', true);
   
-
-
   var leftSide = 200;
   var rightSide = width - 200;
 
