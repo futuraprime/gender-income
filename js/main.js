@@ -88,32 +88,56 @@ var groupings = {
         'transportation' : { color : colors.grey[4],   name : 'Transportation and Material Moving' }
 };
 
-var padding = 40;
-
 var data = oboe('./data/data_5yr.json');
 
-var firstInteractive = d3.select('#firstInteractive').append('svg');
-var firstInteractiveElement = document.getElementById('firstInteractive');
-var width = firstInteractiveElement.clientWidth;
-var height = firstInteractiveElement.clientHeight;
-var items = firstInteractive.selectAll('g.line-group');
-
-var leftScale = d3.scale.linear()
-  .domain([0,1])
-  .range([height - padding, padding]);
-
-var rightScale = d3.scale.linear()
-  .domain([0,100000])
-  .range([height - padding, padding]);
-
-var altRightScale = window.altRightScale = d3.scale.log()
+var proportionScale = d3.scale.linear()
+  .domain([0,1]);
+var incomeScale = d3.scale.linear()
+  .domain([0,250000]);
+var gapScale = d3.scale.log()
   .base(2)
-  .domain([0.5,2])
-  .range([height - padding, padding]);
+  .domain([0.5, 2]);
+var groupPopulationScale = d3.scale.linear()
+  .domain([1,10000000]);
 
-var sizeScale = d3.scale.linear()
-  .domain([1,10000000])
-  .range([1, 6]);
+var topGraphFsm = new machina.Fsm({
+  initialize : function() {
+    var self = this;
+
+    this.container = d3.select('#firstInteractive').append('svg');
+    var containerElement = document.getElementById('firstInteractive');
+
+    this.width = containerElement.clientWidth;
+    this.height = containerElement.clientHeight;
+
+    this.padding = 40;
+
+    data.done(function(data) {
+      self.handle('loaded', data);
+    });
+  },
+
+  initialState : 'loading',
+
+  handleData : function(data) {
+    console.log('has data!!!!!!', data);
+  },
+
+  states : {
+    'loading' : {
+      loaded : function(data) {
+        this.handleData(data);
+        this.transition('first');
+      }
+    },
+    'first' : {
+
+    }
+  }
+});
+
+
+// var items = firstInteractive.selectAll('g.line-group');
 
 var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
     .domain([20000,100000], 4)
@@ -122,7 +146,6 @@ var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
 data.done(function(fullData) {
   window.fullData = fullData;
   console.log('done');
-
 
   var collection = items.data(fullData.groups);
   var group = collection.enter().append('svg:g')
