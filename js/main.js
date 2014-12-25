@@ -105,6 +105,12 @@ function constructSlopegraphElement(enterGroup) {
   enterGroup.append('svg:line')
     .classed('item', true);
 
+  enterGroup.append('svg:circle')
+    .classed('leftdot dot', true);
+
+  enterGroup.append('svg:circle')
+    .classed('rightdot dot', true);
+
   enterGroup.append('svg:text')
     .classed('leftlabel label', true);
 
@@ -112,7 +118,7 @@ function constructSlopegraphElement(enterGroup) {
     .classed('rightlabel label', true);
 
   enterGroup.append('svg:text')
-    .classed('centerlabel label', true);
+    .classed('centerlabel mainlinelabel label', true);
 
   enterGroup.append('svg:polygon')
     .classed('hoverline', true)
@@ -128,22 +134,55 @@ function constructSlopegraphElement(enterGroup) {
 }
 
 function updateSlopegraphElement(group, scales) {
-  console.log('updating');
   var leftFn = function(d) { return scales.leftScale(scales.leftValue(d)); };
   var rightFn = function(d) { return scales.rightScale(scales.rightValue(d)); };
+  var widthFn = function(d) { return scales.widthScale(scales.widthValue(d)); };
+  var colorFn = function(d) { return scales.colorScale(scales.colorValue(d)); };
+
+  var crossWidth = scales.rightSide - scales.leftSide;
 
   group.select('line.item')
     .attr('x1', scales.leftSide)
     .attr('x2', scales.rightSide)
     .attr('y1', leftFn)
     .attr('y2', rightFn)
-    .attr('stroke', function(d) { return scales.strokeScale(scales.strokeValue(d)); })
-    .attr('stroke-width', function(d) { return scales.widthScale(scales.widthValue(d)); });
+    .attr('stroke', colorFn)
+    .attr('stroke-width', widthFn);
+
+  group.select('circle.leftdot')
+    .attr('cx', scales.leftSide)
+    .attr('cy', leftFn)
+    .attr('r', 4)
+    .attr('fill', colorFn);
+
+  group.select('circle.rightdot')
+    .attr('cx', scales.rightSide)
+    .attr('cy', rightFn)
+    .attr('r', 4)
+    .attr('fill', colorFn);
 
   group.select('text.leftlabel')
-    .attr('x', scales.leftSide - 5)
+    .attr('x', scales.leftSide - 7)
     .attr('y', function(d) { return leftFn(d) + 5; })
     .text(function(d) { return scales.leftTextFormat(scales.leftValue(d)); });
+
+  group.select('text.rightlabel')
+    .attr('x', scales.rightSide + 7)
+    .attr('y', function(d) { return rightFn(d) + 5; })
+    .text(function(d) { return scales.rightTextFormat(scales.rightValue(d)); });
+
+  group.select('text.centerlabel')
+    .attr('transform', function(d) {
+      // this is tricky, we're going to angle them a bit...
+      var rise = rightFn(d) - leftFn(d);
+      return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(scales.width/2)+', '+
+        ((leftFn(d) + rightFn(d)) / 2) +')';
+    })
+    .attr('x', scales.width / 2)
+    .attr('y', function(d) {
+      return (leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3;
+    })
+    .text(scales.centerTextFn);
 
 
   var spacing = 7;
@@ -207,8 +246,8 @@ var topGraphFsm = new machina.Fsm({
           .range([this.height - this.padding, this.padding]);
         this.rightScale = gapScale.copy()
           .range([this.height - this.padding, this.padding]);
-        this.strokeScale = chroma.scale([colors.blue[5], colors.blue[2]])
-          .domain([20000,100000], 4)
+        this.colorScale = chroma.scale([colors.blue[5], colors.blue[3]])
+          .domain([20000,100000], 3)
           .mode('hsv')
           .out('hex');
         this.widthScale = groupPopulationScale.copy()
@@ -217,18 +256,20 @@ var topGraphFsm = new machina.Fsm({
         console.log('scales set');
 
         updateSlopegraphElement(this.selection, {
-          leftSide : 200, rightSide : self.width - 200,
+          width : self.width,
+          leftSide : 200,
           leftScale : self.leftScale,
+          rightSide : self.width - 200,
           rightScale : self.rightScale,
-          strokeScale : self.strokeScale,
+          colorScale : self.colorScale,
           widthScale : self.widthScale,
           leftValue : function(d) { return d.B24126.total / d.B24124.total; },
           rightValue : function(d) { return d.B24123.total / d.B24122.total; },
-          strokeValue : function(d) { return d.B24121.total; },
+          colorValue : function(d) { return d.B24121.total; },
           widthValue : function(d) { return d.B24124.total; },
           leftTextFormat : function(v) { return Math.round(v * 100) + "%"; },
           rightTextFormat : function(v) { return Math.round(v * 100) + "¢"; },
-          centerTextFormat : function(d) { return groupings[d.group].name; }
+          centerTextFn : function(d) { return groupings[d.group].name; }
         });
       }
     }
