@@ -141,7 +141,10 @@ function updateSlopegraphElement(group, scales) {
 
   var crossWidth = scales.rightSide - scales.leftSide;
 
+  group.classed('active', false);
+
   group.select('line.item')
+    .transition().duration(250)
     .attr('x1', scales.leftSide)
     .attr('x2', scales.rightSide)
     .attr('y1', leftFn)
@@ -150,28 +153,31 @@ function updateSlopegraphElement(group, scales) {
     .attr('stroke-width', widthFn);
 
   group.select('circle.leftdot')
+    .transition().duration(250)
     .attr('cx', scales.leftSide)
     .attr('cy', leftFn)
     .attr('r', 4)
     .attr('fill', colorFn);
 
   group.select('circle.rightdot')
+    .transition().duration(250)
     .attr('cx', scales.rightSide)
     .attr('cy', rightFn)
     .attr('r', 4)
     .attr('fill', colorFn);
 
   group.select('text.leftlabel')
+    .text(function(d) { return scales.leftTextFormat(scales.leftValue(d)); })
     .attr('x', scales.leftSide - 7)
-    .attr('y', function(d) { return leftFn(d) + 5; })
-    .text(function(d) { return scales.leftTextFormat(scales.leftValue(d)); });
+    .attr('y', function(d) { return leftFn(d) + 5; });
 
   group.select('text.rightlabel')
+    .text(function(d) { return scales.rightTextFormat(scales.rightValue(d)); })
     .attr('x', scales.rightSide + 7)
-    .attr('y', function(d) { return rightFn(d) + 5; })
-    .text(function(d) { return scales.rightTextFormat(scales.rightValue(d)); });
+    .attr('y', function(d) { return rightFn(d) + 5; });
 
   group.select('text.centerlabel')
+    .text(scales.centerTextFn)
     .attr('transform', function(d) {
       // this is tricky, we're going to angle them a bit...
       var rise = rightFn(d) - leftFn(d);
@@ -181,8 +187,7 @@ function updateSlopegraphElement(group, scales) {
     .attr('x', scales.width / 2)
     .attr('y', function(d) {
       return (leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3;
-    })
-    .text(scales.centerTextFn);
+    });
 
 
   var spacing = 7;
@@ -195,6 +200,44 @@ function updateSlopegraphElement(group, scales) {
     });
 
   return group;
+}
+
+function generateSlopegraphLegend(container, texts, scales) {
+  var left = container.selectAll('text.leftaxislabel')
+    .data(texts.leftLabels);
+  left.enter().append('svg:text')
+    .classed('leftaxislabel label', true)
+    .attr('x', scales.leftSide - 40);
+  left.exit().remove();
+  left.text(function(d) { return d.text; })
+    .classed('mainlabel', function(d) { return d.heading || d.subheading; })
+    .classed('label', function(d) { return !d.heading; })
+    .transition().duration(250)
+    .attr('x', scales.leftSide - 40)
+    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.leftScale(d.position); });
+
+
+  var right = container.selectAll('text.rightAxisLabel')
+    .data(texts.rightLabels);
+  right.enter().append('svg:text')
+    .classed('rightaxislabel label', true)
+    .attr('x', scales.rightSide + 40);
+  right.exit().remove();
+  right.text(function(d) { return d.text; })
+    .classed('mainlabel', function(d) { return d.heading || d.subheading; })
+    .classed('label', function(d) { return !d.heading; })
+    .transition().duration(250)
+    .attr('x', scales.rightSide + 40)
+    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.rightScale(d.position); });
+
+
+  container.append('svg:line')
+    .classed('median-line', true)
+    .attr('x1', leftSide - 50)
+    .attr('x2', rightSide + 50)
+    .attr('y1', leftScale(0.5))
+    .attr('y2', altRightScale(1))
+    .attr('stroke-dasharray', '10 4 2 4');
 }
 
 var topGraphFsm = new machina.Fsm({
@@ -247,15 +290,13 @@ var topGraphFsm = new machina.Fsm({
         this.rightScale = gapScale.copy()
           .range([this.height - this.padding, this.padding]);
         this.colorScale = chroma.scale([colors.blue[5], colors.blue[3]])
-          .domain([20000,100000], 3)
+          .domain([20000,100000])
           .mode('hsv')
           .out('hex');
         this.widthScale = groupPopulationScale.copy()
           .range([1, 6]);
 
-        console.log('scales set');
-
-        updateSlopegraphElement(this.selection, {
+        var params = {
           width : self.width,
           leftSide : 200,
           leftScale : self.leftScale,
@@ -270,7 +311,26 @@ var topGraphFsm = new machina.Fsm({
           leftTextFormat : function(v) { return Math.round(v * 100) + "%"; },
           rightTextFormat : function(v) { return Math.round(v * 100) + "¢"; },
           centerTextFn : function(d) { return groupings[d.group].name; }
-        });
+        };
+
+        updateSlopegraphElement(this.selection, params);
+
+        var wageGapPosition = 75;
+        generateSlopegraphLegend(this.container, {
+          leftLabels : [
+            { text : 'Percent Female', heading : true, position : 30 },
+            { text : 'more women', position: 0.91 },
+            { text : 'more men', position : -0.04 }
+          ],
+          rightLabels : [
+            { text : 'Wage Gap', heading : true, position : wageGapPosition },
+            { text : 'women make more', position : 1.1 },
+            { text : 'men make more', position: 0.48 },
+            { text : 'cents earned by women', subheading : true, position : wageGapPosition + 18 },
+            { text :  'per dollar earned by men', subheading : true, position: wageGapPosition + 18 + 16 }
+          ],
+          medianLine : 'both'
+        }, params);
       }
     }
   }
