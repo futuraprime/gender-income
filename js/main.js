@@ -373,15 +373,35 @@ var topGraphFsm = new machina.Fsm({
           centerTextFn : function(d) { return groupings[d.group].name; }
         };
         this.handle('render');
-      },
-      swapAxes : function(axis1Title, axis2Title) {
-        var axis1 = this.axes[axis1Title];
-        var axis2 = this.axes[axis2Title];
 
-        this.axes[axis1Title] = axis2;
-        this.axes[axis2Title] = axis1;
+        // console.log(_.mapValues(this.axes, 'name'));
+      },
+      swapAxes : function(axis1Position, axis2Position) {
+        var axis1 = this.axes[axis1Position];
+        var axis2 = this.axes[axis2Position];
+
+        this.axes[axis1Position] = axis2;
+        this.axes[axis2Position] = axis1;
 
         this.handle('render');
+      },
+      swapToAxisPair : function(axis1Name, axis2Name) {
+        // the trick here is we don't want to assume we know which
+        // side to put each axis on...
+
+        // we do, however, assume we only are rotating among the three axes: left, right, and color
+        var movingAxis;
+
+        var axis1Position = _.findKey(this.axes, { name : axis1Name });
+        var axis2Position = _.findKey(this.axes, { name : axis2Name });
+
+        // if both axes are displayed, stop
+        if(axis1Position !== 'color' && axis2Position !== 'color') { return; }
+
+        if(axis1Position === 'color') { movingAxis = axis2Position === 'right' ? 'left' : 'right'; }
+        if(axis2Position === 'color') { movingAxis = axis1Position === 'right' ? 'left' : 'right'; }
+
+        this.handle('swapAxes', 'color', movingAxis);
       },
       render : function() {
         updateSlopegraphElement(this.selection, this.axes);
