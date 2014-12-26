@@ -98,10 +98,11 @@ function Axis(options) {
   this.labels = options.labels;
   this.median = options.median || null;
 }
-Axis.prototype.generate = function(height, padding) {
+// direct here just funnels the values into the range instead of trying to be clever
+Axis.prototype.generate = function(height, padding, direct) {
   return {
     scale : this.scale.copy()
-      .range([height - padding, padding]),
+      .range(direct ? [height, padding] : [height - padding, padding]),
     value : this.value,
     offset : this.offset,
     format : this.format,
@@ -120,6 +121,7 @@ var gapScale = d3.scale.log()
 var groupPopulationScale = d3.scale.linear()
   .domain([1,10000000]);
 
+var axisTopPosition = 30;
 var proportionAxis = new Axis({
   scale : d3.scale.linear().domain([0,1]),
   value : function(d) { return d.B24126.total / d.B24124.total; },
@@ -200,20 +202,25 @@ function constructSlopegraphElement(enterGroup) {
   return enterGroup;
 }
 
-function updateSlopegraphElement(group, scales) {
-  var leftFn = function(d) { return scales.leftScale(scales.leftValue(d)); };
-  var rightFn = function(d) { return scales.rightScale(scales.rightValue(d)); };
-  var widthFn = function(d) { return scales.widthScale(scales.widthValue(d)); };
-  var colorFn = function(d) { return scales.colorScale(scales.colorValue(d)); };
+function updateSlopegraphElement(group, axes) {
+  var leftFn = function(d) {
+    return axes.left.scale(axes.left.value(d));
+  };
+  var rightFn = function(d) { return axes.right.scale(axes.right.value(d)); };
+  var widthFn = function(d) { return axes.width.scale(axes.width.value(d)); };
+  var colorFn = function(d) { return axes.color.scale(axes.color.value(d)); };
 
-  var crossWidth = scales.rightSide - scales.leftSide;
+  var leftSide = axes.left.offset;
+  var rightSide = axes.chartWidth - axes.right.offset;
+
+  var crossWidth = rightSide - leftSide;
 
   group.classed('active', false);
 
   group.select('line.item')
     .transition().duration(250)
-    .attr('x1', scales.leftSide)
-    .attr('x2', scales.rightSide)
+    .attr('x1', leftSide)
+    .attr('x2', rightSide)
     .attr('y1', leftFn)
     .attr('y2', rightFn)
     .attr('stroke', colorFn)
@@ -221,37 +228,37 @@ function updateSlopegraphElement(group, scales) {
 
   group.select('circle.leftdot')
     .transition().duration(250)
-    .attr('cx', scales.leftSide)
+    .attr('cx', leftSide)
     .attr('cy', leftFn)
     .attr('r', 4)
     .attr('fill', colorFn);
 
   group.select('circle.rightdot')
     .transition().duration(250)
-    .attr('cx', scales.rightSide)
+    .attr('cx', rightSide)
     .attr('cy', rightFn)
     .attr('r', 4)
     .attr('fill', colorFn);
 
   group.select('text.leftlabel')
-    .text(function(d) { return scales.leftTextFormat(scales.leftValue(d)); })
-    .attr('x', scales.leftSide - 7)
+    .text(function(d) { return axes.left.format(axes.left.value(d)); })
+    .attr('x', leftSide - 7)
     .attr('y', function(d) { return leftFn(d) + 5; });
 
   group.select('text.rightlabel')
-    .text(function(d) { return scales.rightTextFormat(scales.rightValue(d)); })
-    .attr('x', scales.rightSide + 7)
+    .text(function(d) { return axes.right.format(axes.right.value(d)); })
+    .attr('x', rightSide + 7)
     .attr('y', function(d) { return rightFn(d) + 5; });
 
   group.select('text.centerlabel')
-    .text(scales.centerTextFn)
+    .text(axes.centerTextFn)
     .attr('transform', function(d) {
       // this is tricky, we're going to angle them a bit...
       var rise = rightFn(d) - leftFn(d);
-      return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(scales.width/2)+', '+
+      return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(axes.chartWidth/2)+', '+
         ((leftFn(d) + rightFn(d)) / 2) +')';
     })
-    .attr('x', scales.width / 2)
+    .attr('x', axes.chartWidth / 2)
     .attr('y', function(d) {
       return (leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3;
     });
@@ -260,10 +267,10 @@ function updateSlopegraphElement(group, scales) {
   var spacing = 7;
   group.select('polygon.hoverline')
     .attr('points', function(d) {
-      return scales.leftSide  + ',' + ( leftFn(d) - spacing) + ',' +
-             scales.rightSide + ',' + (rightFn(d) - spacing) + ',' +
-             scales.rightSide + ',' + (rightFn(d) + spacing) + ',' +
-             scales.leftSide  + ',' + ( leftFn(d) + spacing);
+      return leftSide  + ',' + ( leftFn(d) - spacing) + ',' +
+             rightSide + ',' + (rightFn(d) - spacing) + ',' +
+             rightSide + ',' + (rightFn(d) + spacing) + ',' +
+             leftSide  + ',' + ( leftFn(d) + spacing);
     });
 
   return group;
@@ -366,24 +373,21 @@ var topGraphFsm = new machina.Fsm({
         this.widthScale = groupPopulationScale.copy()
           .range([1, 6]);
 
-        var params = {
-          width : self.width,
-          leftSide : 40,
-          leftScale : self.leftScale,
-          rightSide : self.width - 40,
-          rightScale : self.rightScale,
-          colorScale : self.colorScale,
-          widthScale : self.widthScale,
-          leftValue : function(d) { return d.B24126.total / d.B24124.total; },
-          rightValue : function(d) { return d.B24123.total / d.B24122.total; },
-          colorValue : function(d) { return d.B24121.total; },
-          widthValue : function(d) { return d.B24124.total; },
-          leftTextFormat : function(v) { return Math.round(v * 100) + "%"; },
-          rightTextFormat : function(v) { return Math.round(v * 100) + "¢"; },
+        var axes = {
+          chartWidth : self.width,
+          left : proportionAxis.generate(this.height, this.padding),
+          right : gapAxis.generate(this.height, this.padding),
+          width : groupPopulationAxis.generate(1, 6, true),
+          color : incomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
         };
+        // the color scales are a little custom
+        axes.color.scale = chroma.scale([colors.blue[5], colors.blue[3]])
+          .domain([20000,100000])
+          .mode('hsv')
+          .out('hex');
 
-        updateSlopegraphElement(this.selection, params);
+        updateSlopegraphElement(this.selection, axes);
 
         var axisTopPosition = 30;
         generateSlopegraphLegend(this.svg, {
