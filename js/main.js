@@ -208,6 +208,7 @@ function updateSlopegraphElement(group, axes) {
   var rightSide = axes.chartWidth - axes.right.offset;
 
   var crossWidth = rightSide - leftSide;
+  var center = crossWidth / 2 + leftSide;
 
   group.classed('active', false);
 
@@ -249,10 +250,10 @@ function updateSlopegraphElement(group, axes) {
     .attr('transform', function(d) {
       // this is tricky, we're going to angle them a bit...
       var rise = rightFn(d) - leftFn(d);
-      return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(axes.chartWidth/2)+', '+
-        ((leftFn(d) + rightFn(d)) / 2) +')';
+      return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(center)+', '+
+        ((leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3) +')';
     })
-    .attr('x', axes.chartWidth / 2)
+    .attr('x', center)
     .attr('y', function(d) {
       return (leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3;
     });
@@ -313,10 +314,10 @@ function generateSlopegraphLegend(container, axes) {
   median.enter().append('svg:line')
     .classed('median-line', true);
   median.exit().remove();
-  median.attr('x1', function(d) { return d.left === null ? rightSide - 20 : leftSide - 40; })
-    .attr('x2', function(d) { return d.right === null ? leftSide + 20 : rightSide + 40; })
-    .attr('y1', function(d) { return d.left === null ? axes.right.scale(d.right) : axes.left.scale(d.left); })
-    .attr('y2', function(d) { return d.right === null ? axes.left.scale(d.left) : axes.right.scale(d.right); });
+  median.attr('x1', function(d) { return d.left === undefined ? rightSide - 20 : leftSide - 40; })
+    .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
+    .attr('y1', function(d) { return d.left === undefined ? axes.right.scale(d.right) : axes.left.scale(d.left); })
+    .attr('y2', function(d) { return d.right === undefined ? axes.left.scale(d.left) : axes.right.scale(d.right); });
 }
 
 var topGraphFsm = new machina.Fsm({
