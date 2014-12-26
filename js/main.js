@@ -92,6 +92,7 @@ var dataPromise = oboe('./data/data_5yr.json');
 
 function Axis(options) {
   this.scale = options.scale;
+  this.colorScale = options.colorScale;
   this.value = options.value;
   this.offset = options.offset;
   this.format = options.format;
@@ -103,6 +104,7 @@ Axis.prototype.generate = function(height, padding, direct) {
   return {
     scale : this.scale.copy()
       .range(direct ? [height, padding] : [height - padding, padding]),
+    colorScale : this.colorScale,
     value : this.value,
     offset : this.offset,
     format : this.format,
@@ -124,6 +126,8 @@ var groupPopulationScale = d3.scale.linear()
 var axisTopPosition = 30;
 var proportionAxis = new Axis({
   scale : d3.scale.linear().domain([0,1]),
+  colorScale : chroma.scale([colors.green[5], colors.green[3]]).domain([0, 1])
+    .mode('hsv').out('hex'),
   value : function(d) { return d.B24126.total / d.B24124.total; },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "%"; },
@@ -137,6 +141,8 @@ var proportionAxis = new Axis({
 });
 var incomeAxis = new Axis({
   scale : d3.scale.linear().domain([0,250000]),
+  colorScale : chroma.scale([colors.blue[5], colors.blue[3]]).domain([20000,100000])
+    .mode('hsv').out('hex'),
   value : function(d) { return d.B24121.total; },
   offset : 70,
   format: function(v) { return "$" + commaNumber(v); },
@@ -148,6 +154,8 @@ var incomeAxis = new Axis({
 });
 var gapAxis = new Axis({
   scale : d3.scale.log().base(2).domain([0.5, 2]),
+  colorScale : chroma.scale([colors.yellow[4], colors.yellow[2]]).domain([0.5, 2])
+    .mode('hsv').out('hex'),
   value : function(d) { return d.B24123.total / d.B24122.total; },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
@@ -155,8 +163,8 @@ var gapAxis = new Axis({
     { text : 'Wage Gap', heading : true, position : axisTopPosition },
     { text : 'women make more', position : 1.1 },
     { text : 'men make more', position: 0.48 },
-    { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18 },
-    { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16 },
+    { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18, classed : { speciallabel : false } },
+    { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16, classed : { speciallabel : false } },
     { text : 'equal', position : 1.01, classed : { speciallabel : true } }
   ],
   median : 1
@@ -203,12 +211,10 @@ function constructSlopegraphElement(enterGroup) {
 }
 
 function updateSlopegraphElement(group, axes) {
-  var leftFn = function(d) {
-    return axes.left.scale(axes.left.value(d));
-  };
+  var leftFn = function(d) { return axes.left.scale(axes.left.value(d)); };
   var rightFn = function(d) { return axes.right.scale(axes.right.value(d)); };
   var widthFn = function(d) { return axes.width.scale(axes.width.value(d)); };
-  var colorFn = function(d) { return axes.color.scale(axes.color.value(d)); };
+  var colorFn = function(d) { return axes.color.colorScale(axes.color.value(d)); };
 
   var leftSide = axes.left.offset;
   var rightSide = axes.chartWidth - axes.right.offset;
@@ -362,25 +368,14 @@ var topGraphFsm = new machina.Fsm({
     'loading' : {
       loaded : function(data) {
         this.updateData(data);
-        this.transition('proportion-gap');
+        this.transition('base-chart');
       }
     },
-    'proportion-gap' : {
+    'base-chart' : {
       _onEnter : function() {
         var self = this;
 
-        this.leftScale = proportionScale.copy()
-          .range([this.height - this.padding, this.padding]);
-        this.rightScale = gapScale.copy()
-          .range([this.height - this.padding, this.padding]);
-        this.colorScale = chroma.scale([colors.blue[5], colors.blue[3]])
-          .domain([20000,100000])
-          .mode('hsv')
-          .out('hex');
-        this.widthScale = groupPopulationScale.copy()
-          .range([1, 6]);
-
-        var axes = {
+        this.axes = {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
           right : gapAxis.generate(this.height, this.padding),
@@ -388,14 +383,20 @@ var topGraphFsm = new machina.Fsm({
           color : incomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
         };
-        // the color scales are a little custom
-        axes.color.scale = chroma.scale([colors.blue[5], colors.blue[3]])
-          .domain([20000,100000])
-          .mode('hsv')
-          .out('hex');
+        this.handle('render');
+      },
+      swapAxes : function(axis1Title, axis2Title) {
+        var axis1 = this.axes[axis1Title];
+        var axis2 = this.axes[axis2Title];
 
-        updateSlopegraphElement(this.selection, axes);
-        generateSlopegraphLegend(this.svg, axes);
+        this.axes[axis1Title] = axis2;
+        this.axes[axis2Title] = axis1;
+
+        this.handle('render');
+      },
+      render : function() {
+        updateSlopegraphElement(this.selection, this.axes);
+        generateSlopegraphLegend(this.svg, this.axes);
       }
     },
     'income-gap' : {
