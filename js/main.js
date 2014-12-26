@@ -276,46 +276,53 @@ function updateSlopegraphElement(group, axes) {
   return group;
 }
 
-function generateSlopegraphLegend(container, texts, scales) {
+function generateSlopegraphLegend(container, axes) {
+  var leftSide = axes.left.offset;
+  var rightSide = axes.chartWidth - axes.right.offset;
+
   var left = container.selectAll('text.leftaxislabel')
-    .data(texts.leftLabels);
+    .data(axes.left.labels);
   left.enter().append('svg:text')
     .classed('leftaxislabel label', true)
-    .attr('x', scales.leftSide - 40);
+    .attr('x', leftSide - 40);
   left.exit().remove();
   left.text(function(d) { return d.text; })
     .classed('mainlabel', function(d) { return d.heading || d.subheading; })
     .classed('label', function(d) { return !d.heading; })
     .each(function(d) { d3.select(this).classed(d.classed); })
     .transition().duration(250)
-    .attr('x', scales.leftSide - 40)
-    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.leftScale(d.position); });
+    .attr('x', leftSide - 40)
+    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : axes.left.scale(d.position); });
 
 
   var right = container.selectAll('text.rightaxislabel')
-    .data(texts.rightLabels);
+    .data(axes.right.labels);
   right.enter().append('svg:text')
     .classed('rightaxislabel label', true)
-    .attr('x', scales.rightSide + 40);
+    .attr('x', rightSide + 40);
   right.exit().remove();
   right.text(function(d) { return d.text; })
     .classed('mainlabel', function(d) { return d.heading || d.subheading; })
     .classed('label', function(d) { return !d.heading; })
     .each(function(d) { d3.select(this).classed(d.classed); })
     .transition().duration(250)
-    .attr('x', scales.rightSide + 40)
-    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.rightScale(d.position); });
+    .attr('x', rightSide + 40)
+    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : axes.right.scale(d.position); });
 
+  var medianLine = [{
+    left : axes.left.median,
+    right : axes.right.median
+  }];
 
   var median = container.selectAll('line.median-line')
-    .data(texts.medianLine);
+    .data(medianLine);
   median.enter().append('svg:line')
     .classed('median-line', true);
   median.exit().remove();
-  median.attr('x1', function(d) { return d.left === undefined ? scales.rightSide - 20 : scales.leftSide - 40; })
-    .attr('x2', function(d) { return d.right === undefined ? scales.leftSide + 20 : scales.rightSide + 40; })
-    .attr('y1', function(d) { return d.left === undefined ? scales.rightScale(d.right) : scales.leftScale(d.left); })
-    .attr('y2', function(d) { return d.right === undefined ? scales.leftScale(d.left) : scales.rightScale(d.right); });
+  median.attr('x1', function(d) { return d.left === undefined ? rightSide - 20 : leftSide - 40; })
+    .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
+    .attr('y1', function(d) { return d.left === undefined ? axes.right.scale(d.right) : axes.left.scale(d.left); })
+    .attr('y2', function(d) { return d.right === undefined ? axes.left.scale(d.left) : axes.right.scale(d.right); });
 }
 
 var topGraphFsm = new machina.Fsm({
@@ -388,24 +395,7 @@ var topGraphFsm = new machina.Fsm({
           .out('hex');
 
         updateSlopegraphElement(this.selection, axes);
-
-        var axisTopPosition = 30;
-        generateSlopegraphLegend(this.svg, {
-          leftLabels : [
-            { text : 'Percent Female', heading : true, position : axisTopPosition },
-            { text : 'more women', position: 0.91 },
-            { text : 'more men', position : -0.02 }
-          ],
-          rightLabels : [
-            { text : 'Wage Gap', heading : true, position : axisTopPosition },
-            { text : 'women make more', position : 1.1 },
-            { text : 'men make more', position: 0.48 },
-            { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18 },
-            { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16 },
-            { text : 'equal', position : 1.01, classed : { speciallabel : true } }
-          ],
-          medianLine : [{ left : 0.5, right : 1 }]
-        }, params);
+        generateSlopegraphLegend(this.svg, axes);
       }
     },
     'income-gap' : {
