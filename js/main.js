@@ -218,7 +218,7 @@ function generateSlopegraphLegend(container, texts, scales) {
     .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.leftScale(d.position); });
 
 
-  var right = container.selectAll('text.rightAxisLabel')
+  var right = container.selectAll('text.rightaxislabel')
     .data(texts.rightLabels);
   right.enter().append('svg:text')
     .classed('rightaxislabel label', true)
@@ -238,8 +238,8 @@ function generateSlopegraphLegend(container, texts, scales) {
   median.enter().append('svg:line')
     .classed('median-line', true);
   median.exit().remove();
-  median.attr('x1', function(d) { return d.left === undefined ? scales.rightSide - 5 : scales.leftSide - 40; })
-    .attr('x2', function(d) { return d.right === undefined ? scales.leftSide - 5 : scales.rightSide + 40; })
+  median.attr('x1', function(d) { return d.left === undefined ? scales.rightSide - 20 : scales.leftSide - 40; })
+    .attr('x2', function(d) { return d.right === undefined ? scales.leftSide + 20 : scales.rightSide + 40; })
     .attr('y1', function(d) { return d.left === undefined ? scales.rightScale(d.right) : scales.leftScale(d.left); })
     .attr('y2', function(d) { return d.right === undefined ? scales.leftScale(d.left) : scales.rightScale(d.right); });
 }
@@ -281,10 +281,10 @@ var topGraphFsm = new machina.Fsm({
     'loading' : {
       loaded : function(data) {
         this.updateData(data);
-        this.transition('first');
+        this.transition('proportion-gap');
       }
     },
-    'first' : {
+    'proportion-gap' : {
       _onEnter : function() {
         var self = this;
 
@@ -318,25 +318,129 @@ var topGraphFsm = new machina.Fsm({
 
         updateSlopegraphElement(this.selection, params);
 
-        var wageGapPosition = 30;
+        var axisTopPosition = 30;
         generateSlopegraphLegend(this.svg, {
           leftLabels : [
-            { text : 'Percent Female', heading : true, position : 30 },
+            { text : 'Percent Female', heading : true, position : axisTopPosition },
             { text : 'more women', position: 0.91 },
             { text : 'more men', position : -0.02 }
           ],
           rightLabels : [
-            { text : 'Wage Gap', heading : true, position : wageGapPosition },
+            { text : 'Wage Gap', heading : true, position : axisTopPosition },
             { text : 'women make more', position : 1.1 },
             { text : 'men make more', position: 0.48 },
-            { text : 'cents earned by women', subheading : true, position : wageGapPosition + 18 },
-            { text : 'per dollar earned by men', subheading : true, position: wageGapPosition + 18 + 16 },
+            { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18 },
+            { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16 },
             { text : 'equal', position : 1.01, classed : { speciallabel : true } }
           ],
           medianLine : [{ left : 0.5, right : 1 }]
         }, params);
       }
-    }
+    },
+    'income-gap' : {
+      _onEnter : function() {
+        var self = this;
+
+        this.leftScale = incomeScale.copy()
+          .range([this.height - this.padding, this.padding]);
+        this.rightScale = gapScale.copy()
+          .range([this.height - this.padding, this.padding]);
+        this.colorScale = chroma.scale([colors.green[5], colors.green[3]])
+          .domain([0, 1])
+          .mode('hsv')
+          .out('hex');
+        this.widthScale = groupPopulationScale.copy()
+          .range([1, 6]);
+
+        var params = {
+          width : self.width,
+          leftSide : 70,
+          leftScale : self.leftScale,
+          rightSide : self.width - 40,
+          rightScale : self.rightScale,
+          colorScale : self.colorScale,
+          widthScale : self.widthScale,
+          leftValue : function(d) { return d.B24121.total; },
+          rightValue : function(d) { return d.B24123.total / d.B24122.total; },
+          colorValue : function(d) { return d.B24126.total / d.B24124.total; },
+          widthValue : function(d) { return d.B24124.total; },
+          leftTextFormat : function(v) { return "$" + commaNumber(v); },
+          rightTextFormat : function(v) { return Math.round(v * 100) + "¢"; },
+          centerTextFn : function(d) { return groupings[d.group].name; }
+        };
+
+        updateSlopegraphElement(this.selection, params);
+
+        var axisTopPosition = 70;
+        generateSlopegraphLegend(this.svg, {
+          leftLabels : [
+            { text : 'Median Income', heading : true, position : axisTopPosition },
+            { text : 'higher income', position: 100000 },
+            { text : 'lower income', position : 0 }
+          ],
+          rightLabels : [
+            { text : 'Wage Gap', heading : true, position : axisTopPosition },
+            { text : 'women make more', position : 1.1 },
+            { text : 'men make more', position: 0.48 },
+            { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18 },
+            { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16 },
+            { text : 'equal', position : 1.01, classed : { speciallabel : true } }
+          ],
+          medianLine : [{ right : 1 }]
+        }, params);
+      }
+    },
+    'proportion-income' : {
+      _onEnter : function() {
+        var self = this;
+
+        this.leftScale = proportionScale.copy()
+          .range([this.height - this.padding, this.padding]);
+        this.rightScale = incomeScale.copy()
+          .range([this.height - this.padding, this.padding]);
+        this.colorScale = chroma.scale([colors.yellow[4], colors.yellow[2]])
+          .domain([0.5, 2])
+          .mode('hsv')
+          .out('hex');
+        this.widthScale = groupPopulationScale.copy()
+          .range([1, 6]);
+
+        var params = {
+          width : self.width,
+          leftSide : 40,
+          leftScale : self.leftScale,
+          rightSide : self.width - 70,
+          rightScale : self.rightScale,
+          colorScale : self.colorScale,
+          widthScale : self.widthScale,
+          leftValue : function(d) { return d.B24126.total / d.B24124.total; },
+          rightValue : function(d) { return d.B24121.total; },
+          colorValue : function(d) { return d.B24123.total / d.B24122.total; },
+          widthValue : function(d) { return d.B24124.total; },
+          leftTextFormat : function(v) { return Math.round(v * 100) + "%"; },
+          rightTextFormat : function(v) { return "$" + commaNumber(v); },
+          centerTextFn : function(d) { return groupings[d.group].name; }
+        };
+
+        updateSlopegraphElement(this.selection, params);
+
+        var axisTopPosition = 30;
+        generateSlopegraphLegend(this.svg, {
+          leftLabels : [
+            { text : 'Percent Female', heading : true, position : axisTopPosition },
+            { text : 'more women', position: 0.91 },
+            { text : 'more men', position : -0.02 },
+            { text : 'equal', position : 0.51, classed : { speciallabel : true } }
+          ],
+          rightLabels : [
+            { text : 'Median Income', heading : true, position : axisTopPosition },
+            { text : 'higher income', position: 100000 },
+            { text : 'lower income', position : 0 }
+          ],
+          medianLine : [{ left : 0.5 }]
+        }, params);
+      }
+    },
   }
 });
 
