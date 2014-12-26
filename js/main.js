@@ -90,6 +90,26 @@ var groupings = {
 
 var dataPromise = oboe('./data/data_5yr.json');
 
+function Axis(options) {
+  this.scale = options.scale;
+  this.value = options.value;
+  this.offset = options.offset;
+  this.format = options.format;
+  this.labels = options.labels;
+  this.median = options.median || null;
+}
+Axis.prototype.generate = function(height, padding) {
+  return {
+    scale : this.scale.copy()
+      .range([height - padding, padding]),
+    value : this.value,
+    offset : this.offset,
+    format : this.format,
+    labels : this.labels,
+    median : this.median
+  };
+};
+
 var proportionScale = d3.scale.linear()
   .domain([0,1]);
 var incomeScale = d3.scale.linear()
@@ -99,6 +119,53 @@ var gapScale = d3.scale.log()
   .domain([0.5, 2]);
 var groupPopulationScale = d3.scale.linear()
   .domain([1,10000000]);
+
+var proportionAxis = new Axis({
+  scale : d3.scale.linear().domain([0,1]),
+  value : function(d) { return d.B24126.total / d.B24124.total; },
+  offset : 40,
+  format : function(v) { return Math.round(v * 100) + "%"; },
+  labels : [
+    { text : 'Percent Female', heading : true, position : axisTopPosition },
+    { text : 'more women', position: 0.91 },
+    { text : 'more men', position : -0.02 },
+    { text : 'equal', position : 0.51, classed : { speciallabel : true } }
+  ],
+  median : 0.5
+});
+var incomeAxis = new Axis({
+  scale : d3.scale.linear().domain([0,250000]),
+  value : function(d) { return d.B24121.total; },
+  offset : 70,
+  format: function(v) { return "$" + commaNumber(v); },
+  labels : [
+    { text : 'Median Income', heading : true, position : axisTopPosition },
+    { text : 'higher income', position: 100000 },
+    { text : 'lower income', position : 0 }
+  ]
+});
+var gapAxis = new Axis({
+  scale : d3.scale.log().base(2).domain([0.5, 2]),
+  value : function(d) { return d.B24123.total / d.B24122.total; },
+  offset : 40,
+  format : function(v) { return Math.round(v * 100) + "¢"; },
+  labels : [
+    { text : 'Wage Gap', heading : true, position : axisTopPosition },
+    { text : 'women make more', position : 1.1 },
+    { text : 'men make more', position: 0.48 },
+    { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18 },
+    { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16 },
+    { text : 'equal', position : 1.01, classed : { speciallabel : true } }
+  ],
+  median : 1
+});
+var groupPopulationAxis = new Axis({
+  scale : d3.scale.linear().domain([1, 10000000]),
+  value : function(d) { return d.B24124.total; },
+  offset : 90, // a guess, probably won't actually be used
+  format : function(v) { return commaNumber(v); },
+  labels : []  // also probably won't be used
+});
 
 function constructSlopegraphElement(enterGroup) {
   // main line
