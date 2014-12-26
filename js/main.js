@@ -107,16 +107,6 @@ Axis.prototype.generate = function(height, padding, direct) {
   };
 };
 
-var proportionScale = d3.scale.linear()
-  .domain([0,1]);
-var incomeScale = d3.scale.linear()
-  .domain([0,250000]);
-var gapScale = d3.scale.log()
-  .base(2)
-  .domain([0.5, 2]);
-var groupPopulationScale = d3.scale.linear()
-  .domain([1,10000000]);
-
 var axisTopPosition = 30;
 var proportionAxis = new Axis({
   name : 'proportion',
