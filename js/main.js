@@ -325,10 +325,10 @@ function generateSlopegraphLegend(container, axes) {
   median.enter().append('svg:line')
     .classed('median-line', true);
   median.exit().remove();
-  median.attr('x1', function(d) { return d.left === undefined ? rightSide - 20 : leftSide - 40; })
-    .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
-    .attr('y1', function(d) { return d.left === undefined ? axes.right.scale(d.right) : axes.left.scale(d.left); })
-    .attr('y2', function(d) { return d.right === undefined ? axes.left.scale(d.left) : axes.right.scale(d.right); });
+  median.attr('x1', function(d) { return d.left === null ? rightSide - 20 : leftSide - 40; })
+    .attr('x2', function(d) { return d.right === null ? leftSide + 20 : rightSide + 40; })
+    .attr('y1', function(d) { return d.left === null ? axes.right.scale(d.right) : axes.left.scale(d.left); })
+    .attr('y2', function(d) { return d.right === null ? axes.left.scale(d.left) : axes.right.scale(d.right); });
 }
 
 var topGraphFsm = new machina.Fsm({
