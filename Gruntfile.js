@@ -49,6 +49,7 @@ module.exports = function(grunt) {
       dev : {
         options : {
           // maybe later?
+          // compress : false
         },
         files : {
           'css/style.css' : 'stylus/style.styl'
