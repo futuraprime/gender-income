@@ -212,6 +212,7 @@ function generateSlopegraphLegend(container, texts, scales) {
   left.text(function(d) { return d.text; })
     .classed('mainlabel', function(d) { return d.heading || d.subheading; })
     .classed('label', function(d) { return !d.heading; })
+    .each(function(d) { d3.select(this).classed(d.classed); })
     .transition().duration(250)
     .attr('x', scales.leftSide - 40)
     .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.leftScale(d.position); });
@@ -226,29 +227,33 @@ function generateSlopegraphLegend(container, texts, scales) {
   right.text(function(d) { return d.text; })
     .classed('mainlabel', function(d) { return d.heading || d.subheading; })
     .classed('label', function(d) { return !d.heading; })
+    .each(function(d) { d3.select(this).classed(d.classed); })
     .transition().duration(250)
     .attr('x', scales.rightSide + 40)
     .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : scales.rightScale(d.position); });
 
 
-  container.append('svg:line')
-    .classed('median-line', true)
-    .attr('x1', leftSide - 50)
-    .attr('x2', rightSide + 50)
-    .attr('y1', leftScale(0.5))
-    .attr('y2', altRightScale(1))
-    .attr('stroke-dasharray', '10 4 2 4');
+  var median = container.selectAll('line.median-line')
+    .data(texts.medianLine);
+  median.enter().append('svg:line')
+    .classed('median-line', true);
+  median.exit().remove();
+  median.attr('x1', function(d) { return d.left === undefined ? scales.rightSide - 5 : scales.leftSide - 40; })
+    .attr('x2', function(d) { return d.right === undefined ? scales.leftSide - 5 : scales.rightSide + 40; })
+    .attr('y1', function(d) { return d.left === undefined ? scales.rightScale(d.right) : scales.leftScale(d.left); })
+    .attr('y2', function(d) { return d.right === undefined ? scales.leftScale(d.left) : scales.rightScale(d.right); });
 }
 
 var topGraphFsm = new machina.Fsm({
   initialize : function() {
     var self = this;
 
-    this.container = d3.select('#firstInteractive').append('svg');
-    var containerElement = document.getElementById('firstInteractive');
+    this.svg = d3.select('#firstInteractive').append('svg');
+    this.container = this.svg.append('svg:g');
+    var svg = document.getElementById('firstInteractive');
 
-    this.width = containerElement.clientWidth;
-    this.height = containerElement.clientHeight;
+    this.width = svg.clientWidth;
+    this.height = svg.clientHeight;
 
     this.padding = 20;
 
@@ -283,8 +288,6 @@ var topGraphFsm = new machina.Fsm({
       _onEnter : function() {
         var self = this;
 
-        console.log('in onEnter');
-
         this.leftScale = proportionScale.copy()
           .range([this.height - this.padding, this.padding]);
         this.rightScale = gapScale.copy()
@@ -315,98 +318,28 @@ var topGraphFsm = new machina.Fsm({
 
         updateSlopegraphElement(this.selection, params);
 
-        var wageGapPosition = 75;
-        generateSlopegraphLegend(this.container, {
+        var wageGapPosition = 30;
+        generateSlopegraphLegend(this.svg, {
           leftLabels : [
             { text : 'Percent Female', heading : true, position : 30 },
             { text : 'more women', position: 0.91 },
-            { text : 'more men', position : -0.04 }
+            { text : 'more men', position : -0.02 }
           ],
           rightLabels : [
             { text : 'Wage Gap', heading : true, position : wageGapPosition },
             { text : 'women make more', position : 1.1 },
             { text : 'men make more', position: 0.48 },
             { text : 'cents earned by women', subheading : true, position : wageGapPosition + 18 },
-            { text :  'per dollar earned by men', subheading : true, position: wageGapPosition + 18 + 16 }
+            { text : 'per dollar earned by men', subheading : true, position: wageGapPosition + 18 + 16 },
+            { text : 'equal', position : 1.01, classed : { speciallabel : true } }
           ],
-          medianLine : 'both'
+          medianLine : [{ left : 0.5, right : 1 }]
         }, params);
       }
     }
   }
 });
 
-
-// var items = firstInteractive.selectAll('g.line-group');
-
-var groupsColorScale = chroma.scale([colors.blue[5], colors.blue[2]])
-    .domain([20000,100000], 4)
-    .mode('hsv');
-
-dataPromise.done(function(fullData) {
-  window.fullData = fullData;
-  console.log('done');
-
-  firstInteractive.append('svg:text')
-    .classed('leftlabel', true)
-    .classed('label', true)
-    .text('more women')
-    .attr('x', leftSide + 40)
-    .attr('y', leftScale(1.01));
-
-  firstInteractive.append('svg:text')
-    .classed('leftlabel', true)
-    .classed('label', true)
-    .text('more men')
-    .attr('x', leftSide + 40)
-    .attr('y', leftScale(0.06));
-
-  firstInteractive.append('svg:text')
-    .classed('leftlabel', true)
-    .classed('mainlabel', true)
-    .text('Percent Female')
-    .attr('x', leftSide + 40)
-    .attr('y', 15);
-
-  firstInteractive.append('svg:text')
-    // .classed('centerlabel', true)
-    .classed('label', true)
-    .text('women make more')
-    .attr('x', rightSide - 40)
-    .attr('y', altRightScale(1.25));
-
-  firstInteractive.append('svg:text')
-    // .classed('centerlabel', true)
-    .classed('label', true)
-    .text('men make more')
-    .attr('x', rightSide - 40)
-    .attr('y', altRightScale(0.75));
-
-  firstInteractive.append('svg:text')
-    // .classed('centerlabel', true)
-    .classed('mainlabel', true)
-    .text('Wage Gap')
-    .attr('x', rightSide - 42)
-    .attr('y', 15);
-  firstInteractive.append('svg:text')
-    .classed('label unitlabel', true)
-    .text('cents earned by women')
-    .attr('x', rightSide - 40)
-    .attr('y', 33);
-  firstInteractive.append('svg:text')
-    .classed('label unitlabel', true)
-    .text('per dollar earned by men')
-    .attr('x', rightSide - 40)
-    .attr('y', 49);
-
-  firstInteractive.append('svg:line')
-    .classed('median-line', true)
-    .attr('x1', leftSide - 50)
-    .attr('x2', rightSide + 50)
-    .attr('y1', leftScale(0.5))
-    .attr('y2', altRightScale(1))
-    .attr('stroke-dasharray', '10 4 2 4');
-});
 
 
 // var fullData = [];
