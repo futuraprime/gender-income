@@ -83,17 +83,19 @@ var groupings = {
 var dataPromise = oboe('./data/data_5yr.json');
 
 function Axis(options) {
-  this.scale = options.scale;
-  this.colorScale = options.colorScale;
-  this.value = options.value;
-  this.offset = options.offset;
-  this.format = options.format;
-  this.labels = options.labels;
-  this.median = options.median || null;
+  _.extend(this, options);
+  // this.scale = options.scale;
+  // this.colorScale = options.colorScale;
+  // this.value = options.value;
+  // this.offset = options.offset;
+  // this.format = options.format;
+  // this.labels = options.labels;
+  // this.median = options.median || null;
 }
 // direct here just funnels the values into the range instead of trying to be clever
 Axis.prototype.generate = function(height, padding, direct) {
   return {
+    name : this.name,
     scale : this.scale.copy()
       .range(direct ? [height, padding] : [height - padding, padding]),
     colorScale : this.colorScale,
@@ -117,6 +119,7 @@ var groupPopulationScale = d3.scale.linear()
 
 var axisTopPosition = 30;
 var proportionAxis = new Axis({
+  name : 'proportion',
   scale : d3.scale.linear().domain([0,1]),
   colorScale : chroma.scale([colors.green[5], colors.green[3]]).domain([0, 1])
     .mode('hsv').out('hex'),
@@ -132,6 +135,7 @@ var proportionAxis = new Axis({
   median : 0.5
 });
 var incomeAxis = new Axis({
+  name : 'income',
   scale : d3.scale.linear().domain([0,250000]),
   colorScale : chroma.scale([colors.blue[5], colors.blue[3]]).domain([20000,100000])
     .mode('hsv').out('hex'),
@@ -145,6 +149,7 @@ var incomeAxis = new Axis({
   ]
 });
 var gapAxis = new Axis({
+  name : 'wagegap',
   scale : d3.scale.log().base(2).domain([0.5, 2]),
   colorScale : chroma.scale([colors.yellow[4], colors.yellow[2]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
@@ -162,6 +167,7 @@ var gapAxis = new Axis({
   median : 1
 });
 var groupPopulationAxis = new Axis({
+  name : 'population',
   scale : d3.scale.linear().domain([1, 10000000]),
   value : function(d) { return d.B24124.total; },
   offset : 90, // a guess, probably won't actually be used
