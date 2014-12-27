@@ -100,6 +100,7 @@ Axis.prototype.generate = function(height, padding, direct) {
   };
 };
 
+// define the axes
 var axisTopPosition = 30;
 var proportionAxis = new Axis({
   name : 'proportion',
@@ -158,177 +159,191 @@ var groupPopulationAxis = new Axis({
   labels : []  // also probably won't be used
 });
 
-function constructSlopegraphElement(enterGroup) {
-  // main line
-  enterGroup.append('svg:line')
-    .classed('item', true);
 
-  enterGroup.append('svg:circle')
-    .classed('leftdot dot', true);
+var SlopeGraphFsm = machina.Fsm.extend({
+  constructSlopegraphElement : function(enterGroup, graphState) {
+    // main line
+    enterGroup.append('svg:line')
+      .classed('item', true);
 
-  enterGroup.append('svg:circle')
-    .classed('rightdot dot', true);
+    enterGroup.append('svg:circle')
+      .classed('leftdot dot', true);
 
-  enterGroup.append('svg:text')
-    .classed('leftlabel label', true);
+    enterGroup.append('svg:circle')
+      .classed('rightdot dot', true);
 
-  enterGroup.append('svg:text')
-    .classed('rightlabel label', true);
+    enterGroup.append('svg:text')
+      .classed('leftlabel label', true);
 
-  enterGroup.append('svg:text')
-    .classed('centerlabel mainlinelabel label', true);
+    enterGroup.append('svg:text')
+      .classed('rightlabel label', true);
 
-  enterGroup.append('svg:polygon')
-    .classed('hoverline', true)
-    .on('mouseenter', function(d) {
-      this.parentNode.classList.add('active');
-      this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
-    })
-    .on('mouseleave', function(d) {
-      this.parentNode.classList.remove('active');
+    enterGroup.append('svg:text')
+      .classed('centerlabel mainlinelabel label', true);
+
+    enterGroup.append('svg:polygon')
+      .classed('hoverline', true)
+      .on('mouseenter', function(d) {
+        graphState.active = d.name;
+        this.parentNode.classList.add('active');
+        this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
+      })
+      .on('mouseleave', function(d) {
+        graphState.active = null;
+        this.parentNode.classList.remove('active');
+      });
+
+    return enterGroup;
+  },
+
+  updateSlopegraphElement : function(group, graphState) {
+    var leftFn = function(d) { return graphState.left.scale(graphState.left.value(d)); };
+    var rightFn = function(d) { return graphState.right.scale(graphState.right.value(d)); };
+    var widthFn = function(d) { return graphState.width.scale(graphState.width.value(d)); };
+    var colorFn = function(d) { return graphState.color.colorScale(graphState.color.value(d)); };
+
+    var leftSide = graphState.left.offset;
+    var rightSide = graphState.chartWidth - graphState.right.offset;
+
+    var crossWidth = rightSide - leftSide;
+    var center = crossWidth / 2 + leftSide;
+
+    group.classed('highlight', function(d) {
+      if(!graphState.highlighted) { return false; }
+
+      if(!graphState.highlighted.length) {
+        // make it into an array
+        graphState.highlighted = [graphState.highlighted];
+      }
+
+      if(graphState.highlighted.indexOf(d.name) > -1) {
+        // move this to the front as well as adding the class
+        this.parentNode.appendChild(this);
+        return true;
+      }
+      return false;
+    });
+    group.classed('active', function(d) {
+      console.log('active', graphState.active);
+      if(!graphState.active) { return false; }
+
+      if(graphState.active === d.name) {
+        this.parentNode.appendChild(this);
+        return true;
+      }
+      return false;
     });
 
-  return enterGroup;
-}
+    group.select('line.item')
+      .transition().duration(250)
+      .attr('x1', leftSide)
+      .attr('x2', rightSide)
+      .attr('y1', leftFn)
+      .attr('y2', rightFn)
+      .attr('stroke', colorFn)
+      .attr('stroke-width', widthFn);
 
-function updateSlopegraphElement(group, graphState) {
-  var leftFn = function(d) { return graphState.left.scale(graphState.left.value(d)); };
-  var rightFn = function(d) { return graphState.right.scale(graphState.right.value(d)); };
-  var widthFn = function(d) { return graphState.width.scale(graphState.width.value(d)); };
-  var colorFn = function(d) { return graphState.color.colorScale(graphState.color.value(d)); };
+    group.select('circle.leftdot')
+      .transition().duration(250)
+      .attr('cx', leftSide)
+      .attr('cy', leftFn)
+      .attr('r', 4)
+      .attr('fill', colorFn);
 
-  var leftSide = graphState.left.offset;
-  var rightSide = graphState.chartWidth - graphState.right.offset;
+    group.select('circle.rightdot')
+      .transition().duration(250)
+      .attr('cx', rightSide)
+      .attr('cy', rightFn)
+      .attr('r', 4)
+      .attr('fill', colorFn);
 
-  var crossWidth = rightSide - leftSide;
-  var center = crossWidth / 2 + leftSide;
+    group.select('text.leftlabel')
+      .text(function(d) { return graphState.left.format(graphState.left.value(d)); })
+      .attr('x', leftSide - 7)
+      .attr('y', function(d) { return leftFn(d) + 5; });
 
-  group.classed('active', false);
-  group.classed('highlight', function(d) {
-    if(!graphState.highlighted) { return false; }
+    group.select('text.rightlabel')
+      .text(function(d) { return graphState.right.format(graphState.right.value(d)); })
+      .attr('x', rightSide + 7)
+      .attr('y', function(d) { return rightFn(d) + 5; });
 
-    if(!graphState.highlighted.length) {
-      // make it into an array
-      graphState.highlighted = [graphState.highlighted];
-    }
-
-    if(graphState.highlighted.indexOf(d.name) > -1) {
-      // move this to the front as well as adding the class
-      this.parentNode.appendChild(this);
-      return true;
-    }
-    return false;
-  });
-
-  group.select('line.item')
-    .transition().duration(250)
-    .attr('x1', leftSide)
-    .attr('x2', rightSide)
-    .attr('y1', leftFn)
-    .attr('y2', rightFn)
-    .attr('stroke', colorFn)
-    .attr('stroke-width', widthFn);
-
-  group.select('circle.leftdot')
-    .transition().duration(250)
-    .attr('cx', leftSide)
-    .attr('cy', leftFn)
-    .attr('r', 4)
-    .attr('fill', colorFn);
-
-  group.select('circle.rightdot')
-    .transition().duration(250)
-    .attr('cx', rightSide)
-    .attr('cy', rightFn)
-    .attr('r', 4)
-    .attr('fill', colorFn);
-
-  group.select('text.leftlabel')
-    .text(function(d) { return graphState.left.format(graphState.left.value(d)); })
-    .attr('x', leftSide - 7)
-    .attr('y', function(d) { return leftFn(d) + 5; });
-
-  group.select('text.rightlabel')
-    .text(function(d) { return graphState.right.format(graphState.right.value(d)); })
-    .attr('x', rightSide + 7)
-    .attr('y', function(d) { return rightFn(d) + 5; });
-
-  group.select('text.centerlabel')
-    .text(graphState.centerTextFn)
-    .attr('transform', function(d) {
-      // this is tricky, we're going to angle them a bit...
-      var rise = rightFn(d) - leftFn(d);
-      return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(center)+', '+
-        ((leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3) +')';
-    })
-    .attr('x', center)
-    .attr('y', function(d) {
-      return (leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3;
-    });
+    group.select('text.centerlabel')
+      .text(graphState.centerTextFn)
+      .attr('transform', function(d) {
+        // this is tricky, we're going to angle them a bit...
+        var rise = rightFn(d) - leftFn(d);
+        return 'rotate(' + (Math.PI * 18 * Math.atan(rise/crossWidth)) + ', '+(center)+', '+
+          ((leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3) +')';
+      })
+      .attr('x', center)
+      .attr('y', function(d) {
+        return (leftFn(d) + rightFn(d)) / 2 - widthFn(d) / 2 - 3;
+      });
 
 
-  var spacing = 7;
-  group.select('polygon.hoverline')
-    .attr('points', function(d) {
-      return leftSide  + ',' + ( leftFn(d) - spacing) + ',' +
-             rightSide + ',' + (rightFn(d) - spacing) + ',' +
-             rightSide + ',' + (rightFn(d) + spacing) + ',' +
-             leftSide  + ',' + ( leftFn(d) + spacing);
-    });
+    var spacing = 7;
+    group.select('polygon.hoverline')
+      .attr('points', function(d) {
+        return leftSide  + ',' + ( leftFn(d) - spacing) + ',' +
+               rightSide + ',' + (rightFn(d) - spacing) + ',' +
+               rightSide + ',' + (rightFn(d) + spacing) + ',' +
+               leftSide  + ',' + ( leftFn(d) + spacing);
+      });
 
-  return group;
-}
+    return group;
+  },
 
-function generateSlopegraphLegend(container, graphState) {
-  var leftSide = graphState.left.offset;
-  var rightSide = graphState.chartWidth - graphState.right.offset;
+  generateSlopegraphLegend : function(container, graphState) {
+    var leftSide = graphState.left.offset;
+    var rightSide = graphState.chartWidth - graphState.right.offset;
 
-  var left = container.selectAll('text.leftaxislabel')
-    .data(graphState.left.labels);
-  left.enter().append('svg:text')
-    .classed('leftaxislabel label', true)
-    .attr('x', leftSide - 40);
-  left.exit().remove();
-  left.text(function(d) { return d.text; })
-    .classed('mainlabel', function(d) { return d.heading || d.subheading; })
-    .classed('label', function(d) { return !d.heading; })
-    .each(function(d) { d3.select(this).classed(d.classed); })
-    .transition().duration(250)
-    .attr('x', leftSide - 40)
-    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.left.scale(d.position); });
+    var left = container.selectAll('text.leftaxislabel')
+      .data(graphState.left.labels);
+    left.enter().append('svg:text')
+      .classed('leftaxislabel label', true)
+      .attr('x', leftSide - 40);
+    left.exit().remove();
+    left.text(function(d) { return d.text; })
+      .classed('mainlabel', function(d) { return d.heading || d.subheading; })
+      .classed('label', function(d) { return !d.heading; })
+      .each(function(d) { d3.select(this).classed(d.classed); })
+      .transition().duration(250)
+      .attr('x', leftSide - 40)
+      .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.left.scale(d.position); });
 
 
-  var right = container.selectAll('text.rightaxislabel')
-    .data(graphState.right.labels);
-  right.enter().append('svg:text')
-    .classed('rightaxislabel label', true)
-    .attr('x', rightSide + 40);
-  right.exit().remove();
-  right.text(function(d) { return d.text; })
-    .classed('mainlabel', function(d) { return d.heading || d.subheading; })
-    .classed('label', function(d) { return !d.heading; })
-    .each(function(d) { d3.select(this).classed(d.classed); })
-    .transition().duration(250)
-    .attr('x', rightSide + 40)
-    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.right.scale(d.position); });
+    var right = container.selectAll('text.rightaxislabel')
+      .data(graphState.right.labels);
+    right.enter().append('svg:text')
+      .classed('rightaxislabel label', true)
+      .attr('x', rightSide + 40);
+    right.exit().remove();
+    right.text(function(d) { return d.text; })
+      .classed('mainlabel', function(d) { return d.heading || d.subheading; })
+      .classed('label', function(d) { return !d.heading; })
+      .each(function(d) { d3.select(this).classed(d.classed); })
+      .transition().duration(250)
+      .attr('x', rightSide + 40)
+      .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.right.scale(d.position); });
 
-  var medianLine = [{
-    left : graphState.left.median,
-    right : graphState.right.median
-  }];
+    var medianLine = [{
+      left : graphState.left.median,
+      right : graphState.right.median
+    }];
 
-  var median = container.selectAll('line.median-line')
-    .data(medianLine);
-  median.enter().append('svg:line')
-    .classed('median-line', true);
-  median.exit().remove();
-  median.attr('x1', function(d) { return d.left === undefined ? rightSide - 20 : leftSide - 40; })
-    .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
-    .attr('y1', function(d) { return d.left === undefined ? graphState.right.scale(d.right) : graphState.left.scale(d.left); })
-    .attr('y2', function(d) { return d.right === undefined ? graphState.left.scale(d.left) : graphState.right.scale(d.right); });
-}
+    var median = container.selectAll('line.median-line')
+      .data(medianLine);
+    median.enter().append('svg:line')
+      .classed('median-line', true);
+    median.exit().remove();
+    median.attr('x1', function(d) { return d.left === undefined ? rightSide - 20 : leftSide - 40; })
+      .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
+      .attr('y1', function(d) { return d.left === undefined ? graphState.right.scale(d.right) : graphState.left.scale(d.left); })
+      .attr('y2', function(d) { return d.right === undefined ? graphState.left.scale(d.left) : graphState.right.scale(d.right); });
+  }
+});
 
-var topGraphFsm = new machina.Fsm({
+var topGraphFsm = new SlopeGraphFsm({
   initialize : function() {
     var self = this;
 
@@ -340,6 +355,7 @@ var topGraphFsm = new machina.Fsm({
     this.height = svg.clientHeight;
 
     this.padding = 20;
+    this.graphState = {};
 
     dataPromise.done(function(data) {
       self.handle('loaded', data);
@@ -358,7 +374,7 @@ var topGraphFsm = new machina.Fsm({
     var enter = this.selection.enter().append('svg:g')
       .classed('line-group', true);
 
-    constructSlopegraphElement(enter);
+    this.constructSlopegraphElement(enter, this.graphState);
   },
 
   states : {
@@ -372,14 +388,14 @@ var topGraphFsm = new machina.Fsm({
       _onEnter : function() {
         var self = this;
 
-        this.graphState = {
+        _.extend(this.graphState, {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
           right : gapAxis.generate(this.height, this.padding),
           width : groupPopulationAxis.generate(1, 6, true),
           color : incomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
-        };
+        });
         this.handle('render');
       },
       swapAxes : function(axis1Position, axis2Position) {
@@ -410,8 +426,8 @@ var topGraphFsm = new machina.Fsm({
         this.handle('swapAxes', 'color', movingAxis);
       },
       render : function() {
-        updateSlopegraphElement(this.selection, this.graphState);
-        generateSlopegraphLegend(this.svg, this.graphState);
+        this.updateSlopegraphElement(this.selection, this.graphState);
+        this.generateSlopegraphLegend(this.svg, this.graphState);
       },
       highlight : function(name) {
         this.graphState.highlighted = name;
