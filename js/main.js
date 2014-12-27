@@ -162,6 +162,8 @@ var groupPopulationAxis = new Axis({
 
 var SlopeGraphFsm = machina.Fsm.extend({
   constructSlopegraphElement : function(enterGroup, graphState) {
+    var self = this;
+
     // main line
     enterGroup.append('svg:line')
       .classed('item', true);
@@ -185,12 +187,14 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .classed('hoverline', true)
       .on('mouseenter', function(d) {
         graphState.active = d.name;
-        this.parentNode.classList.add('active');
-        this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
+        self.handle('render');
+        // this.parentNode.classList.add('active');
+        // this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
       })
       .on('mouseleave', function(d) {
         graphState.active = null;
-        this.parentNode.classList.remove('active');
+        self.handle('render');
+        // this.parentNode.classList.remove('active');
       });
 
     return enterGroup;
@@ -224,9 +228,11 @@ var SlopeGraphFsm = machina.Fsm.extend({
       return false;
     });
     group.classed('active', function(d) {
-      console.log('active', graphState.active);
       if(!graphState.active) { return false; }
 
+      // note: while highlighted is forced to an array, active is always
+      // a string. there can only ever be one active item, though there
+      // may be multiple items highlighted
       if(graphState.active === d.name) {
         this.parentNode.appendChild(this);
         return true;
