@@ -212,7 +212,14 @@ function updateSlopegraphElement(group, graphState) {
 
   group.classed('active', false);
   group.classed('highlight', function(d) {
-    if(d.name === graphState.highlighted) {
+    if(!graphState.highlighted) { return false; }
+
+    if(!graphState.highlighted.length) {
+      // make it into an array
+      graphState.highlighted = [graphState.highlighted];
+    }
+
+    if(graphState.highlighted.indexOf(d.name) > -1) {
       // move this to the front as well as adding the class
       this.parentNode.appendChild(this);
       return true;
