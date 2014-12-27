@@ -84,13 +84,6 @@ var dataPromise = oboe('./data/data_5yr.json');
 
 function Axis(options) {
   _.extend(this, options);
-  // this.scale = options.scale;
-  // this.colorScale = options.colorScale;
-  // this.value = options.value;
-  // this.offset = options.offset;
-  // this.format = options.format;
-  // this.labels = options.labels;
-  // this.median = options.median || null;
 }
 // direct here just funnels the values into the range instead of trying to be clever
 Axis.prototype.generate = function(height, padding, direct) {
