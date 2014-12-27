@@ -1,3 +1,6 @@
+c_Active = #B13631;
+c_Highlight = #D75B5B;
+
 font-feature-settings(prop, value=1) {
   -webkit-font-feature-settings: prop value;
   -ms-font-feature-settings: prop value;
@@ -51,14 +54,22 @@ font-feature-settings(prop, value=1) {
   // stroke: #B7B4B4;
   transition: stroke 250ms ease-out;
   
+  .highlight & {
+    stroke : c_Highlight;
+  }
+  
   .active & {
-    stroke: #B13631;
+    stroke: c_Active;
   }
 }
 
 .dot {
+  .highlight & {
+    fill : c_Highlight;
+  }
+
   .active & {
-    fill : #B13631;
+    fill : c_Active;
   }
 }
 

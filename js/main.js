@@ -198,19 +198,27 @@ function constructSlopegraphElement(enterGroup) {
   return enterGroup;
 }
 
-function updateSlopegraphElement(group, axes) {
-  var leftFn = function(d) { return axes.left.scale(axes.left.value(d)); };
-  var rightFn = function(d) { return axes.right.scale(axes.right.value(d)); };
-  var widthFn = function(d) { return axes.width.scale(axes.width.value(d)); };
-  var colorFn = function(d) { return axes.color.colorScale(axes.color.value(d)); };
+function updateSlopegraphElement(group, graphState) {
+  var leftFn = function(d) { return graphState.left.scale(graphState.left.value(d)); };
+  var rightFn = function(d) { return graphState.right.scale(graphState.right.value(d)); };
+  var widthFn = function(d) { return graphState.width.scale(graphState.width.value(d)); };
+  var colorFn = function(d) { return graphState.color.colorScale(graphState.color.value(d)); };
 
-  var leftSide = axes.left.offset;
-  var rightSide = axes.chartWidth - axes.right.offset;
+  var leftSide = graphState.left.offset;
+  var rightSide = graphState.chartWidth - graphState.right.offset;
 
   var crossWidth = rightSide - leftSide;
   var center = crossWidth / 2 + leftSide;
 
   group.classed('active', false);
+  group.classed('highlight', function(d) {
+    if(d.name === graphState.highlighted) {
+      // move this to the front as well as adding the class
+      this.parentNode.appendChild(this);
+      return true;
+    }
+    return false;
+  });
 
   group.select('line.item')
     .transition().duration(250)
@@ -236,17 +244,17 @@ function updateSlopegraphElement(group, axes) {
     .attr('fill', colorFn);
 
   group.select('text.leftlabel')
-    .text(function(d) { return axes.left.format(axes.left.value(d)); })
+    .text(function(d) { return graphState.left.format(graphState.left.value(d)); })
     .attr('x', leftSide - 7)
     .attr('y', function(d) { return leftFn(d) + 5; });
 
   group.select('text.rightlabel')
-    .text(function(d) { return axes.right.format(axes.right.value(d)); })
+    .text(function(d) { return graphState.right.format(graphState.right.value(d)); })
     .attr('x', rightSide + 7)
     .attr('y', function(d) { return rightFn(d) + 5; });
 
   group.select('text.centerlabel')
-    .text(axes.centerTextFn)
+    .text(graphState.centerTextFn)
     .attr('transform', function(d) {
       // this is tricky, we're going to angle them a bit...
       var rise = rightFn(d) - leftFn(d);
@@ -271,12 +279,12 @@ function updateSlopegraphElement(group, axes) {
   return group;
 }
 
-function generateSlopegraphLegend(container, axes) {
-  var leftSide = axes.left.offset;
-  var rightSide = axes.chartWidth - axes.right.offset;
+function generateSlopegraphLegend(container, graphState) {
+  var leftSide = graphState.left.offset;
+  var rightSide = graphState.chartWidth - graphState.right.offset;
 
   var left = container.selectAll('text.leftaxislabel')
-    .data(axes.left.labels);
+    .data(graphState.left.labels);
   left.enter().append('svg:text')
     .classed('leftaxislabel label', true)
     .attr('x', leftSide - 40);
@@ -287,11 +295,11 @@ function generateSlopegraphLegend(container, axes) {
     .each(function(d) { d3.select(this).classed(d.classed); })
     .transition().duration(250)
     .attr('x', leftSide - 40)
-    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : axes.left.scale(d.position); });
+    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.left.scale(d.position); });
 
 
   var right = container.selectAll('text.rightaxislabel')
-    .data(axes.right.labels);
+    .data(graphState.right.labels);
   right.enter().append('svg:text')
     .classed('rightaxislabel label', true)
     .attr('x', rightSide + 40);
@@ -302,11 +310,11 @@ function generateSlopegraphLegend(container, axes) {
     .each(function(d) { d3.select(this).classed(d.classed); })
     .transition().duration(250)
     .attr('x', rightSide + 40)
-    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : axes.right.scale(d.position); });
+    .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.right.scale(d.position); });
 
   var medianLine = [{
-    left : axes.left.median,
-    right : axes.right.median
+    left : graphState.left.median,
+    right : graphState.right.median
   }];
 
   var median = container.selectAll('line.median-line')
@@ -316,8 +324,8 @@ function generateSlopegraphLegend(container, axes) {
   median.exit().remove();
   median.attr('x1', function(d) { return d.left === undefined ? rightSide - 20 : leftSide - 40; })
     .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
-    .attr('y1', function(d) { return d.left === undefined ? axes.right.scale(d.right) : axes.left.scale(d.left); })
-    .attr('y2', function(d) { return d.right === undefined ? axes.left.scale(d.left) : axes.right.scale(d.right); });
+    .attr('y1', function(d) { return d.left === undefined ? graphState.right.scale(d.right) : graphState.left.scale(d.left); })
+    .attr('y2', function(d) { return d.right === undefined ? graphState.left.scale(d.left) : graphState.right.scale(d.right); });
 }
 
 var topGraphFsm = new machina.Fsm({
@@ -364,7 +372,7 @@ var topGraphFsm = new machina.Fsm({
       _onEnter : function() {
         var self = this;
 
-        this.axes = {
+        this.graphState = {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
           right : gapAxis.generate(this.height, this.padding),
@@ -373,15 +381,13 @@ var topGraphFsm = new machina.Fsm({
           centerTextFn : function(d) { return groupings[d.group].name; }
         };
         this.handle('render');
-
-        // console.log(_.mapValues(this.axes, 'name'));
       },
       swapAxes : function(axis1Position, axis2Position) {
-        var axis1 = this.axes[axis1Position];
-        var axis2 = this.axes[axis2Position];
+        var axis1 = this.graphState[axis1Position];
+        var axis2 = this.graphState[axis2Position];
 
-        this.axes[axis1Position] = axis2;
-        this.axes[axis2Position] = axis1;
+        this.graphState[axis1Position] = axis2;
+        this.graphState[axis2Position] = axis1;
 
         this.handle('render');
       },
@@ -392,8 +398,8 @@ var topGraphFsm = new machina.Fsm({
         // we do, however, assume we only are rotating among the three axes: left, right, and color
         var movingAxis;
 
-        var axis1Position = _.findKey(this.axes, { name : axis1Name });
-        var axis2Position = _.findKey(this.axes, { name : axis2Name });
+        var axis1Position = _.findKey(this.graphState, { name : axis1Name });
+        var axis2Position = _.findKey(this.graphState, { name : axis2Name });
 
         // if both axes are displayed, stop
         if(axis1Position !== 'color' && axis2Position !== 'color') { return; }
@@ -404,8 +410,13 @@ var topGraphFsm = new machina.Fsm({
         this.handle('swapAxes', 'color', movingAxis);
       },
       render : function() {
-        updateSlopegraphElement(this.selection, this.axes);
-        generateSlopegraphLegend(this.svg, this.axes);
+        updateSlopegraphElement(this.selection, this.graphState);
+        generateSlopegraphLegend(this.svg, this.graphState);
+      },
+      highlight : function(name) {
+        this.graphState.highlighted = name;
+
+        this.handle('render');
       }
     }
   }
