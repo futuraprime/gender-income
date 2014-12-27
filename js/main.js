@@ -355,10 +355,10 @@ var topGraphFsm = new SlopeGraphFsm({
 
     this.svg = d3.select('#firstInteractive').append('svg');
     this.container = this.svg.append('svg:g');
-    var svg = document.getElementById('firstInteractive');
+    this.svgElement = this.svg.node();
 
-    this.width = svg.clientWidth;
-    this.height = svg.clientHeight;
+    this.width = this.svgElement.clientWidth;
+    this.height = this.svgElement.clientHeight;
 
     this.padding = 20;
     this.graphState = {};
@@ -403,6 +403,11 @@ var topGraphFsm = new SlopeGraphFsm({
           centerTextFn : function(d) { return groupings[d.group].name; }
         });
         this.handle('render');
+
+        window.addEventListener('resize', _.throttle(function() {
+          console.log('resize listener fired');
+          self.handle('render');
+        }, 250));
       },
       swapAxes : function(axis1Position, axis2Position) {
         var axis1 = this.graphState[axis1Position];
@@ -432,6 +437,11 @@ var topGraphFsm = new SlopeGraphFsm({
         this.handle('swapAxes', 'color', movingAxis);
       },
       render : function() {
+        this.width = this.svgElement.clientWidth;
+        this.height = this.svgElement.clientHeight;
+
+        this.graphState.chartWidth = this.width;
+
         this.updateSlopegraphElement(this.selection, this.graphState);
         this.generateSlopegraphLegend(this.svg, this.graphState);
       },
