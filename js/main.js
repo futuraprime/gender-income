@@ -69,7 +69,7 @@ var groupings = {
         'health_support' : { color : colors.blue[2],   name : 'Healthcare Support' },
             'protective' : { color : colors.blue[3],   name : 'Protective Service' },
       'food_preparation' : { color : colors.blue[4],   name : 'Food Preparation and Serving Related' },
-  'building_maintenance' : { color : colors.blue[5],   name : 'Buildng and Grounds Cleaning and Maintenance' },
+  'building_maintenance' : { color : colors.blue[5],   name : 'Building and Grounds Cleaning and Maintenance' },
                'service' : { color : colors.yellow[1], name : 'Personal Care and Service' },
           'sales_retail' : { color : colors.yellow[2], name : 'Sales and Related' },
          'admin_support' : { color : colors.yellow[3], name : 'Office and Administrative Support' },
@@ -409,7 +409,6 @@ var TopGraphFsm = SlopeGraphFsm.extend({
     var axis1Position = _.findKey(this.graphState, { name : axis1Name });
     var axis2Position = _.findKey(this.graphState, { name : axis2Name });
 
-    console.log(axis1Position, axis2Position);
     // if both axes are displayed, stop
     if(axis1Position !== 'color' && axis2Position !== 'color') { return; }
 
@@ -476,7 +475,6 @@ var topGraphFsm = new TopGraphFsm({
     $('a.topgraph-link').click(function(evt) {
       evt.preventDefault();
       if(this.hasAttribute('data-state')) {
-        console.log('changing to...', this.getAttribute('data-state'));
         self.transition(this.getAttribute('data-state'));
       } else if(this.hasAttribute('data-event')) {
         self.handle(this.getAttribute('data-event'));
@@ -496,6 +494,19 @@ var topGraphFsm = new TopGraphFsm({
     "proportion-gap" : {
       _onEnter : function() {
         this.swapToAxisPair('proportion', 'wagegap');
+      }
+    },
+    "female-dominated" : {
+      _onEnter : function() {
+        this.highlight([
+          'operations_finance',
+          'social_services',
+          'health_practitioner',
+          'education',
+          'service',
+          'health_support',
+          'admin_support'
+        ]);
       }
     },
     "income-gap" : {
