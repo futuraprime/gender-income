@@ -463,7 +463,7 @@ var TopGraphFsm = SlopeGraphFsm.extend({
         _.extend(this.graphState, {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
-          right : gapAxis.generate(this.height, this.padding, { axisLabelOffset : 120 }),
+          right : gapAxis.generate(this.height, this.padding, { axisLabelOffset : 90 }),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
           color : groupIncomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
