@@ -232,6 +232,8 @@ var SlopeGraphFsm = machina.Fsm.extend({
   },
 
   updateSlopegraphElement : function(group, graphState) {
+    var self = this;
+
     var leftFn = function(d) { return graphState.left.scale(graphState.left.value(d)); };
     var rightFn = function(d) { return graphState.right.scale(graphState.right.value(d)); };
     var widthFn = function(d) { return graphState.width.scale(graphState.width.value(d)); };
@@ -244,14 +246,14 @@ var SlopeGraphFsm = machina.Fsm.extend({
     var center = crossWidth / 2 + leftSide;
 
     group.classed('highlight', function(d) {
-      if(!graphState.highlighted) { return false; }
+      if(!self.highlighted) { return false; }
 
-      if(!_.isArray(graphState.highlighted)) {
+      if(!_.isArray(self.highlighted)) {
         // make it into an array
-        graphState.highlighted = [graphState.highlighted];
+        self.highlighted = [self.highlighted];
       }
 
-      if(graphState.highlighted.indexOf(d.name) > -1) {
+      if(self.highlighted.indexOf(d.name) > -1) {
         // move this to the front as well as adding the class
         this.parentNode.appendChild(this);
         return true;
@@ -259,12 +261,13 @@ var SlopeGraphFsm = machina.Fsm.extend({
       return false;
     });
     group.classed('active', function(d) {
-      if(!graphState.active) { return false; }
+      if(!self.activeItem) { return false; }
+
 
       // note: while highlighted is forced to an array, active is always
       // a string. there can only ever be one active item, though there
       // may be multiple items highlighted
-      if(graphState.active === d.name) {
+      if(self.activeItem === d.name) {
         this.parentNode.appendChild(this);
         return true;
       }
@@ -382,11 +385,11 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('y2', function(d) { return d.right === undefined ? graphState.left.scale(d.left) : graphState.right.scale(d.right); });
   },
   active : function(name) {
-    this.graphState.active = name;
+    this.activeItem = name;
     this.render();
   },
   highlight : function(name) {
-    this.graphState.highlighted = name;
+    this.highlighted = name;
     this.render();
   }
 });
@@ -649,13 +652,20 @@ var ProfessionFsm = SlopeGraphFsm.extend({
 
   updateData : function(data) {
     // this one works with groups
-    this.selection = this.container.selectAll('g.line-group')
-      .data(_.filter(data.professions, { 'group' : this.focusGroup }));
+    this.selection = this.container.selectAll('g.line-group');
 
-    var enter = this.selection.enter().append('svg:g')
-      .classed('line-group', true);
+    var enter;
+    for(var i=0,l=this.graphState.length;i<l;++i) {
+      this.graphState[i].group = this.container.append('svg:g')
+        .classed('subgraph', true);
+      this.graphState[i].selection = this.graphState[i].group
+        .selectAll('g.line-group')
+        .data(_.filter(data.professions, { 'group' : this.focusGroup }));
 
-    this.constructSlopegraphElement(enter, this.graphState[0]);
+      enter = this.graphState[i].selection.enter().append('svg:g')
+        .classed('line-group', true);
+      this.constructSlopegraphElement(enter, this.graphState[i]);
+    }
   },
   render : function() {
     this.width = this.svgElement.clientWidth;
@@ -663,8 +673,12 @@ var ProfessionFsm = SlopeGraphFsm.extend({
 
     this.graphState.chartWidth = this.width * 0.3;
 
-    this.updateSlopegraphElement(this.selection, this.graphState[0]);
-    this.generateSlopegraphLegend(this.svg, this.graphState[0]);
+    for(var i=0,l=this.graphState.length;i<l;++i) {
+      this.graphState[i].group
+        .style('transform', 'translate('+100 * i+'%, 0)');
+      this.updateSlopegraphElement(this.graphState[i].selection, this.graphState[i]);
+      this.generateSlopegraphLegend(this.graphState[i].group, this.graphState[i]);
+    }
   },
   states : {
     'loading' : {
@@ -678,11 +692,27 @@ var ProfessionFsm = SlopeGraphFsm.extend({
         var self = this;
 
         _.extend(this.graphState[0], {
-          chartWidth : self.width * 0.3,
+          chartWidth : self.width * 0.33,
+          left : incomeAxis.generate(this.height, this.padding),
+          right : proportionAxis.generate(this.height, this.padding),
+          color : gapAxis.generate(this.height, this.padding),
+          width : groupPopulationAxis.generate(1, 6, { direct: true }),
+          centerTextFn : function(d) { return d.name; }
+        });
+        _.extend(this.graphState[1], {
+          chartWidth : self.width * 0.33,
           left : proportionAxis.generate(this.height, this.padding),
           right : gapAxis.generate(this.height, this.padding),
-          width : groupPopulationAxis.generate(1, 6, { direct: true }),
           color : incomeAxis.generate(this.height, this.padding),
+          width : groupPopulationAxis.generate(1, 6, { direct: true }),
+          centerTextFn : function(d) { return d.name; }
+        });
+        _.extend(this.graphState[2], {
+          chartWidth : self.width * 0.33,
+          left : gapAxis.generate(this.height, this.padding),
+          right : incomeAxis.generate(this.height, this.padding),
+          color : proportionAxis.generate(this.height, this.padding),
+          width : groupPopulationAxis.generate(1, 6, { direct: true }),
           centerTextFn : function(d) { return d.name; }
         });
         this.render();
