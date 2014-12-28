@@ -186,6 +186,15 @@ var gapAxis = new Axis({
   ],
   median : 1
 });
+var populationAxis = new Axis({
+  name : 'population',
+  scale : d3.scale.linear().domain([1, 1000000]),
+  value : function(d) { return d.B24124.total; },
+  value : function(d) { return d.B24124.total; },
+  offset : 90, // a guess, probably won't actually be used
+  format : function(v) { return commaNumber(v); },
+  labels : []  // also probably won't be used
+});
 var groupPopulationAxis = new Axis({
   name : 'population',
   scale : d3.scale.linear().domain([1, 10000000]),
@@ -722,7 +731,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
           left : incomeAxis.generate(this.height, this.padding),
           right : proportionAxis.generate(this.height, this.padding, { extendLabels : true }),
           color : gapAxis.generate(this.height, this.padding),
-          width : groupPopulationAxis.generate(1, 6, { direct: true }),
+          width : populationAxis.generate(1, 6, { direct: true }),
           centerTextFn : function(d) { return d.name; }
         });
         _.extend(this.graphState[1], {
@@ -730,7 +739,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
           left : proportionAxis.generate(this.height, this.padding, { hideLabels : true }),
           right : gapAxis.generate(this.height, this.padding, { extendLabels : true }),
           color : incomeAxis.generate(this.height, this.padding),
-          width : groupPopulationAxis.generate(1, 6, { direct: true }),
+          width : populationAxis.generate(1, 6, { direct: true }),
           centerTextFn : function(d) { return d.name; }
         });
         _.extend(this.graphState[2], {
@@ -738,7 +747,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
           left : gapAxis.generate(this.height, this.padding, { hideLabels : true }),
           right : incomeAxis.generate(this.height, this.padding),
           color : proportionAxis.generate(this.height, this.padding),
-          width : groupPopulationAxis.generate(1, 6, { direct: true }),
+          width : populationAxis.generate(1, 6, { direct: true }),
           centerTextFn : function(d) { return d.name; }
         });
         this.render();
