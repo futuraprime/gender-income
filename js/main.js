@@ -182,15 +182,10 @@ var SlopeGraphFsm = machina.Fsm.extend({
     enterGroup.append('svg:polygon')
       .classed('hoverline', true)
       .on('mouseenter', function(d) {
-        graphState.active = d.name;
-        self.render();
-        // this.parentNode.classList.add('active');
-        // this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
+        self.active(d.name);
       })
       .on('mouseleave', function(d) {
-        graphState.active = null;
-        self.render();
-        // this.parentNode.classList.remove('active');
+        self.active();
       });
 
     return enterGroup;
@@ -211,7 +206,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
     group.classed('highlight', function(d) {
       if(!graphState.highlighted) { return false; }
 
-      if(!graphState.highlighted.length) {
+      if(!_.isArray(graphState.highlighted)) {
         // make it into an array
         graphState.highlighted = [graphState.highlighted];
       }
@@ -416,14 +411,15 @@ var TopGraphFsm = SlopeGraphFsm.extend({
     this.updateSlopegraphElement(this.selection, this.graphState);
     this.generateSlopegraphLegend(this.svg, this.graphState);
 
-    console.log(this.graphState);
-
     $('span.topgraph-leftaxis').html(this.graphState.left.presentableName);
     $('span.topgraph-rightaxis').html(this.graphState.right.presentableName);
   },
+  active : function(name) {
+    this.graphState.active = name;
+    this.render();
+  },
   highlight : function(name) {
     this.graphState.highlighted = name;
-
     this.render();
   },
 
@@ -461,9 +457,22 @@ var topGraphFsm = new TopGraphFsm({
     var self = this;
     TopGraphFsm.prototype.initialize.apply(this);
 
-    $('a.topgraphlink').click(function(evt) {
+    $('a.topgraph-link').click(function(evt) {
       evt.preventDefault();
-      self.handle(this.getAttribute('data-event'));
+      if(this.hasAttribute('data-state')) {
+        self.transition(this.getAttribute('data-state'));
+      } else if(this.hasAttribute('data-event')) {
+        self.handle(this.getAttribute('data-event'));
+      } else if(this.hasAttribute('data-function')) {
+        self[this.getAttribute('data-function')].apply(self, JSON.parse(this.getAttribute('data-arguments')));
+      }
+    });
+    $('a.topgraph-active').click(function(evt) {
+      evt.preventDefault();
+    }).hover(function(evt) {
+      self.active(this.getAttribute('data-active'));
+    }, function(evt) {
+      self.active(null);
     });
   },
   states : {
