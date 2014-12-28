@@ -146,7 +146,7 @@ var gapAxis = new Axis({
   name : 'wagegap',
   presentableName : 'wage gap',
   scale : d3.scale.log().base(2).domain([0.5, 2]),
-  colorScale : chroma.scale([colors.yellow[4], colors.yellow[2]]).domain([0.5, 2])
+  colorScale : chroma.scale([colors.yellow[5], colors.yellow[3]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
   value : function(d) { return d.B24123.total / d.B24122.total; },
   offset : 40,
@@ -563,6 +563,19 @@ var topGraphFsm = new TopGraphFsm({
           'engineering',
           'management',
           'science'
+        ]);
+        this.highlightState = this.state;
+        this.activate('highlight');
+      }
+    },
+    "low-earning" : {
+      _onEnter : function() {
+        this.highlight([
+          'health_support',
+          'building_maintenance',
+          'farm_fish_forest',
+          'service',
+          'food_preparation'
         ]);
         this.highlightState = this.state;
         this.activate('highlight');
