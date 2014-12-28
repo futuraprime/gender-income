@@ -7,6 +7,10 @@ var folderMount = function folderMount(connect, point) {
   return connect.static(path.resolve(point));
 };
 
+marked.setOptions({
+  smartypants: true
+});
+
 module.exports = function(grunt) {
   grunt.registerTask('parseMd', 'parse Markdown files into template', function() {
     var files = grunt.file.expand('text/*.md');
