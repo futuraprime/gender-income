@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gender and Wages</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <script type="text/javascript" src="//use.typekit.net/kso0koy.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script src="deps/jquery/dist/jquery.js"></script>
-  <script src="deps/lodash/dist/lodash.js"></script>
-  <script src="deps/machina/lib/machina.js"></script>
-  <script src="deps/d3/d3.js"></script>
-  <script src="deps/chroma-js/chroma.js"></script>
-  <script src="deps/oboe/dist/oboe-browser.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="main-interactive">
-    <h1>Finding an Unequal Wage</h1>
-    <section id="first" class="section-text"><p>In the United States, men earn more than women&#x2014;quite a bit more, as it happens. Currently, the &#x201C;gender wage gap&#x201D; is about 78 cents to the dollar&#x2014;that is, for every dollar a man earns, on average, a woman earns only 78 cents. (The gap is about the same for only full-time workers.)</p>
-</section>
-    <div class="chart-pair">
-      <div id="firstInteractive" class="mainchart interactive left">
-        <h3>Women and the Pay Gap</h3>
-      </div>
-      <section id="mainChart"><p>Happily, some professions are more equal than others. <a href="#" class="topgraph-link axis-control" data-state="proportion-gap">Gender breakdown</a> plays a role. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census&#x2019; industry categories. Unsurprisingly, most <a href="#" class="topgraph-link highlight-control" data-state="female-dominated">female-dominated</a> industries do better. For example, <a href="#" class="topgraph-active" data-active="health_support">healthcare support</a> and <a href="#" class="topgraph-active" data-active="admin_support">office administration</a> are staffed mostly by women, and pay them better than average&#x2014;though, still not equally to men.</p>
-<p>Industries <a href="#" class="topgraph-link highlight-control" data-state="male-dominated">with few women</a> tend towards equality as well.</p>
-<p>Far and away the <em>least</em> equal industry is <a href="#" class="topgraph-active" data-active="law">the law</a>&#x2014;which is also the <a href="#" class="topgraph-link axis-control" data-state="income-gap">highest earning</a>. Other <a href="#" class="topgraph-link highlight-control" data-state="high-earning">high-earning professions</a> tend to be near or above average.</p>
-<p>Among industries, <a href="#" class="topgraph-link axis-control" data-state="proportion-income">income does not correspond to gender proportions</a>, as neither high-earning nor <a href="#" class="topgraph-link highlight-control" data-state="low-earning">low-earning professions</a> group towards either end.</p>
-</section>
-    </div>
-    <div class="triple-chart">
-      <h3>Legal Workers</h3>
-      <div class="chart" id="law"></div>
+  <head>
+    <title>Gender and Wages</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script type="text/javascript" src="//use.typekit.net/kso0koy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="deps/jquery/dist/jquery.js"></script>
+    <script src="deps/lodash/dist/lodash.js"></script>
+    <script src="deps/machina/lib/machina.js"></script>
+    <script src="deps/d3/d3.js"></script>
+    <script src="deps/chroma-js/chroma.js"></script>
+    <script src="deps/oboe/dist/oboe-browser.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="main-interactive">
+      <h1>Finding an Unequal Wage</h1>
+      <section id="first" class="section-text"><p>In the United States, men earn more than women&#x2014;quite a bit more, as it happens. Currently, the &#x201C;gender wage gap&#x201D; is about 78 cents to the dollar&#x2014;that is, for every dollar a man earns, on average, a woman earns only 78 cents. (The gap is about the same for only full-time workers.)</p>
+      </section>
+      <div class="chart-pair">
+        <div id="firstInteractive" class="mainchart interactive left">
+          <h3>Women and the Pay Gap</h3>
+        </div>
+        <section id="mainChart"><p>Happily, some professions are more equal than others. <a href="#" class="topgraph-link axis-control" data-state="proportion-gap">Gender breakdown</a> plays a role. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census&#x2019; industry categories. Unsurprisingly, most <a href="#" class="topgraph-link highlight-control" data-state="female-dominated">female-dominated</a> industries do better. For example, <a href="#" class="topgraph-active" data-active="health_support">healthcare support</a> and <a href="#" class="topgraph-active" data-active="admin_support">office administration</a> are staffed mostly by women, and pay them better than average&#x2014;though, still not equally to men.</p>
+        <p>Industries <a href="#" class="topgraph-link highlight-control" data-state="male-dominated">with few women</a> tend towards equality as well.</p>
+        <p>Far and away the <em>least</em> equal industry is <a href="#" class="topgraph-active" data-active="law">the law</a>&#x2014;which is also the <a href="#" class="topgraph-link axis-control" data-state="income-gap">highest earning</a>. Other <a href="#" class="topgraph-link highlight-control" data-state="high-earning">high-earning professions</a> tend to be near or above average.</p>
+        <p>Among industries, <a href="#" class="topgraph-link axis-control" data-state="proportion-income">income does not correspond to gender proportions</a>, as neither high-earning nor <a href="#" class="topgraph-link highlight-control" data-state="low-earning">low-earning professions</a> group towards either end.</p>
+      </section>
     </div>
   </div>
   <div class="credits">
@@ -39,16 +35,13 @@
     This is a <a href="http://futuraprime.net">futuraprime</a> production. <a href="http://twitter.com/futuraprime">@futuraprime</a>
   </div>
   <script type="text/javascript" src="js/main.js"></script>
-
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-1101879-6', 'auto');
-    ga('send', 'pageview');
-
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1101879-6', 'auto');
+  ga('send', 'pageview');
   </script>
 </body>
 </html>

@@ -65,7 +65,7 @@ var groupings = {
                    'law' : { color : colors.green[3],  name : 'Legal' },
              'education' : { color : colors.green[4],  name : 'Education, Training, and Library' },
    'media_entertainment' : { color : colors.green[5],  name : 'Arts, Design, Entertainment, Sports, and Media' },
-   'health_practitioner' : { color : colors.blue[1],   name : 'Healthcare Practitioners and Technical' },
+   'health_practitioner' : { color : colors.blue[1],   name : 'Healthcare Practitioners and Technicians' },
         'health_support' : { color : colors.blue[2],   name : 'Healthcare Support' },
             'protective' : { color : colors.blue[3],   name : 'Protective Service' },
       'food_preparation' : { color : colors.blue[4],   name : 'Food Preparation and Serving Related' },
