@@ -326,7 +326,8 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('x', leftSide - textLabelOffset);
     left.exit().remove();
     left.text(function(d) { return d.text; })
-      .classed('mainlabel', function(d) { return d.heading || d.subheading; })
+      .classed('mainlabel', function(d) { return d.heading; })
+      .classed('subheadlabel', function(d) { return d.subheading; })
       .classed('label', function(d) { return !d.heading; })
       .each(function(d) { d3.select(this).classed(d.classed); })
       .transition().duration(250)
@@ -341,7 +342,8 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('x', rightSide + textLabelOffset);
     right.exit().remove();
     right.text(function(d) { return d.text; })
-      .classed('mainlabel', function(d) { return d.heading || d.subheading; })
+      .classed('mainlabel', function(d) { return d.heading; })
+      .classed('subheadlabel', function(d) { return d.subheading; })
       .classed('label', function(d) { return !d.heading; })
       .each(function(d) { d3.select(this).classed(d.classed); })
       .transition().duration(250)
@@ -461,7 +463,7 @@ var TopGraphFsm = SlopeGraphFsm.extend({
         _.extend(this.graphState, {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
-          right : gapAxis.generate(this.height, this.padding, { axisLabelOffset : 90 }),
+          right : gapAxis.generate(this.height, this.padding, { axisLabelOffset : 120 }),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
           color : groupIncomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
