@@ -183,13 +183,13 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .classed('hoverline', true)
       .on('mouseenter', function(d) {
         graphState.active = d.name;
-        self.handle('render');
+        self.render();
         // this.parentNode.classList.add('active');
         // this.parentNode.parentNode.appendChild(this.parentNode); // move this group to the top of the stack
       })
       .on('mouseleave', function(d) {
         graphState.active = null;
-        self.handle('render');
+        self.render();
         // this.parentNode.classList.remove('active');
       });
 
