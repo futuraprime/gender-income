@@ -86,15 +86,24 @@ function Axis(options) {
   _.extend(this, options);
 }
 // direct here just funnels the values into the range instead of trying to be clever
-Axis.prototype.generate = function(height, padding, direct) {
+Axis.prototype.generate = function(height, padding, options) {
+  options = _.defaults(options || {}, {
+    direct : false,
+    axisLabelOffset : 30
+  });
   return _.defaults({
     scale : this.scale.copy()
-      .range(direct ? [height, padding] : [height - padding, padding])
+      .range(options.direct ? [height, padding] : [height - padding, padding]),
+    labels : _.map(this.labels, function(label) {
+      if(label.heading || label.subheading) {
+        label.position += options.axisLabelOffset;
+      }
+      return label;
+    })
   }, this);
 };
 
 // define the axes
-var axisTopPosition = 30;
 var proportionAxis = new Axis({
   name : 'proportion',
   presentableName : 'percent of employees who are women',
@@ -105,7 +114,7 @@ var proportionAxis = new Axis({
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "%"; },
   labels : [
-    { text : 'Percent Female', heading : true, position : axisTopPosition },
+    { text : 'Percent Female', heading : true, position : 0 },
     { text : 'more women', position: 0.91 },
     { text : 'more men', position : -0.02 },
     { text : 'equal', position : 0.51, classed : { speciallabel : true } }
@@ -122,7 +131,7 @@ var groupIncomeAxis = new Axis({
   offset : 70,
   format: function(v) { return "$" + commaNumber(v); },
   labels : [
-    { text : 'Median Income', heading : true, position : axisTopPosition },
+    { text : 'Median Income', heading : true, position : 0 },
     { text : 'higher income', position: 94000 },
     { text : 'lower income', position : 0 }
   ]
@@ -137,7 +146,7 @@ var incomeAxis = new Axis({
   offset : 70,
   format: function(v) { return "$" + commaNumber(v); },
   labels : [
-    { text : 'Median Income', heading : true, position : axisTopPosition },
+    { text : 'Median Income', heading : true, position : 0 },
     { text : 'higher income', position: 220000 },
     { text : 'lower income', position : 0 }
   ]
@@ -152,11 +161,11 @@ var gapAxis = new Axis({
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
   labels : [
-    { text : 'Wage Gap', heading : true, position : axisTopPosition },
+    { text : 'Wage Gap', heading : true, position : 0 },
     { text : 'women make more', position : 1.1 },
     { text : 'men make more', position: 0.48 },
-    { text : 'cents earned by women', subheading : true, position : axisTopPosition + 18, classed : { speciallabel : false } },
-    { text : 'per dollar earned by men', subheading : true, position: axisTopPosition + 18 + 16, classed : { speciallabel : false } },
+    { text : 'cents earned by women', subheading : true, position : 18, classed : { speciallabel : false } },
+    { text : 'per dollar earned by men', subheading : true, position: 18 + 16, classed : { speciallabel : false } },
     { text : 'equal', position : 1.01, classed : { speciallabel : true } }
   ],
   median : 1
@@ -452,8 +461,8 @@ var TopGraphFsm = SlopeGraphFsm.extend({
         _.extend(this.graphState, {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
-          right : gapAxis.generate(this.height, this.padding),
-          width : groupPopulationAxis.generate(1, 6, true),
+          right : gapAxis.generate(this.height, this.padding, { axisLabelOffset : 90 }),
+          width : groupPopulationAxis.generate(1, 6, { direct: true }),
           color : groupIncomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
         });
