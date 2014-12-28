@@ -95,10 +95,9 @@ Axis.prototype.generate = function(height, padding, options) {
     scale : this.scale.copy()
       .range(options.direct ? [height, padding] : [height - padding, padding]),
     labels : _.map(this.labels, function(label) {
-      if(label.heading || label.subheading) {
-        label.position += options.axisLabelOffset;
-      }
-      return label;
+      return _.defaults({
+        position : label.heading || label.subheading ? label.position + options.axisLabelOffset : label.position
+      }, label);
     })
   }, this);
 };
