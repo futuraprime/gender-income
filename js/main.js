@@ -462,7 +462,13 @@ var TopGraphFsm = SlopeGraphFsm.extend({
         window.addEventListener('resize', _.throttle(function() {
           self.render();
         }, 250));
+        this.handle('loadedState');
       },
+      loadedState : function() {
+        if(this.loadedState) {
+          this.transition(this.loadedState);
+        }
+      }
     }
   }
 });
@@ -475,6 +481,13 @@ var topGraphFsm = new TopGraphFsm({
     this.interactLinks = $('a.topgraph-link').click(function(evt) {
       evt.preventDefault();
       if(this.hasAttribute('data-state')) {
+        // this is pretty hacky...
+        // but it lets us "un-highlight" reliably
+        if(this.classList.contains('highlight-control') &&
+          self.highlightState === this.getAttribute('data-state')
+        ) {
+          return self.transition('no-highlight');
+        }
         self.transition(this.getAttribute('data-state'));
       } else if(this.hasAttribute('data-event')) {
         self.handle(this.getAttribute('data-event'));
@@ -490,37 +503,69 @@ var topGraphFsm = new TopGraphFsm({
       self.active(null);
     });
   },
+  loadedState : 'proportion-gap',
   activate : function(type) {
-    var $group = this.interactLinks.filter('.'+type);
-    console.log('right ok', $group);
+    var $group = this.interactLinks.filter('.'+type+'-control');
     $group.removeClass('active');
-    console.log($group.filter('[data-state='+this.state+']').addClass('active'));
+    $group.filter('[data-state='+(this[type+'State'])+']').addClass('active');
   },
   states : {
+    // this is basically two state machines running at once...
+    // there's probably a better way of doing this
     "proportion-gap" : {
       _onEnter : function() {
         this.swapToAxisPair('proportion', 'wagegap');
-        this.activate('axis-control');
+        this.axisState = this.state;
+        this.activate('axis');
+      }
+    },
+    "proportion-income" : {
+      _onEnter : function() {
+        this.swapToAxisPair('proportion', 'income');
+        this.axisState = this.state;
+        this.activate('axis');
+      }
+    },
+    "income-gap" : {
+      _onEnter : function() {
+        this.swapToAxisPair('income', 'wagegap');
+        this.axisState = this.state;
+        this.activate('axis');
+      }
+    },
+    "no-highlight" : {
+      _onEnter : function() {
+        this.highlight();
+        this.highlightState = null;
+        this.activate('highlight');
       }
     },
     "female-dominated" : {
       _onEnter : function() {
         this.highlight([
-          'operations_finance',
-          'social_services',
+          // 'operations_finance',
+          // 'social_services',
           'health_practitioner',
           'education',
           'service',
           'health_support',
           'admin_support'
         ]);
-        this.activate('highlight-control');
+        this.highlightState = this.state;
+        this.activate('highlight');
       }
     },
-    "income-gap" : {
+    "high-earning" : {
       _onEnter : function() {
-        this.swapToAxisPair('income', 'wagegap');
-        this.activate('axis-control');
+        this.highlight([
+          'law',
+          'computers',
+          'engineering',
+          'management',
+          'science'
+        ]);
+        this.highlightState = this.state;
+        this.activate('highlight');
       }
     }
   }
