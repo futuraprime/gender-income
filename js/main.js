@@ -449,7 +449,6 @@ var TopGraphFsm = SlopeGraphFsm.extend({
         this.render();
 
         window.addEventListener('resize', _.throttle(function() {
-          console.log('resize listener fired');
           self.render();
         }, 250));
       },

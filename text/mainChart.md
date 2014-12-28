@@ -1,1 +1,1 @@
-Some professions are better than others. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census' employment categories.
+Happily, some professions are more equal than others. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census' employment categories.
