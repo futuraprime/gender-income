@@ -88,13 +88,13 @@ function Axis(options) {
 // direct here just funnels the values into the range instead of trying to be clever
 Axis.prototype.generate = function(height, padding, options) {
   options = _.defaults(options || {}, {
-    direct : false,
     axisLabelOffset : 30
   });
   return _.defaults({
+    options : options,
     scale : this.scale.copy()
       .range(options.direct ? [height, padding] : [height - padding, padding]),
-    labels : _.map(this.labels, function(label) {
+    labels : options.hideLabels ? [] : _.map(this.labels, function(label) {
       return _.defaults({
         position : label.heading || label.subheading ? label.position + options.axisLabelOffset : label.position
       }, label);
@@ -628,10 +628,10 @@ var topGraphFsm = new TopGraphFsm({
 
 // and now, for the profession-level stuff
 var ProfessionFsm = SlopeGraphFsm.extend({
-  initialize : function(selector) {
+  initialize : function() {
     var self = this;
 
-    this.svg = d3.select(selector).append('svg');
+    this.svg = d3.select('#'+this.focusGroup).append('svg');
     this.container = this.svg.append('svg:g');
     this.svgElement = this.svg.node();
 
@@ -644,6 +644,32 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     dataPromise.done(function(data) {
       self.handle('loaded', data);
     });
+
+    // might not need this...
+    // this.interactLinks = $('a.'+this.focusGroup+'graph-link').click(function(evt) {
+    //   evt.preventDefault();
+    //   if(this.hasAttribute('data-state')) {
+    //     // this is pretty hacky...
+    //     // but it lets us "un-highlight" reliably
+    //     if(this.classList.contains('highlight-control') &&
+    //       self.highlightState === this.getAttribute('data-state')
+    //     ) {
+    //       return self.transition('no-highlight');
+    //     }
+    //     self.transition(this.getAttribute('data-state'));
+    //   } else if(this.hasAttribute('data-event')) {
+    //     self.handle(this.getAttribute('data-event'));
+    //   } else if(this.hasAttribute('data-function')) {
+    //     self[this.getAttribute('data-function')].apply(self, JSON.parse(this.getAttribute('data-arguments')));
+    //   }
+    // });
+    // $('a.'+this.focusGroup+'graph-active').click(function(evt) {
+    //   evt.preventDefault();
+    // }).hover(function(evt) {
+    //   self.active(this.getAttribute('data-active'));
+    // }, function(evt) {
+    //   self.active(null);
+    // });
   },
 
   initialState : 'loading',
@@ -692,22 +718,22 @@ var ProfessionFsm = SlopeGraphFsm.extend({
         _.extend(this.graphState[0], {
           chartWidth : self.width * 0.33,
           left : incomeAxis.generate(this.height, this.padding),
-          right : proportionAxis.generate(this.height, this.padding),
+          right : proportionAxis.generate(this.height, this.padding, { extendLabels : true }),
           color : gapAxis.generate(this.height, this.padding),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
           centerTextFn : function(d) { return d.name; }
         });
         _.extend(this.graphState[1], {
           chartWidth : self.width * 0.33,
-          left : proportionAxis.generate(this.height, this.padding),
-          right : gapAxis.generate(this.height, this.padding),
+          left : proportionAxis.generate(this.height, this.padding, { hideLabels : true }),
+          right : gapAxis.generate(this.height, this.padding, { extendLabels : true }),
           color : incomeAxis.generate(this.height, this.padding),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
           centerTextFn : function(d) { return d.name; }
         });
         _.extend(this.graphState[2], {
           chartWidth : self.width * 0.33,
-          left : gapAxis.generate(this.height, this.padding),
+          left : gapAxis.generate(this.height, this.padding, { hideLabels : true }),
           right : incomeAxis.generate(this.height, this.padding),
           color : proportionAxis.generate(this.height, this.padding),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
@@ -730,35 +756,5 @@ var ProfessionFsm = SlopeGraphFsm.extend({
 });
 
 var lawFsm = new ProfessionFsm({
-  focusGroup : 'law',
-  initialize : function() {
-    var self = this;
-    ProfessionFsm.prototype.initialize.call(this, '#'+this.focusGroup+'');
-
-    // might not need this...
-    // this.interactLinks = $('a.'+this.focusGroup+'graph-link').click(function(evt) {
-    //   evt.preventDefault();
-    //   if(this.hasAttribute('data-state')) {
-    //     // this is pretty hacky...
-    //     // but it lets us "un-highlight" reliably
-    //     if(this.classList.contains('highlight-control') &&
-    //       self.highlightState === this.getAttribute('data-state')
-    //     ) {
-    //       return self.transition('no-highlight');
-    //     }
-    //     self.transition(this.getAttribute('data-state'));
-    //   } else if(this.hasAttribute('data-event')) {
-    //     self.handle(this.getAttribute('data-event'));
-    //   } else if(this.hasAttribute('data-function')) {
-    //     self[this.getAttribute('data-function')].apply(self, JSON.parse(this.getAttribute('data-arguments')));
-    //   }
-    // });
-    // $('a.'+this.focusGroup+'graph-active').click(function(evt) {
-    //   evt.preventDefault();
-    // }).hover(function(evt) {
-    //   self.active(this.getAttribute('data-active'));
-    // }, function(evt) {
-    //   self.active(null);
-    // });
-  }
+  focusGroup : 'law'
 });
