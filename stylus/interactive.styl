@@ -3,6 +3,11 @@ c_Highlight = #D75B5B;
 
 m_StackedBreakpoint = 600px;
 
+back-color-no-hover(col) {
+  background-color: col;
+  &:hover { background-color: col; }
+}
+
 font-feature-settings(prop, value=1) {
   -webkit-font-feature-settings: prop value;
   -ms-font-feature-settings: prop value;
@@ -154,6 +159,23 @@ font-feature-settings(prop, value=1) {
   &:hover {
     background-color: c_Active;
     color: white;
+  }
+  &.active {
+    background-color: c_Highlight;
+    &:hover {
+      background-color: c_Highlight;
+      color: inherit;
+    }
+    
+    &[data-state="proportion-gap"] {
+      back-color-no-hover: #75AEDC;
+    }
+    &[data-state="income-gap"] {
+      back-color-no-hover: #77B479;
+    }
+    &[data-state="proportion-income"] {
+      back-color-no-hover: #D0A95C;
+    }
   }
 }
 

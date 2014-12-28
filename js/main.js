@@ -472,7 +472,7 @@ var topGraphFsm = new TopGraphFsm({
     var self = this;
     TopGraphFsm.prototype.initialize.apply(this);
 
-    $('a.topgraph-link').click(function(evt) {
+    this.interactLinks = $('a.topgraph-link').click(function(evt) {
       evt.preventDefault();
       if(this.hasAttribute('data-state')) {
         self.transition(this.getAttribute('data-state'));
@@ -490,10 +490,17 @@ var topGraphFsm = new TopGraphFsm({
       self.active(null);
     });
   },
+  activate : function(type) {
+    var $group = this.interactLinks.filter('.'+type);
+    console.log('right ok', $group);
+    $group.removeClass('active');
+    console.log($group.filter('[data-state='+this.state+']').addClass('active'));
+  },
   states : {
     "proportion-gap" : {
       _onEnter : function() {
         this.swapToAxisPair('proportion', 'wagegap');
+        this.activate('axis-control');
       }
     },
     "female-dominated" : {
@@ -507,11 +514,13 @@ var topGraphFsm = new TopGraphFsm({
           'health_support',
           'admin_support'
         ]);
+        this.activate('highlight-control');
       }
     },
     "income-gap" : {
       _onEnter : function() {
         this.swapToAxisPair('income', 'wagegap');
+        this.activate('axis-control');
       }
     }
   }
