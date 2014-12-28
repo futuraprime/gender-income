@@ -416,8 +416,6 @@ var TopGraphFsm = SlopeGraphFsm.extend({
   initialState : 'loading',
 
   updateData : function(data) {
-    console.log('has data!!!!!!', data);
-
     // this one works with groups
     this.selection = this.container.selectAll('g.line-group')
       .data(data.groups);
