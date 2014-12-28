@@ -765,8 +765,9 @@ var ProfessionFsm = SlopeGraphFsm.extend({
   }
 });
 
-var tripleChartFsms = _.map(_.keys(groupings), function(item) {
-  return new ProfessionFsm({
+var tripleChartFsms = {};
+_.each(_.keys(groupings), function(item) {
+  tripleChartFsms[item] = new ProfessionFsm({
     focusGroup : item
   });
 });
