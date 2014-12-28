@@ -368,10 +368,10 @@ var SlopeGraphFsm = machina.Fsm.extend({
 });
 
 var TopGraphFsm = SlopeGraphFsm.extend({
-  initialize : function() {
+  initialize : function(selector) {
     var self = this;
 
-    this.svg = d3.select('#firstInteractive').append('svg');
+    this.svg = d3.select(selector).append('svg');
     this.container = this.svg.append('svg:g');
     this.svgElement = this.svg.node();
 
@@ -487,7 +487,7 @@ var TopGraphFsm = SlopeGraphFsm.extend({
 var topGraphFsm = new TopGraphFsm({
   initialize : function() {
     var self = this;
-    TopGraphFsm.prototype.initialize.apply(this);
+    TopGraphFsm.prototype.initialize.call(this, '#firstInteractive');
 
     this.interactLinks = $('a.topgraph-link').click(function(evt) {
       evt.preventDefault();
@@ -605,5 +605,124 @@ var topGraphFsm = new TopGraphFsm({
         this.activate('highlight');
       }
     }
+  }
+});
+
+
+// and now, for the profession-level stuff
+var ProfessionFsm = SlopeGraphFsm.extend({
+  initialize : function(selector) {
+    var self = this;
+
+    this.svg = d3.select(selector).append('svg');
+    this.container = this.svg.append('svg:g');
+    this.svgElement = this.svg.node();
+
+    this.width = this.svgElement.clientWidth;
+    this.height = this.svgElement.clientHeight;
+
+    this.padding = 20;
+    this.graphState = {};
+
+    dataPromise.done(function(data) {
+      self.handle('loaded', data);
+    });
+  },
+
+  initialState : 'loading',
+
+  updateData : function(data) {
+    // this one works with groups
+    this.selection = this.container.selectAll('g.line-group')
+      .data(_.filter(data.professions, { 'group' : this.focusGroup }));
+
+    var enter = this.selection.enter().append('svg:g')
+      .classed('line-group', true);
+
+    this.constructSlopegraphElement(enter, this.graphState);
+  },
+  render : function() {
+    this.width = this.svgElement.clientWidth;
+    this.height = this.svgElement.clientHeight;
+
+    this.graphState.chartWidth = this.width;
+
+    this.updateSlopegraphElement(this.selection, this.graphState);
+    this.generateSlopegraphLegend(this.svg, this.graphState);
+  },
+  active : function(name) {
+    this.graphState.active = name;
+    this.render();
+  },
+  highlight : function(name) {
+    this.graphState.highlighted = name;
+    this.render();
+  },
+  states : {
+    'loading' : {
+      loaded : function(data) {
+        this.updateData(data);
+        this.transition('base-chart');
+      }
+    },
+    'base-chart' : {
+      _onEnter : function() {
+        var self = this;
+
+        _.extend(this.graphState, {
+          chartWidth : self.width,
+          left : proportionAxis.generate(this.height, this.padding),
+          right : gapAxis.generate(this.height, this.padding),
+          width : groupPopulationAxis.generate(1, 6, { direct: true }),
+          color : groupIncomeAxis.generate(this.height, this.padding),
+          centerTextFn : function(d) { return d.name; }
+        });
+        this.render();
+
+        window.addEventListener('resize', _.throttle(function() {
+          self.render();
+        }, 250));
+        this.handle('loadedState');
+      },
+      loadedState : function() {
+        if(this.loadedState) {
+          this.transition(this.loadedState);
+        }
+      }
+    }
+  }
+});
+
+var lawFsm = new ProfessionFsm({
+  focusGroup : 'law',
+  initialize : function() {
+    var self = this;
+    ProfessionFsm.prototype.initialize.call(this, '#'+this.focusGroup+'');
+
+    // might not need this...
+    // this.interactLinks = $('a.'+this.focusGroup+'graph-link').click(function(evt) {
+    //   evt.preventDefault();
+    //   if(this.hasAttribute('data-state')) {
+    //     // this is pretty hacky...
+    //     // but it lets us "un-highlight" reliably
+    //     if(this.classList.contains('highlight-control') &&
+    //       self.highlightState === this.getAttribute('data-state')
+    //     ) {
+    //       return self.transition('no-highlight');
+    //     }
+    //     self.transition(this.getAttribute('data-state'));
+    //   } else if(this.hasAttribute('data-event')) {
+    //     self.handle(this.getAttribute('data-event'));
+    //   } else if(this.hasAttribute('data-function')) {
+    //     self[this.getAttribute('data-function')].apply(self, JSON.parse(this.getAttribute('data-arguments')));
+    //   }
+    // });
+    // $('a.'+this.focusGroup+'graph-active').click(function(evt) {
+    //   evt.preventDefault();
+    // }).hover(function(evt) {
+    //   self.active(this.getAttribute('data-active'));
+    // }, function(evt) {
+    //   self.active(null);
+    // });
   }
 });
