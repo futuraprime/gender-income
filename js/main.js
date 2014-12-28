@@ -162,7 +162,7 @@ var groupGapAxis = new Axis({
   labels : [
     { text : 'Wage Gap', heading : true, position : 0 },
     { text : 'women make more', position : 1.1 },
-    { text : 'men make more', position: 0.48 },
+    { text : 'men make more', position: 0.49 },
     { text : 'cents earned by women', subheading : true, position : 18, classed : { speciallabel : false } },
     { text : 'per dollar earned by men', subheading : true, position: 18 + 16, classed : { speciallabel : false } },
     { text : 'equal', position : 1.01, classed : { speciallabel : true } }
@@ -181,7 +181,7 @@ var gapAxis = new Axis({
   labels : [
     { text : 'Wage Gap', heading : true, position : 0 },
     { text : 'women make more', position : 1.7 },
-    { text : 'men make more', position: 0.48 },
+    { text : 'men make more', position: 0.49 },
     { text : 'equal', position : 1.01, classed : { speciallabel : true } }
   ],
   median : 1
@@ -189,7 +189,6 @@ var gapAxis = new Axis({
 var populationAxis = new Axis({
   name : 'population',
   scale : d3.scale.linear().domain([1, 1000000]),
-  value : function(d) { return d.B24124.total; },
   value : function(d) { return d.B24124.total; },
   offset : 90, // a guess, probably won't actually be used
   format : function(v) { return commaNumber(v); },
@@ -657,30 +656,30 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     });
 
     // might not need this...
-    // this.interactLinks = $('a.'+this.focusGroup+'graph-link').click(function(evt) {
-    //   evt.preventDefault();
-    //   if(this.hasAttribute('data-state')) {
-    //     // this is pretty hacky...
-    //     // but it lets us "un-highlight" reliably
-    //     if(this.classList.contains('highlight-control') &&
-    //       self.highlightState === this.getAttribute('data-state')
-    //     ) {
-    //       return self.transition('no-highlight');
-    //     }
-    //     self.transition(this.getAttribute('data-state'));
-    //   } else if(this.hasAttribute('data-event')) {
-    //     self.handle(this.getAttribute('data-event'));
-    //   } else if(this.hasAttribute('data-function')) {
-    //     self[this.getAttribute('data-function')].apply(self, JSON.parse(this.getAttribute('data-arguments')));
-    //   }
-    // });
-    // $('a.'+this.focusGroup+'graph-active').click(function(evt) {
-    //   evt.preventDefault();
-    // }).hover(function(evt) {
-    //   self.active(this.getAttribute('data-active'));
-    // }, function(evt) {
-    //   self.active(null);
-    // });
+    this.interactLinks = $('a.'+this.focusGroup+'graph-link').click(function(evt) {
+      evt.preventDefault();
+      if(this.hasAttribute('data-state')) {
+        // this is pretty hacky...
+        // but it lets us "un-highlight" reliably
+        if(this.classList.contains('highlight-control') &&
+          self.highlightState === this.getAttribute('data-state')
+        ) {
+          return self.transition('no-highlight');
+        }
+        self.transition(this.getAttribute('data-state'));
+      } else if(this.hasAttribute('data-event')) {
+        self.handle(this.getAttribute('data-event'));
+      } else if(this.hasAttribute('data-function')) {
+        self[this.getAttribute('data-function')].apply(self, JSON.parse(this.getAttribute('data-arguments')));
+      }
+    });
+    $('a.'+this.focusGroup+'graph-active').click(function(evt) {
+      evt.preventDefault();
+    }).hover(function(evt) {
+      self.active(this.getAttribute('data-active'));
+    }, function(evt) {
+      self.active(null);
+    });
   },
 
   initialState : 'loading',
