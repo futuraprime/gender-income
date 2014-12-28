@@ -302,19 +302,20 @@ var SlopeGraphFsm = machina.Fsm.extend({
   generateSlopegraphLegend : function(container, graphState) {
     var leftSide = graphState.left.offset;
     var rightSide = graphState.chartWidth - graphState.right.offset;
+    var textLabelOffset = 35;
 
     var left = container.selectAll('text.leftaxislabel')
       .data(graphState.left.labels);
     left.enter().append('svg:text')
       .classed('leftaxislabel label', true)
-      .attr('x', leftSide - 40);
+      .attr('x', leftSide - textLabelOffset);
     left.exit().remove();
     left.text(function(d) { return d.text; })
       .classed('mainlabel', function(d) { return d.heading || d.subheading; })
       .classed('label', function(d) { return !d.heading; })
       .each(function(d) { d3.select(this).classed(d.classed); })
       .transition().duration(250)
-      .attr('x', leftSide - 40)
+      .attr('x', leftSide - textLabelOffset)
       .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.left.scale(d.position); });
 
 
@@ -322,14 +323,14 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .data(graphState.right.labels);
     right.enter().append('svg:text')
       .classed('rightaxislabel label', true)
-      .attr('x', rightSide + 40);
+      .attr('x', rightSide + textLabelOffset);
     right.exit().remove();
     right.text(function(d) { return d.text; })
       .classed('mainlabel', function(d) { return d.heading || d.subheading; })
       .classed('label', function(d) { return !d.heading; })
       .each(function(d) { d3.select(this).classed(d.classed); })
       .transition().duration(250)
-      .attr('x', rightSide + 40)
+      .attr('x', rightSide + textLabelOffset)
       .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.right.scale(d.position); });
 
     var medianLine = [{
@@ -456,6 +457,11 @@ var TopGraphFsm = SlopeGraphFsm.extend({
 });
 
 var topGraphFsm = new TopGraphFsm({
+  initialize : function() {
+    TopGraphFsm.prototype.initialize.apply(this);
+
+
+  },
   states : {
 
   }
