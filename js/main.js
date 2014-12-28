@@ -555,6 +555,19 @@ var topGraphFsm = new TopGraphFsm({
         this.activate('highlight');
       }
     },
+    "male-dominated" : {
+      _onEnter : function() {
+        this.highlight([
+          'farm_fishing_forest',
+          'engineering',
+          'transportation',
+          'maintenance',
+          'construction'
+        ]);
+        this.highlightState = this.state;
+        this.activate('highlight');
+      }
+    },
     "high-earning" : {
       _onEnter : function() {
         this.highlight([
