@@ -97,7 +97,7 @@ Axis.prototype.generate = function(height, padding, direct) {
 var axisTopPosition = 30;
 var proportionAxis = new Axis({
   name : 'proportion',
-  presentableName : 'percent who are women',
+  presentableName : 'percent of employees who are women',
   scale : d3.scale.linear().domain([0,1]),
   colorScale : chroma.scale([colors.green[5], colors.green[3]]).domain([0, 1])
     .mode('hsv').out('hex'),
@@ -112,6 +112,21 @@ var proportionAxis = new Axis({
   ],
   median : 0.5
 });
+var groupIncomeAxis = new Axis({
+  name : 'income',
+  presentableName : 'median income',
+  scale : d3.scale.linear().domain([0,100000]),
+  colorScale : chroma.scale([colors.blue[5], colors.blue[3]]).domain([20000,100000])
+    .mode('hsv').out('hex'),
+  value : function(d) { return d.B24121.total; },
+  offset : 70,
+  format: function(v) { return "$" + commaNumber(v); },
+  labels : [
+    { text : 'Median Income', heading : true, position : axisTopPosition },
+    { text : 'higher income', position: 94000 },
+    { text : 'lower income', position : 0 }
+  ]
+});
 var incomeAxis = new Axis({
   name : 'income',
   presentableName : 'median income',
@@ -123,7 +138,7 @@ var incomeAxis = new Axis({
   format: function(v) { return "$" + commaNumber(v); },
   labels : [
     { text : 'Median Income', heading : true, position : axisTopPosition },
-    { text : 'higher income', position: 100000 },
+    { text : 'higher income', position: 220000 },
     { text : 'lower income', position : 0 }
   ]
 });
@@ -394,13 +409,14 @@ var TopGraphFsm = SlopeGraphFsm.extend({
     var axis1Position = _.findKey(this.graphState, { name : axis1Name });
     var axis2Position = _.findKey(this.graphState, { name : axis2Name });
 
+    console.log(axis1Position, axis2Position);
     // if both axes are displayed, stop
     if(axis1Position !== 'color' && axis2Position !== 'color') { return; }
 
     if(axis1Position === 'color') { movingAxis = axis2Position === 'right' ? 'left' : 'right'; }
     if(axis2Position === 'color') { movingAxis = axis1Position === 'right' ? 'left' : 'right'; }
 
-    this.handle('swapAxes', 'color', movingAxis);
+    this.swapAxes('color', movingAxis);
   },
   render : function() {
     this.width = this.svgElement.clientWidth;
@@ -439,7 +455,7 @@ var TopGraphFsm = SlopeGraphFsm.extend({
           left : proportionAxis.generate(this.height, this.padding),
           right : gapAxis.generate(this.height, this.padding),
           width : groupPopulationAxis.generate(1, 6, true),
-          color : incomeAxis.generate(this.height, this.padding),
+          color : groupIncomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
         });
         this.render();
@@ -460,6 +476,7 @@ var topGraphFsm = new TopGraphFsm({
     $('a.topgraph-link').click(function(evt) {
       evt.preventDefault();
       if(this.hasAttribute('data-state')) {
+        console.log('changing to...', this.getAttribute('data-state'));
         self.transition(this.getAttribute('data-state'));
       } else if(this.hasAttribute('data-event')) {
         self.handle(this.getAttribute('data-event'));
@@ -476,6 +493,15 @@ var topGraphFsm = new TopGraphFsm({
     });
   },
   states : {
-
+    "proportion-gap" : {
+      _onEnter : function() {
+        this.swapToAxisPair('proportion', 'wagegap');
+      }
+    },
+    "income-gap" : {
+      _onEnter : function() {
+        this.swapToAxisPair('income', 'wagegap');
+      }
+    }
   }
 });

@@ -136,3 +136,30 @@ font-feature-settings(prop, value=1) {
   -moz-font-feature-settings: "smcp=1";
   font-feature-settings: "smcp" 1;
 }
+
+.chartlink {
+  m_chartlinkVPadding = 0px;
+  m_chartlinkHPadding = .33em;
+  
+  padding: m_chartlinkVPadding m_chartlinkHPadding;
+  background-color: #C3C1C1;
+  margin: -1 * m_chartlinkVPadding 0;
+  color: inherit;
+  text-decoration: none;
+  border-radius: m_chartlinkHPadding;
+
+  transition: color 250ms ease-out,
+      background-color 250ms ease-out;
+  &:hover {
+    background-color: c_Active;
+    color: white;
+  }
+}
+
+.topgraph-link {
+  @extend .chartlink;
+}
+
+.topgraph-active {
+  @extend .chartlink;
+}
