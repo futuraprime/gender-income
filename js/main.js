@@ -348,9 +348,10 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .classed('mainlabel', function(d) { return d.heading; })
       .classed('subheadlabel', function(d) { return d.subheading; })
       .classed('label', function(d) { return !d.heading; })
+      .classed('extendedlabel', function(d) { return graphState.left.options.extendLabels; })
       .each(function(d) { d3.select(this).classed(d.classed); })
       .transition().duration(250)
-      .attr('x', leftSide - textLabelOffset)
+      .attr('x', graphState.left.options.extendLabels ? leftSide - textLabelOffset * 1.25: leftSide - textLabelOffset)
       .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.left.scale(d.position); });
 
 
@@ -364,9 +365,10 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .classed('mainlabel', function(d) { return d.heading; })
       .classed('subheadlabel', function(d) { return d.subheading; })
       .classed('label', function(d) { return !d.heading; })
+      .classed('extendedlabel', function(d) { return graphState.right.options.extendLabels; })
       .each(function(d) { d3.select(this).classed(d.classed); })
       .transition().duration(250)
-      .attr('x', rightSide + textLabelOffset)
+      .attr('x', graphState.right.options.extendLabels ? rightSide + textLabelOffset * 1.25: rightSide + textLabelOffset)
       .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.right.scale(d.position); });
 
     var medianLine = [{
@@ -695,11 +697,11 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     this.width = this.svgElement.clientWidth;
     this.height = this.svgElement.clientHeight;
 
-    this.graphState.chartWidth = this.width * 0.3;
+    this.graphState.chartWidth = this.width * 0.33;
 
     for(var i=0,l=this.graphState.length;i<l;++i) {
       this.graphState[i].group
-        .style('transform', 'translate('+100 * i+'%, 0)');
+        .style('transform', 'translate('+this.graphState.chartWidth * i+'px, 0)');
       this.updateSlopegraphElement(this.graphState[i].selection, this.graphState[i]);
       this.generateSlopegraphLegend(this.graphState[i].group, this.graphState[i]);
     }
