@@ -757,6 +757,8 @@ var ProfessionFsm = SlopeGraphFsm.extend({
   }
 });
 
-var lawFsm = new ProfessionFsm({
-  focusGroup : 'law'
+var tripleChartFsms = _.map(_.keys(groupings), function(item) {
+  return new ProfessionFsm({
+    focusGroup : item
+  });
 });
