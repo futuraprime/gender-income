@@ -349,7 +349,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
   }
 });
 
-var topGraphFsm = new SlopeGraphFsm({
+var TopGraphFsm = SlopeGraphFsm.extend({
   initialize : function() {
     var self = this;
 
@@ -383,6 +383,48 @@ var topGraphFsm = new SlopeGraphFsm({
     this.constructSlopegraphElement(enter, this.graphState);
   },
 
+  swapAxes : function(axis1Position, axis2Position) {
+    var axis1 = this.graphState[axis1Position];
+    var axis2 = this.graphState[axis2Position];
+
+    this.graphState[axis1Position] = axis2;
+    this.graphState[axis2Position] = axis1;
+
+    this.handle('render');
+  },
+  swapToAxisPair : function(axis1Name, axis2Name) {
+    // the trick here is we don't want to assume we know which
+    // side to put each axis on...
+
+    // we do, however, assume we only are rotating among the three axes: left, right, and color
+    var movingAxis;
+
+    var axis1Position = _.findKey(this.graphState, { name : axis1Name });
+    var axis2Position = _.findKey(this.graphState, { name : axis2Name });
+
+    // if both axes are displayed, stop
+    if(axis1Position !== 'color' && axis2Position !== 'color') { return; }
+
+    if(axis1Position === 'color') { movingAxis = axis2Position === 'right' ? 'left' : 'right'; }
+    if(axis2Position === 'color') { movingAxis = axis1Position === 'right' ? 'left' : 'right'; }
+
+    this.handle('swapAxes', 'color', movingAxis);
+  },
+  render : function() {
+    this.width = this.svgElement.clientWidth;
+    this.height = this.svgElement.clientHeight;
+
+    this.graphState.chartWidth = this.width;
+
+    this.updateSlopegraphElement(this.selection, this.graphState);
+    this.generateSlopegraphLegend(this.svg, this.graphState);
+  },
+  highlight : function(name) {
+    this.graphState.highlighted = name;
+
+    this.handle('render');
+  },
+
   states : {
     'loading' : {
       loaded : function(data) {
@@ -402,54 +444,19 @@ var topGraphFsm = new SlopeGraphFsm({
           color : incomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
         });
-        this.handle('render');
+        this.render();
 
         window.addEventListener('resize', _.throttle(function() {
           console.log('resize listener fired');
-          self.handle('render');
+          self.render;
         }, 250));
       },
-      swapAxes : function(axis1Position, axis2Position) {
-        var axis1 = this.graphState[axis1Position];
-        var axis2 = this.graphState[axis2Position];
-
-        this.graphState[axis1Position] = axis2;
-        this.graphState[axis2Position] = axis1;
-
-        this.handle('render');
-      },
-      swapToAxisPair : function(axis1Name, axis2Name) {
-        // the trick here is we don't want to assume we know which
-        // side to put each axis on...
-
-        // we do, however, assume we only are rotating among the three axes: left, right, and color
-        var movingAxis;
-
-        var axis1Position = _.findKey(this.graphState, { name : axis1Name });
-        var axis2Position = _.findKey(this.graphState, { name : axis2Name });
-
-        // if both axes are displayed, stop
-        if(axis1Position !== 'color' && axis2Position !== 'color') { return; }
-
-        if(axis1Position === 'color') { movingAxis = axis2Position === 'right' ? 'left' : 'right'; }
-        if(axis2Position === 'color') { movingAxis = axis1Position === 'right' ? 'left' : 'right'; }
-
-        this.handle('swapAxes', 'color', movingAxis);
-      },
-      render : function() {
-        this.width = this.svgElement.clientWidth;
-        this.height = this.svgElement.clientHeight;
-
-        this.graphState.chartWidth = this.width;
-
-        this.updateSlopegraphElement(this.selection, this.graphState);
-        this.generateSlopegraphLegend(this.svg, this.graphState);
-      },
-      highlight : function(name) {
-        this.graphState.highlighted = name;
-
-        this.handle('render');
-      }
     }
+  }
+});
+
+var topGraphFsm = new TopGraphFsm({
+  states : {
+
   }
 });
