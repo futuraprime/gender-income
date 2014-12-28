@@ -380,6 +380,14 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('x2', function(d) { return d.right === undefined ? leftSide + 20 : rightSide + 40; })
       .attr('y1', function(d) { return d.left === undefined ? graphState.right.scale(d.right) : graphState.left.scale(d.left); })
       .attr('y2', function(d) { return d.right === undefined ? graphState.left.scale(d.left) : graphState.right.scale(d.right); });
+  },
+  active : function(name) {
+    this.graphState.active = name;
+    this.render();
+  },
+  highlight : function(name) {
+    this.graphState.highlighted = name;
+    this.render();
   }
 });
 
@@ -455,14 +463,6 @@ var TopGraphFsm = SlopeGraphFsm.extend({
 
     $('span.topgraph-leftaxis').html(this.graphState.left.presentableName);
     $('span.topgraph-rightaxis').html(this.graphState.right.presentableName);
-  },
-  active : function(name) {
-    this.graphState.active = name;
-    this.render();
-  },
-  highlight : function(name) {
-    this.graphState.highlighted = name;
-    this.render();
   },
 
   states : {
