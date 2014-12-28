@@ -1,1 +1,1 @@
-Hover over a line to see which industries have more or less equal pay.
+Some professions are better than others. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census' employment categories.

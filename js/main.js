@@ -87,23 +87,17 @@ function Axis(options) {
 }
 // direct here just funnels the values into the range instead of trying to be clever
 Axis.prototype.generate = function(height, padding, direct) {
-  return {
-    name : this.name,
+  return _.defaults({
     scale : this.scale.copy()
-      .range(direct ? [height, padding] : [height - padding, padding]),
-    colorScale : this.colorScale,
-    value : this.value,
-    offset : this.offset,
-    format : this.format,
-    labels : this.labels,
-    median : this.median
-  };
+      .range(direct ? [height, padding] : [height - padding, padding])
+  }, this);
 };
 
 // define the axes
 var axisTopPosition = 30;
 var proportionAxis = new Axis({
   name : 'proportion',
+  presentableName : 'percent who are women',
   scale : d3.scale.linear().domain([0,1]),
   colorScale : chroma.scale([colors.green[5], colors.green[3]]).domain([0, 1])
     .mode('hsv').out('hex'),
@@ -120,6 +114,7 @@ var proportionAxis = new Axis({
 });
 var incomeAxis = new Axis({
   name : 'income',
+  presentableName : 'median income',
   scale : d3.scale.linear().domain([0,250000]),
   colorScale : chroma.scale([colors.blue[5], colors.blue[3]]).domain([20000,100000])
     .mode('hsv').out('hex'),
@@ -134,6 +129,7 @@ var incomeAxis = new Axis({
 });
 var gapAxis = new Axis({
   name : 'wagegap',
+  presentableName : 'wage gap',
   scale : d3.scale.log().base(2).domain([0.5, 2]),
   colorScale : chroma.scale([colors.yellow[4], colors.yellow[2]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
@@ -391,7 +387,7 @@ var TopGraphFsm = SlopeGraphFsm.extend({
     this.graphState[axis1Position] = axis2;
     this.graphState[axis2Position] = axis1;
 
-    this.handle('render');
+    this.render();
   },
   swapToAxisPair : function(axis1Name, axis2Name) {
     // the trick here is we don't want to assume we know which
@@ -419,11 +415,16 @@ var TopGraphFsm = SlopeGraphFsm.extend({
 
     this.updateSlopegraphElement(this.selection, this.graphState);
     this.generateSlopegraphLegend(this.svg, this.graphState);
+
+    console.log(this.graphState);
+
+    $('span.topgraph-leftaxis').html(this.graphState.left.presentableName);
+    $('span.topgraph-rightaxis').html(this.graphState.right.presentableName);
   },
   highlight : function(name) {
     this.graphState.highlighted = name;
 
-    this.handle('render');
+    this.render();
   },
 
   states : {
@@ -458,9 +459,13 @@ var TopGraphFsm = SlopeGraphFsm.extend({
 
 var topGraphFsm = new TopGraphFsm({
   initialize : function() {
+    var self = this;
     TopGraphFsm.prototype.initialize.apply(this);
 
-
+    $('a.topgraphlink').click(function(evt) {
+      evt.preventDefault();
+      self.handle(this.getAttribute('data-event'));
+    });
   },
   states : {
 

@@ -1,6 +1,8 @@
 c_Active = #B13631;
 c_Highlight = #D75B5B;
 
+m_StackedBreakpoint = 600px;
+
 font-feature-settings(prop, value=1) {
   -webkit-font-feature-settings: prop value;
   -ms-font-feature-settings: prop value;
@@ -26,8 +28,11 @@ font-feature-settings(prop, value=1) {
   p {
     margin-left: 50%;
   }
+  .narrow {
+    display: none;
+  }
   
-  @media (max-width: 600px) {
+  @media (max-width: m_StackedBreakpoint) {
     .interactive {
       width: 100%;
       float: none;
@@ -35,6 +40,12 @@ font-feature-settings(prop, value=1) {
     
     p {
       margin-left: auto;
+    }
+    .wide {
+      display: none;
+    }
+    .narrow {
+      display: initial;
     }
   }
 }
