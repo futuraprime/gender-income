@@ -150,7 +150,7 @@ var incomeAxis = new Axis({
     { text : 'lower income', position : 0 }
   ]
 });
-var gapAxis = new Axis({
+var groupGapAxis = new Axis({
   name : 'wagegap',
   presentableName : 'wage gap',
   scale : d3.scale.log().base(2).domain([0.5, 2]),
@@ -165,6 +165,23 @@ var gapAxis = new Axis({
     { text : 'men make more', position: 0.48 },
     { text : 'cents earned by women', subheading : true, position : 18, classed : { speciallabel : false } },
     { text : 'per dollar earned by men', subheading : true, position: 18 + 16, classed : { speciallabel : false } },
+    { text : 'equal', position : 1.01, classed : { speciallabel : true } }
+  ],
+  median : 1
+});
+var gapAxis = new Axis({
+  name : 'wagegap',
+  presentableName : 'wage gap',
+  scale : d3.scale.log().base(2).domain([0.5, 2]),
+  colorScale : chroma.scale([colors.yellow[5], colors.yellow[3]]).domain([0.5, 2])
+    .mode('hsv').out('hex'),
+  value : function(d) { return d.B24123.total / d.B24122.total; },
+  offset : 40,
+  format : function(v) { return Math.round(v * 100) + "¢"; },
+  labels : [
+    { text : 'Wage Gap', heading : true, position : 0 },
+    { text : 'women make more', position : 1.7 },
+    { text : 'men make more', position: 0.48 },
     { text : 'equal', position : 1.01, classed : { speciallabel : true } }
   ],
   median : 1
@@ -462,7 +479,7 @@ var TopGraphFsm = SlopeGraphFsm.extend({
         _.extend(this.graphState, {
           chartWidth : self.width,
           left : proportionAxis.generate(this.height, this.padding),
-          right : gapAxis.generate(this.height, this.padding, { axisLabelOffset : 90 }),
+          right : groupGapAxis.generate(this.height, this.padding, { axisLabelOffset : 90 }),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
           color : groupIncomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return groupings[d.group].name; }
@@ -621,7 +638,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     this.height = this.svgElement.clientHeight;
 
     this.padding = 20;
-    this.graphState = {};
+    this.graphState = [{},{},{}];
 
     dataPromise.done(function(data) {
       self.handle('loaded', data);
@@ -638,24 +655,16 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     var enter = this.selection.enter().append('svg:g')
       .classed('line-group', true);
 
-    this.constructSlopegraphElement(enter, this.graphState);
+    this.constructSlopegraphElement(enter, this.graphState[0]);
   },
   render : function() {
     this.width = this.svgElement.clientWidth;
     this.height = this.svgElement.clientHeight;
 
-    this.graphState.chartWidth = this.width;
+    this.graphState.chartWidth = this.width * 0.3;
 
-    this.updateSlopegraphElement(this.selection, this.graphState);
-    this.generateSlopegraphLegend(this.svg, this.graphState);
-  },
-  active : function(name) {
-    this.graphState.active = name;
-    this.render();
-  },
-  highlight : function(name) {
-    this.graphState.highlighted = name;
-    this.render();
+    this.updateSlopegraphElement(this.selection, this.graphState[0]);
+    this.generateSlopegraphLegend(this.svg, this.graphState[0]);
   },
   states : {
     'loading' : {
@@ -668,12 +677,12 @@ var ProfessionFsm = SlopeGraphFsm.extend({
       _onEnter : function() {
         var self = this;
 
-        _.extend(this.graphState, {
-          chartWidth : self.width,
+        _.extend(this.graphState[0], {
+          chartWidth : self.width * 0.3,
           left : proportionAxis.generate(this.height, this.padding),
           right : gapAxis.generate(this.height, this.padding),
           width : groupPopulationAxis.generate(1, 6, { direct: true }),
-          color : groupIncomeAxis.generate(this.height, this.padding),
+          color : incomeAxis.generate(this.height, this.padding),
           centerTextFn : function(d) { return d.name; }
         });
         this.render();
