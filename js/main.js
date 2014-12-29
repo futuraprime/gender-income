@@ -118,7 +118,7 @@ var proportionAxis = new Axis({
     { text : 'Percent Female', heading : true, position : 0 },
     { text : 'more women', position: 0.91 },
     { text : 'more men', position : -0.02 },
-    { text : 'equal', position : 0.51, classed : { speciallabel : true } }
+    { text : 'equal', position : 0.51, classed : { speciallabel : true }, hideOnActive : true }
   ],
   median : 0.5
 });
@@ -170,7 +170,7 @@ var groupGapAxis = new Axis({
     { text : 'men make more', position: 0.49 },
     { text : 'cents earned by women', subheading : true, position : 18, classed : { speciallabel : false } },
     { text : 'per dollar earned by men', subheading : true, position: 18 + 16, classed : { speciallabel : false } },
-    { text : 'equal', position : 1.01, classed : { speciallabel : true } }
+    { text : 'equal', position : 1.01, classed : { speciallabel : true }, hideOnActive : true }
   ],
   median : 1
 });
@@ -188,7 +188,7 @@ var gapAxis = new Axis({
     { text : 'Wage Gap', heading : true, position : 0 },
     { text : 'women make more', position : 1.7 },
     { text : 'men make more', position: 0.49 },
-    { text : 'equal', position : 1.01, classed : { speciallabel : true } }
+    { text : 'equal', position : 1.01, classed : { speciallabel : true }, hideOnActive : true }
   ],
   median : 1
 });
@@ -383,6 +383,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
   },
 
   generateSlopegraphLegend : function(container, graphState) {
+    var self = this;
     var leftSide = graphState.left.offset;
     var rightSide = graphState.chartWidth - graphState.right.offset;
     var textLabelOffset = 35;
@@ -399,6 +400,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .classed('label', function(d) { return !d.heading; })
       .classed('extendedlabel', function(d) { return graphState.left.options.extendLabels; })
       .each(function(d) { d3.select(this).classed(d.classed); })
+      .style('opacity', function(d) { return self.activeItem && d.hideOnActive ? 0 : 1; })
       .transition().duration(250)
       .attr('x', graphState.left.options.extendLabels ? leftSide - textLabelOffset * 1.25: leftSide - textLabelOffset)
       .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.left.scale(d.position); });
@@ -416,6 +418,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .classed('label', function(d) { return !d.heading; })
       .classed('extendedlabel', function(d) { return graphState.right.options.extendLabels; })
       .each(function(d) { d3.select(this).classed(d.classed); })
+      .style('opacity', function(d) { return self.activeItem && d.hideOnActive ? 0 : 1; })
       .transition().duration(250)
       .attr('x', graphState.right.options.extendLabels ? rightSide + textLabelOffset * 1.25: rightSide + textLabelOffset)
       .attr('y', function(d) { return d.heading || d.subheading ? d.position || 15 : graphState.right.scale(d.position); });
