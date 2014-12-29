@@ -2,6 +2,6 @@ Happily, some professions are more equal than others. <a href="#" class="topgrap
 
 Industries <a href="#" class="topgraph-link highlight-control" data-state="male-dominated">with few women</a> tend towards equality as well.
 
-Far and away the _least_ equal industry is <a href="#" class="topgraph-active" data-active="law">the law</a>--which is also the <a href="#" class="topgraph-link axis-control" data-state="income-gap">highest earning</a>. Other <a href="#" class="topgraph-link highlight-control" data-state="high-earning">high-earning professions</a> tend to be near or above average.
+Far and away the _least_ equal industry is <a href="#" class="topgraph-active" data-active="law">the law</a>--which is also the <a href="#" class="topgraph-link axis-control" data-state="income-gap">highest earning</a>. Other <a href="#" class="topgraph-link highlight-control" data-state="high-earning">high-earning industries</a> tend to be near or above average.
 
-Among industries, <a href="#" class="topgraph-link axis-control" data-state="proportion-income">income does not correspond to gender proportions</a>, as neither high-earning nor <a href="#" class="topgraph-link highlight-control" data-state="low-earning">low-earning professions</a> group towards either end.
+Among industries, <a href="#" class="topgraph-link axis-control" data-state="proportion-income">income does not correspond to gender proportions</a>, as neither high-earning nor <a href="#" class="topgraph-link highlight-control" data-state="low-earning">low-earning industries</a> group towards either end.
