@@ -1,0 +1,1 @@
+Law is a great example: <a href="#" class="graph-active lawgraph-active" data-active="VD130">paralegals</a>--nearly all women--make less than half the salary of (mostly male) <a href="#" class="graph-active lawgraph-active" data-active="VD127">lawyers</a>.

@@ -15,10 +15,32 @@ font-feature-settings(prop, value=1) {
   font-feature-settings: prop value;
 }
 
+.smallcaps {
+  -moz-font-feature-settings: "smcp" 1;
+  -moz-font-feature-settings: "smcp=1";
+  font-feature-settings: "smcp" 1;
+}
+
 .interactive svg {
   width: 100%;
   height: 500px;
-  height: 80vh;
+  height: 70vh;
+}
+
+.rule {
+  stroke : #8A8585;
+  stroke-width: 0.5;
+}
+
+.triple-chart {
+  margin-top: 2em;
+
+  svg {
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+    height: 50vh;
+  }
 }
 
 .chart-pair {
@@ -133,33 +155,34 @@ font-feature-settings(prop, value=1) {
   font-style: italic;
 }
 
+.extendedlabel {
+  text-anchor: middle;
+}
+
+.subheadlabel {
+  @extend .smallcaps;
+}
+
 .unitlabel {
   font-style: italic;
 }
 
 .speciallabel {
-  -moz-font-feature-settings: "smcp" 1;
-  -moz-font-feature-settings: "smcp=1";
-  font-feature-settings: "smcp" 1;
+  @extend .smallcaps;
 }
 
+m_chartlinkVPadding = 0px;
+m_chartlinkHPadding = .33em;
 .chartlink {
-  m_chartlinkVPadding = 0px;
-  m_chartlinkHPadding = .33em;
-  
-  padding: m_chartlinkVPadding m_chartlinkHPadding;
-  background-color: #C3C1C1;
-  margin: -1 * m_chartlinkVPadding 0;
   color: inherit;
-  text-decoration: none;
+  
+  margin: -1 * m_chartlinkVPadding 0;
   border-radius: m_chartlinkHPadding;
+
+  text-decoration: none;
 
   transition: color 250ms ease-out,
       background-color 250ms ease-out;
-  &:hover {
-    background-color: c_Active;
-    color: white;
-  }
   &.active {
     background-color: c_Highlight;
     &:hover {
@@ -181,8 +204,31 @@ font-feature-settings(prop, value=1) {
 
 .topgraph-link {
   @extend .chartlink;
+  background-color: #C3C1C1;
+  padding: m_chartlinkVPadding m_chartlinkHPadding;
+  
+  &:hover {
+    background-color: #F18788;
+    
+    &[data-state="proportion-gap"] {
+      background-color: #A7D2F1;
+    }
+    &[data-state="income-gap"] {
+      background-color: #A8D4A1;
+    }
+    &[data-state="proportion-income"] {
+      background-color: #F2CE88;
+    }
+  }
+  
 }
 
-.topgraph-active {
+.topgraph-active, .graph-active {
   @extend .chartlink;
+  color: c_Active;
+
+  &:hover {
+    background-color: c_Active;
+    color: white;
+  }
 }

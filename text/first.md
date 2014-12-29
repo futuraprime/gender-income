@@ -1,1 +1,1 @@
-In the United States, men earn more than women--quite a bit more, as it happens. Currently, the "gender wage gap" is about 78 cents to the dollar--that is, for every dollar a man earns, on average, a woman earns only 78 cents. (The gap is about the same for only full-time workers.)
+In the United States, men earn more than women--quite a bit more, as it happens. Currently, the "gender wage gap" is about 78 cents to the dollar--that is, for every dollar a man earns, on average, a woman earns only 78 cents. (The gap is about the same for just full-time workers.)

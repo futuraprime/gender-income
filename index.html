@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gender and Wages</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <script type="text/javascript" src="//use.typekit.net/kso0koy.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script src="deps/jquery/dist/jquery.js"></script>
-  <script src="deps/lodash/dist/lodash.js"></script>
-  <script src="deps/machina/lib/machina.js"></script>
-  <script src="deps/d3/d3.js"></script>
-  <script src="deps/chroma-js/chroma.js"></script>
-  <script src="deps/oboe/dist/oboe-browser.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="main-interactive">
-    <h1>Finding an Unequal Wage</h1>
-    <section id="first" class="section-text"><p>In the United States, men earn more than women&#x2014;quite a bit more, as it happens. Currently, the &#x201C;gender wage gap&#x201D; is about 78 cents to the dollar&#x2014;that is, for every dollar a man earns, on average, a woman earns only 78 cents. (The gap is about the same for only full-time workers.)</p>
+  <head>
+    <title>Gender and Wages</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script type="text/javascript" src="//use.typekit.net/kso0koy.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script src="deps/jquery/dist/jquery.js"></script>
+    <script src="deps/lodash/dist/lodash.js"></script>
+    <script src="deps/machina/lib/machina.js"></script>
+    <script src="deps/d3/d3.js"></script>
+    <script src="deps/chroma-js/chroma.js"></script>
+    <script src="deps/oboe/dist/oboe-browser.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="main-interactive">
+      <h1>The Shape of an Unequal Wage</h1>
+      <section id="first" class="section-text"><p>In the United States, men earn more than women&#x2014;quite a bit more, as it happens. Currently, the &#x201C;gender wage gap&#x201D; is about 78 cents to the dollar&#x2014;that is, for every dollar a man earns, on average, a woman earns only 78 cents. (The gap is about the same for just full-time workers.)</p>
 </section>
-    <div class="chart-pair">
-      <div id="firstInteractive" class="mainchart interactive left">
-        <h3>Women and the Pay Gap</h3>
-      </div>
-      <section id="mainChart"><p>Happily, some professions are more equal than others. <a href="#" class="topgraph-link axis-control" data-state="proportion-gap">Gender breakdown</a> plays a role. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census&#x2019; industry categories. Unsurprisingly, most <a href="#" class="topgraph-link highlight-control" data-state="female-dominated">female-dominated</a> industries do better. For example, <a href="#" class="topgraph-active" data-active="health_support">healthcare support</a> and <a href="#" class="topgraph-active" data-active="admin_support">office administration</a> are staffed mostly by women, and pay them better than average&#x2014;though, still not equally to men.</p>
+      <div class="chart-pair">
+        <div id="firstInteractive" class="mainchart interactive left">
+          <h3>Women and the Pay Gap</h3>
+          <div class="label subheadlabel">full-time workers, usa, 2013</div>
+        </div>
+        <section id="mainChart"><p>Happily, some professions are more equal than others. <a href="#" class="topgraph-link axis-control" data-state="proportion-gap">Gender breakdown</a> plays a role. <span class="wide">To the left</span><span class="narrow">Above</span> are the <span class="topgraph-leftaxis"></span> and <span class="topgraph-rightaxis"></span> for each of the Census&#x2019; industry categories. Unsurprisingly, most <a href="#" class="topgraph-link highlight-control" data-state="female-dominated">female-dominated</a> industries do better. For example, <a href="#" class="topgraph-active" data-active="health_support">healthcare support</a> and <a href="#" class="topgraph-active" data-active="admin_support">office administration</a> are staffed mostly by women, and pay them better than average&#x2014;though, still not equally to men.</p>
 <p>Industries <a href="#" class="topgraph-link highlight-control" data-state="male-dominated">with few women</a> tend towards equality as well.</p>
 <p>Far and away the <em>least</em> equal industry is <a href="#" class="topgraph-active" data-active="law">the law</a>&#x2014;which is also the <a href="#" class="topgraph-link axis-control" data-state="income-gap">highest earning</a>. Other <a href="#" class="topgraph-link highlight-control" data-state="high-earning">high-earning industries</a> tend to be near or above average.</p>
 <p>Among industries, <a href="#" class="topgraph-link axis-control" data-state="proportion-income">income does not correspond to gender proportions</a>, as neither high-earning nor <a href="#" class="topgraph-link highlight-control" data-state="low-earning">low-earning industries</a> group towards either end.</p>
 </section>
     </div>
+    <div id="followingChart"><p>Industries, however, don&#x2019;t tell the whole story. For that, we&#x2019;ll want to look at individual professions and see it in detail.</p>
+</div>
+    <div class="triple-chart"><h3>The Law</h3><div class="chart" id="law"><p>Law is a great example: <a href="#" class="graph-active lawgraph-active" data-active="VD130">paralegals</a>&#x2014;nearly all women&#x2014;make less than half the salary of (mostly male) <a href="#" class="graph-active lawgraph-active" data-active="VD127">lawyers</a>.</p>
+</div></div>
+    <div class="triple-chart"><h3>Management</h3><div class="chart" id="management"></div></div>
+    <div class="triple-chart"><h3>Business and Finance</h3><div class="chart" id="operations_finance"></div></div>
+    <div class="triple-chart"><h3>Computers and Mathematics</h3><div class="chart" id="computers"></div></div>
+    <div class="triple-chart"><h3>Architecture and Engineering</h3><div class="chart" id="engineering"></div></div>
+    <div class="triple-chart"><h3>The Sciences</h3><div class="chart" id="science"></div></div>
+    <div class="triple-chart"><h3>Community and Social Services</h3><div class="chart" id="social_services"></div></div>
+    <div class="triple-chart"><h3>Education</h3><div class="chart" id="education"></div></div>
+    <div class="triple-chart"><h3>Arts, Design, Entertainment, Sports, and Media</h3><div class="chart" id="media_entertainment"></div></div>
+    <div class="triple-chart"><h3>Healthcare Practitioners and Technicians</h3><div class="chart" id="health_practitioner"></div></div>
+    <div class="triple-chart"><h3>Healthcare Support</h3><div class="chart" id="health_support"></div></div>
+    <div class="triple-chart"><h3>Protective Services</h3><div class="chart" id="protective"></div></div>
+    <div class="triple-chart"><h3>Food Preparation and Serving Related</h3><div class="chart" id="food_preparation"></div></div>
+    <div class="triple-chart"><h3>Building and Grounds Cleaning and Maintenance</h3><div class="chart" id="building_maintenance"></div></div>
+    <div class="triple-chart"><h3>Personal Care and Service</h3><div class="chart" id="service"></div></div>
+    <div class="triple-chart"><h3>Sales and Retail</h3><div class="chart" id="sales_retail"></div></div>
+    <div class="triple-chart"><h3>Office and Administrative Support</h3><div class="chart" id="admin_support"></div></div>
+    <div class="triple-chart"><h3>Farming, Fishing, and Forestry</h3><div class="chart" id="farm_fish_forest"></div></div>
+    <div class="triple-chart"><h3>Construction and Extraction (Mining)</h3><div class="chart" id="construction"></div></div>
+    <div class="triple-chart"><h3>Installation, Maintenance, and Repair</h3><div class="chart" id="maintenance"></div></div>
+    <div class="triple-chart"><h3>Production</h3><div class="chart" id="production"></div></div>
+    <div class="triple-chart"><h3>Transportation</h3><div class="chart" id="transportation"></div></div>
   </div>
   <div class="credits">
     Data from the American Community Survey 2013, 5-year estimates.<br>
     This is a <a href="http://futuraprime.net">futuraprime</a> production. <a href="http://twitter.com/futuraprime">@futuraprime</a>
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
-
+  <script type="text/javascript" src="js/main.js" charset="utf-8"></script>
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-1101879-6', 'auto');
-    ga('send', 'pageview');
-
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1101879-6', 'auto');
+  ga('send', 'pageview');
   </script>
 </body>
 </html>
