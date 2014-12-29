@@ -175,10 +175,8 @@ font-feature-settings(prop, value=1) {
 m_chartlinkVPadding = 0px;
 m_chartlinkHPadding = .33em;
 .chartlink {
-  background-color: #C3C1C1;
   color: inherit;
   
-  padding: m_chartlinkVPadding m_chartlinkHPadding;
   margin: -1 * m_chartlinkVPadding 0;
   border-radius: m_chartlinkHPadding;
 
@@ -207,14 +205,28 @@ m_chartlinkHPadding = .33em;
 
 .topgraph-link {
   @extend .chartlink;
+  background-color: #C3C1C1;
+  padding: m_chartlinkVPadding m_chartlinkHPadding;
   
   &:hover {
-    background-color: c_Highlight;
+    background-color: #F18788;
+    
+    &[data-state="proportion-gap"] {
+      background-color: #A7D2F1;
+    }
+    &[data-state="income-gap"] {
+      background-color: #A8D4A1;
+    }
+    &[data-state="proportion-income"] {
+      background-color: #F2CE88;
+    }
   }
+  
 }
 
 .topgraph-active {
   @extend .chartlink;
+  color: c_Active;
 
   &:hover {
     background-color: c_Active;
