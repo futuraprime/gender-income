@@ -298,7 +298,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
       // note: while highlighted is forced to an array, active is always
       // a string. there can only ever be one active item, though there
       // may be multiple items highlighted
-      if(self.activeItem === d.name) {
+      if(self.activeItem === d.name || self.activeItem === d.key) {
         this.parentNode.appendChild(this);
         return true;
       }
