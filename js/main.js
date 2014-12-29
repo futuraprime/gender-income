@@ -88,7 +88,8 @@ function Axis(options) {
 // direct here just funnels the values into the range instead of trying to be clever
 Axis.prototype.generate = function(height, padding, options) {
   options = _.defaults(options || {}, {
-    axisLabelOffset : 30
+    axisLabelOffset : 30,
+    rules : true
   });
   return _.defaults({
     options : options,
@@ -112,6 +113,7 @@ var proportionAxis = new Axis({
   value : function(d) { return d.B24126.total / d.B24124.total; },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "%"; },
+  ruleLimits : [0.05, 0.89],
   labels : [
     { text : 'Percent Female', heading : true, position : 0 },
     { text : 'more women', position: 0.91 },
@@ -129,6 +131,7 @@ var groupIncomeAxis = new Axis({
   value : function(d) { return d.B24121.total; },
   offset : 70,
   format: function(v) { return "$" + commaNumber(v); },
+  ruleLimits : [8000,87000],
   labels : [
     { text : 'Median Income', heading : true, position : 0 },
     { text : 'higher income', position: 94000 },
@@ -144,6 +147,7 @@ var incomeAxis = new Axis({
   value : function(d) { return d.B24121.total; },
   offset : 70,
   format: function(v) { return "$" + commaNumber(v); },
+  ruleLimits : [8000, 210000],
   labels : [
     { text : 'Median Income', heading : true, position : 0 },
     { text : 'higher income', position: 220000 },
@@ -159,6 +163,7 @@ var groupGapAxis = new Axis({
   value : function(d) { return d.B24123.total / d.B24122.total; },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
+  ruleLimits : [0.5, 1.09],
   labels : [
     { text : 'Wage Gap', heading : true, position : 0 },
     { text : 'women make more', position : 1.1 },
@@ -178,6 +183,7 @@ var gapAxis = new Axis({
   value : function(d) { return d.B24123.total / d.B24122.total; },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
+  ruleLimits : [0.52, 1.65],
   labels : [
     { text : 'Wage Gap', heading : true, position : 0 },
     { text : 'women make more', position : 1.7 },
@@ -208,6 +214,15 @@ var SlopeGraphFsm = machina.Fsm.extend({
   constructSlopegraphElement : function(enterGroup, graphState) {
     var self = this;
 
+    var container = graphState.container || this.container;
+
+
+    // rules
+    container.append('svg:line')
+      .classed('rule leftrule', true);
+    container.append('svg:line')
+      .classed('rule rightrule', true);
+
     // main line
     enterGroup.append('svg:line')
       .classed('item', true);
@@ -234,6 +249,14 @@ var SlopeGraphFsm = machina.Fsm.extend({
       })
       .on('mouseleave', function(d) {
         self.active();
+      });
+
+    // back to the rules, briefly...
+    // we want them to be under everything, and this is a hacky, but easy way
+    // to accomplish that
+    container.selectAll('line.rule')
+      .each(function() {
+        this.parentNode.insertBefore(this, this.parentNode.firstChild);
       });
 
     return enterGroup;
@@ -337,6 +360,24 @@ var SlopeGraphFsm = machina.Fsm.extend({
                rightSide + ',' + (rightFn(d) + spacing) + ',' +
                leftSide  + ',' + ( leftFn(d) + spacing);
       });
+
+    var container = graphState.container || this.container;
+
+    container.select('line.leftrule')
+      .attr('x1', leftSide)
+      .attr('x2', leftSide)
+      .attr('y1', graphState.left.ruleLimits && graphState.left.options.rules ?
+        graphState.left.scale(graphState.left.ruleLimits[0]) : 0 )
+      .attr('y2', graphState.left.ruleLimits && graphState.left.options.rules ?
+        graphState.left.scale(graphState.left.ruleLimits[1]) : 0 );
+
+    container.select('line.rightrule')
+      .attr('x1', rightSide)
+      .attr('x2', rightSide)
+      .attr('y1', graphState.right.ruleLimits && graphState.right.options.rules ?
+        graphState.right.scale(graphState.right.ruleLimits[0]) : 0 )
+      .attr('y2', graphState.right.ruleLimits && graphState.right.options.rules ?
+        graphState.right.scale(graphState.right.ruleLimits[1]) : 0 );
 
     return group;
   },
@@ -489,10 +530,10 @@ var TopGraphFsm = SlopeGraphFsm.extend({
 
         _.extend(this.graphState, {
           chartWidth : self.width,
-          left : proportionAxis.generate(this.height, this.padding),
-          right : groupGapAxis.generate(this.height, this.padding, { axisLabelOffset : 90 }),
-          width : groupPopulationAxis.generate(1, 6, { direct: true }),
-          color : groupIncomeAxis.generate(this.height, this.padding),
+          left : proportionAxis.generate(this.height, this.padding, { rules : false }),
+          right : groupGapAxis.generate(this.height, this.padding, { axisLabelOffset : 90, rules : false }),
+          width : groupPopulationAxis.generate(1, 6, { direct: true, rules : false }),
+          color : groupIncomeAxis.generate(this.height, this.padding, { rules : false }),
           centerTextFn : function(d) { return groupings[d.group].name; }
         });
         this.render();
@@ -642,7 +683,6 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     var self = this;
 
     this.svg = d3.select('#'+this.focusGroup).append('svg');
-    this.container = this.svg.append('svg:g');
     this.svgElement = this.svg.node();
 
     this.width = this.svgElement.clientWidth;
@@ -686,13 +726,12 @@ var ProfessionFsm = SlopeGraphFsm.extend({
 
   updateData : function(data) {
     // this one works with groups
-    this.selection = this.container.selectAll('g.line-group');
-
     var enter;
     for(var i=0,l=this.graphState.length;i<l;++i) {
-      this.graphState[i].group = this.container.append('svg:g')
+      this.graphState[i].group = this.svg.append('svg:g')
         .classed('subgraph', true);
-      this.graphState[i].selection = this.graphState[i].group
+      this.graphState[i].container = this.graphState[i].group.append('svg:g');
+      this.graphState[i].selection = this.graphState[i].container
         .selectAll('g.line-group')
         .data(_.filter(data.professions, { 'group' : this.focusGroup }));
 
