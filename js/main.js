@@ -764,13 +764,30 @@ var ProfessionFsm = SlopeGraphFsm.extend({
       _onEnter : function() {
         var self = this;
 
+        function truncateName(name) {
+          var truncateLength = 35; // characters
+
+          // the space here is to make sure lastIndexOf(' ') is at least the end of the
+          // original string
+          name = name.trim() + " ";
+
+          var firstTrim = name.substr(0, truncateLength) ;
+          var secondTrim = firstTrim.substr(0, Math.min(firstTrim.length, firstTrim.lastIndexOf(' ')));
+
+          // the -1 is to knock off the space at the end...
+          if(secondTrim.length < name.length - 1) {
+            secondTrim += '…';
+          }
+          return secondTrim;
+        }
+
         _.extend(this.graphState[0], {
           chartWidth : self.width * 0.33,
           left : incomeAxis.generate(this.height, this.padding),
           right : proportionAxis.generate(this.height, this.padding, { extendLabels : true }),
           color : gapAxis.generate(this.height, this.padding),
           width : populationAxis.generate(1, 6, { direct: true }),
-          centerTextFn : function(d) { return d.name; }
+          centerTextFn : function(d) { return truncateName(d.name); }
         });
         _.extend(this.graphState[1], {
           chartWidth : self.width * 0.33,
@@ -778,7 +795,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
           right : gapAxis.generate(this.height, this.padding, { extendLabels : true }),
           color : incomeAxis.generate(this.height, this.padding),
           width : populationAxis.generate(1, 6, { direct: true }),
-          centerTextFn : function(d) { return d.name; }
+          centerTextFn : function(d) { return truncateName(d.name); }
         });
         _.extend(this.graphState[2], {
           chartWidth : self.width * 0.33,
@@ -786,7 +803,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
           right : incomeAxis.generate(this.height, this.padding),
           color : proportionAxis.generate(this.height, this.padding),
           width : populationAxis.generate(1, 6, { direct: true }),
-          centerTextFn : function(d) { return d.name; }
+          centerTextFn : function(d) { return truncateName(d.name); }
         });
         this.render();
 
