@@ -37,6 +37,12 @@ function commaNumber (amount, dollar) {
   return (amount_string);
 } //commaNumber
 
+// detect transform
+var transformStyle = null;
+var b = document.body.style;
+if(b.hasOwnProperty('WebkitTransform')) { transformStyle = '-webkit-transform'; }
+if(b.hasOwnProperty('transform')) { transformStyle = 'transform'; }
+
 
 var codes = {
   'B24121': 'DETAILED OCCUPATION BY MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2013 INFLATION-ADJUSTED DOLLARS) FOR THE FULL-TIME, YEAR-ROUND CIVILIAN EMPLOYED POPULATION 16 YEARS AND OVER',
@@ -751,7 +757,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
 
     for(var i=0,l=this.graphState.length;i<l;++i) {
       this.graphState[i].group
-        .style('transform', 'translate('+this.graphState.chartWidth * i+'px, 0)');
+        .style(transformStyle, 'translate('+this.graphState.chartWidth * i+'px, 0)');
       this.updateSlopegraphElement(this.graphState[i].selection, this.graphState[i]);
       this.generateSlopegraphLegend(this.graphState[i].group, this.graphState[i]);
     }
