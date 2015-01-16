@@ -463,8 +463,9 @@ var TopGraphFsm = SlopeGraphFsm.extend({
     this.container = this.svg.append('svg:g');
     this.svgElement = this.svg.node();
 
-    this.width = this.svgElement.clientWidth;
-    this.height = this.svgElement.clientHeight;
+    var svgBBox = this.svgElement.getBoundingClientRect();
+    this.width = svgBBox.width;
+    this.height = svgBBox.height;
 
     this.padding = 20;
     this.graphState = {};
@@ -515,8 +516,9 @@ var TopGraphFsm = SlopeGraphFsm.extend({
     this.swapAxes('color', movingAxis);
   },
   render : function() {
-    this.width = this.svgElement.clientWidth;
-    this.height = this.svgElement.clientHeight;
+    var svgBBox = this.svgElement.getBoundingClientRect();
+    this.width = svgBBox.width;
+    this.height = svgBBox.height;
 
     this.graphState.chartWidth = this.width;
 
@@ -695,8 +697,9 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     this.svg = d3.select('#'+this.focusGroup).append('svg');
     this.svgElement = this.svg.node();
 
-    this.width = this.svgElement.clientWidth;
-    this.height = this.svgElement.clientHeight;
+    var svgBBox = this.svgElement.getBoundingClientRect();
+    this.width = svgBBox.width;
+    this.height = svgBBox.height;
 
     this.padding = 20;
     this.graphState = [{},{},{}];
@@ -751,8 +754,9 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     }
   },
   render : function() {
-    this.width = this.svgElement.clientWidth;
-    this.height = this.svgElement.clientHeight;
+    var svgBBox = this.svgElement.getBoundingClientRect();
+    this.width = svgBBox.width;
+    this.height = svgBBox.height;
 
     this.graphState.chartWidth = this.width * 0.33;
 
