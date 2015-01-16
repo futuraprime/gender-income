@@ -42,6 +42,7 @@ var transformStyle = null;
 var b = document.body.style;
 if(b.WebkitTransform !== undefined) { transformStyle = '-webkit-transform'; }
 if(b.MozTransform !== undefined) { transformStyle = '-moz-transform'; }
+if(b.msTransform !== undefined) { transformStyle = '-ms-transform'; }
 if(b.transform !== undefined) { transformStyle = 'transform'; }
 
 
