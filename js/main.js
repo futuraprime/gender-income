@@ -40,8 +40,9 @@ function commaNumber (amount, dollar) {
 // detect transform
 var transformStyle = null;
 var b = document.body.style;
-if(b.hasOwnProperty('WebkitTransform')) { transformStyle = '-webkit-transform'; }
-if(b.hasOwnProperty('transform')) { transformStyle = 'transform'; }
+if(b.WebkitTransform !== undefined) { transformStyle = '-webkit-transform'; }
+if(b.MozTransform !== undefined) { transformStyle = '-moz-transform'; }
+if(b.transform !== undefined) { transformStyle = 'transform'; }
 
 
 var codes = {
