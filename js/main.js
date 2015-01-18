@@ -162,13 +162,17 @@ var incomeAxis = new Axis({
     { text : 'lower income', position : 0 }
   ]
 });
+// we're going to use this dummy value to detect the very specific
+// case where there are so few women in a profession that no data
+// exists for women's presence or wages
+var wageGapDummyValue = 0.2500001;
 var groupGapAxis = new Axis({
   name : 'wagegap',
   presentableName : 'wage gap',
   scale : d3.scale.log().base(2).domain([0.5, 2]),
   colorScale : chroma.scale([colors.yellow[5], colors.yellow[3]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
-  value : function(d) { return d.B24123.total / d.B24122.total; },
+  value : function(d) { return d.B24123.total == 0 ? wageGapDummyValue : (d.B24123.total / d.B24122.total); },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
   ruleLimits : [0.5, 1.09],
@@ -188,7 +192,7 @@ var gapAxis = new Axis({
   scale : d3.scale.log().base(2).domain([0.5, 2]),
   colorScale : chroma.scale([colors.yellow[5], colors.yellow[3]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
-  value : function(d) { return d.B24123.total / d.B24122.total; },
+  value : function(d) { return d.B24123.total == 0 ? wageGapDummyValue : (d.B24123.total / d.B24122.total); },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
   ruleLimits : [0.52, 1.65],
@@ -342,7 +346,7 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('y', function(d) { return leftFn(d) + 5; });
 
     group.select('text.rightlabel')
-      .text(function(d) { return graphState.right.format(graphState.right.value(d)); })
+      .text(function(d) {return graphState.right.format(graphState.right.value(d)); })
       .attr('x', rightSide + 7)
       .attr('y', function(d) { return rightFn(d) + 5; });
 
