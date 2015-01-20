@@ -172,7 +172,7 @@ var groupGapAxis = new Axis({
   scale : d3.scale.log().base(2).domain([0.5, 2]),
   colorScale : chroma.scale([colors.yellow[5], colors.yellow[3]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
-  value : function(d) { return d.B24123.total == 0 ? wageGapDummyValue : (d.B24123.total / d.B24122.total); },
+  value : function(d) { return parseInt(d.B24123.total, 10) === 0 ? wageGapDummyValue : (d.B24123.total / d.B24122.total); },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
   ruleLimits : [0.5, 1.09],
@@ -192,7 +192,7 @@ var gapAxis = new Axis({
   scale : d3.scale.log().base(2).domain([0.5, 2]),
   colorScale : chroma.scale([colors.yellow[5], colors.yellow[3]]).domain([0.5, 2])
     .mode('hsv').out('hex'),
-  value : function(d) { return d.B24123.total == 0 ? wageGapDummyValue : (d.B24123.total / d.B24122.total); },
+  value : function(d) { return parseInt(d.B24123.total,10) === 0 ? wageGapDummyValue : (d.B24123.total / d.B24122.total); },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "¢"; },
   ruleLimits : [0.52, 1.65],
