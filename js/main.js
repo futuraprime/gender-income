@@ -743,6 +743,8 @@ var ProfessionFsm = SlopeGraphFsm.extend({
   initialState : 'loading',
 
   updateData : function(data) {
+    this.chartData = _.filter(data.professions, { 'group' : this.focusGroup });
+
     // this one works with groups
     var enter;
     for(var i=0,l=this.graphState.length;i<l;++i) {
@@ -751,7 +753,7 @@ var ProfessionFsm = SlopeGraphFsm.extend({
       this.graphState[i].container = this.graphState[i].group.append('svg:g');
       this.graphState[i].selection = this.graphState[i].container
         .selectAll('g.line-group')
-        .data(_.filter(data.professions, { 'group' : this.focusGroup }));
+        .data(this.chartData);
 
       enter = this.graphState[i].selection.enter().append('svg:g')
         .classed('line-group', true);
