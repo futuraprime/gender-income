@@ -761,7 +761,12 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     }
   },
   render : function() {
+    // clear any preset height
+    this.svgElement.style.height = undefined;
+
+
     var svgBBox = this.svgElement.getBoundingClientRect();
+    var pixelPositionArray = [];
     this.width = svgBBox.width;
     this.height = svgBBox.height;
 
@@ -772,6 +777,20 @@ var ProfessionFsm = SlopeGraphFsm.extend({
         .style(transformStyle, 'translate('+this.graphState.chartWidth * i+'px, 0)');
       this.updateSlopegraphElement(this.graphState[i].selection, this.graphState[i]);
       this.generateSlopegraphLegend(this.graphState[i].group, this.graphState[i]);
+
+      var self = this;
+      function evaluateLeft(d) {
+        // now we're in pixels!
+        return self.graphState[i].left.scale(self.graphState[i].left.value(d));
+      }
+      pixelPositionArray = pixelPositionArray.concat(_.map(this.chartData, evaluateLeft));
+    }
+
+    // now we have to extend the bottom of these if they're not tall enough.
+    var bottom = _.max(pixelPositionArray);
+    if(this.height < bottom) {
+      // if the lines go off the bottom of the chart, extend further
+      this.svgElement.style.height = Math.ceil(bottom / 10) * 10 + 20;
     }
   },
   states : {
