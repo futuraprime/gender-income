@@ -115,17 +115,17 @@ Axis.prototype.generate = function(height, padding, options) {
 var proportionAxis = new Axis({
   name : 'proportion',
   presentableName : 'percent of employees who are women',
-  scale : d3.scale.linear().domain([0,1]),
+  scale : d3.scale.linear().domain([-0.11,1.11]),
   colorScale : chroma.scale([colors.green[5], colors.green[3]]).domain([0, 1])
     .mode('hsv').out('hex'),
   value : function(d) { return d.B24126.total / d.B24124.total; },
   offset : 40,
   format : function(v) { return Math.round(v * 100) + "%"; },
-  ruleLimits : [0.05, 0.89],
+  ruleLimits : [0, 0.95],
   labels : [
     { text : 'Percent Female', heading : true, position : 0 },
-    { text : 'more women', position: 0.91 },
-    { text : 'more men', position : -0.02 },
+    { text : 'more women', position: 0.99 },
+    { text : 'more men', position : -0.12 },
     { text : 'equal', position : 0.51, classed : { speciallabel : true }, hideOnActive : true }
   ],
   median : 0.5
