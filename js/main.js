@@ -206,7 +206,7 @@ var gapAxis = new Axis({
 });
 var populationAxis = new Axis({
   name : 'population',
-  scale : d3.scale.linear().domain([1, 1000000]),
+  scale : d3.scale.linear().domain([1, 2500000]),
   value : function(d) { return d.B24124.total; },
   offset : 90, // a guess, probably won't actually be used
   format : function(v) { return commaNumber(v); },
