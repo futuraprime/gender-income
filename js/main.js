@@ -779,11 +779,14 @@ var ProfessionFsm = SlopeGraphFsm.extend({
       this.generateSlopegraphLegend(this.graphState[i].group, this.graphState[i]);
 
       var self = this;
-      function evaluateLeft(d) {
+      /* jshint -W083 */
+
+      var evaluateLeft = function(d) {
         // now we're in pixels!
         return self.graphState[i].left.scale(self.graphState[i].left.value(d));
-      }
+      };
       pixelPositionArray = pixelPositionArray.concat(_.map(this.chartData, evaluateLeft));
+      /* jshint +W083 */
     }
 
     // now we have to extend the bottom of these if they're not tall enough.
