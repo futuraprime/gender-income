@@ -90,6 +90,27 @@ var groupings = {
 
 var dataPromise = oboe('./data/data_5yr.json');
 
+function generateBlindGradient(svg, color, side) {
+  // this is a sneaky d3 way to select the element if present
+  // or create the element if it isn't
+  var defs = svg.selectAll('defs').data([0]);
+  defs.enter().append('svg:defs');
+
+  var id = 'gradient-' + color + '-' + side;
+  var gradient = defs.selectAll('linearGradient#'+id).data([0]);
+  gradient.enter().append('svg:linearGradient')
+    .attr('id', id);
+
+  var colors = [
+    { offset : '50%', color : '#DFE2E6' },
+    { offset : '100%', color : color }
+  ];
+  var stops = gradient.selectAll('stop').data(colors);
+  stops.enter().append('svg:stop');
+  stops.attr('stop-color', function(d) { return d.color; })
+    .attr('offset', function(d) { return d.offset; });
+}
+
 function Axis(options) {
   _.extend(this, options);
 }
@@ -231,7 +252,6 @@ var SlopeGraphFsm = machina.Fsm.extend({
 
     var container = graphState.container || this.container;
 
-
     // rules
     container.append('svg:line')
       .classed('rule leftrule', true);
@@ -330,7 +350,12 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('x2', rightSide)
       .attr('y1', leftFn)
       .attr('y2', rightFn)
-      .attr('stroke', colorFn)
+      .attr('stroke', function(d) {
+        if(isBlind(d, 'left')) {
+          generateBlindGradient(self.svg, colorFn(d));
+        }
+        return colorFn(d);
+      })
       .attr('stroke-width', widthFn);
 
     group.select('circle.leftdot')
