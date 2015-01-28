@@ -165,7 +165,7 @@ var incomeAxis = new Axis({
 // we're going to use this dummy value to detect the very specific
 // case where there are so few women in a profession that no data
 // exists for women's presence or wages
-var wageGapDummyValue = 0.2500001;
+var wageGapDummyValue = 0.3200001;
 var groupGapAxis = new Axis({
   name : 'wagegap',
   presentableName : 'wage gap',
@@ -184,6 +184,8 @@ var groupGapAxis = new Axis({
     { text : 'per dollar earned by men', subheading : true, position: 18 + 16, classed : { speciallabel : false } },
     { text : 'equal', position : 1.01, classed : { speciallabel : true }, hideOnActive : true }
   ],
+  // the `blindValue` is a proxy for "no data"
+  blindValue : wageGapDummyValue,
   median : 1
 });
 var gapAxis = new Axis({
@@ -202,6 +204,7 @@ var gapAxis = new Axis({
     { text : 'men make more', position: 0.49 },
     { text : 'equal', position : 1.01, classed : { speciallabel : true }, hideOnActive : true }
   ],
+  blindValue : wageGapDummyValue,
   median : 1
 });
 var populationAxis = new Axis({
@@ -282,6 +285,10 @@ var SlopeGraphFsm = machina.Fsm.extend({
     var widthFn = function(d) { return graphState.width.scale(graphState.width.value(d)); };
     var colorFn = function(d) { return graphState.color.colorScale(graphState.color.value(d)); };
 
+    function isBlind(d, side) {
+      return graphState[side].value(d) === graphState[side].blindValue;
+    }
+
     var leftSide = graphState.left.offset;
     var rightSide = graphState.chartWidth - graphState.right.offset;
 
@@ -331,6 +338,9 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('cx', leftSide)
       .attr('cy', leftFn)
       .attr('r', 4)
+      .attr('opacity', function(d) {
+        return isBlind(d, 'left') ? 0 : 1;
+      })
       .attr('fill', colorFn);
 
     group.select('circle.rightdot')
@@ -338,15 +348,24 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('cx', rightSide)
       .attr('cy', rightFn)
       .attr('r', 4)
+      .attr('opacity', function(d) {
+        return isBlind(d, 'right') ? 0 : 1;
+      })
       .attr('fill', colorFn);
 
     group.select('text.leftlabel')
-      .text(function(d) { return graphState.left.format(graphState.left.value(d)); })
+      .text(function(d) {
+        return isBlind(d, 'left') ? null :
+          graphState.left.format(graphState.left.value(d));
+      })
       .attr('x', leftSide - 7)
       .attr('y', function(d) { return leftFn(d) + 5; });
 
     group.select('text.rightlabel')
-      .text(function(d) {return graphState.right.format(graphState.right.value(d)); })
+      .text(function(d) {
+        return isBlind(d, 'right') ? null :
+          graphState.right.format(graphState.right.value(d));
+      })
       .attr('x', rightSide + 7)
       .attr('y', function(d) { return rightFn(d) + 5; });
 
@@ -780,7 +799,6 @@ var ProfessionFsm = SlopeGraphFsm.extend({
 
       var self = this;
       /* jshint -W083 */
-
       var evaluateLeft = function(d) {
         // now we're in pixels!
         return self.graphState[i].left.scale(self.graphState[i].left.value(d));
