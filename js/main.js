@@ -91,6 +91,7 @@ var groupings = {
 var dataPromise = oboe('./data/data_5yr.json');
 
 function generateBlindGradient(svg, color, side) {
+  side = side || 'nah';
   // this is a sneaky d3 way to select the element if present
   // or create the element if it isn't
   var defs = svg.selectAll('defs').data([0]);
