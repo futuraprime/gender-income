@@ -91,15 +91,16 @@ var groupings = {
 var dataPromise = oboe('./data/data_5yr.json');
 
 function generateBlindGradient(svg, color, side) {
-  side = side || 'nah';
+  color = color.replace('#', '');
+  side = side || 'ambiguous';
   // this is a sneaky d3 way to select the element if present
   // or create the element if it isn't
   var defs = svg.selectAll('defs').data([0]);
   defs.enter().append('svg:defs');
 
   var id = 'gradient-' + color + '-' + side;
-  var gradient = defs.selectAll('linearGradient#'+id).data([0]);
-  gradient.enter().append('svg:linearGradient')
+  var gradient = defs.selectAll('lineargradient#'+id).data([0]);
+  gradient.enter().append('svg:lineargradient')
     .attr('id', id);
 
   var colors = [
