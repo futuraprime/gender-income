@@ -91,26 +91,29 @@ var groupings = {
 var dataPromise = oboe('./data/data_5yr.json');
 
 function generateBlindGradient(svg, color, side) {
-  color = color.replace('#', '');
-  side = side || 'ambiguous';
+  // can't have a hash mark in the id or bad things will happen
+  idColor = color.replace('#', '');
+  side = side || 'right';
   // this is a sneaky d3 way to select the element if present
   // or create the element if it isn't
   var defs = svg.selectAll('defs').data([0]);
   defs.enter().append('svg:defs');
 
-  var id = 'gradient-' + color + '-' + side;
-  var gradient = defs.selectAll('lineargradient#'+id).data([0]);
-  gradient.enter().append('svg:lineargradient')
+  var id = 'gradient-' + idColor + '-' + side;
+  var gradient = defs.selectAll('#'+id).data([0]);
+  gradient.enter().append('svg:linearGradient')
     .attr('id', id);
 
   var colors = [
     { offset : '50%', color : '#DFE2E6' },
-    { offset : '100%', color : color }
+    { offset : side === 'left' ? '100%' : '0%', color : color }
   ];
   var stops = gradient.selectAll('stop').data(colors);
   stops.enter().append('svg:stop');
   stops.attr('stop-color', function(d) { return d.color; })
     .attr('offset', function(d) { return d.offset; });
+
+  return id;
 }
 
 function Axis(options) {
@@ -354,7 +357,13 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('y2', rightFn)
       .attr('stroke', function(d) {
         if(isBlind(d, 'left')) {
-          generateBlindGradient(self.svg, colorFn(d));
+          return 'url(#' +
+            generateBlindGradient(self.svg, colorFn(d), 'left') +
+            ')';
+        } else if(isBlind(d, 'right')) {
+          return 'url(#' +
+            generateBlindGradient(self.svg, colorFn(d), 'right') +
+            ')';
         }
         return colorFn(d);
       })
