@@ -90,9 +90,9 @@ var groupings = {
 
 var dataPromise = oboe('./data/data_5yr.json');
 
-function generateBlindGradient(svg, color, side) {
+function generateBlindGradient(svg, color, side, idColor) {
   // can't have a hash mark in the id or bad things will happen
-  idColor = color.replace('#', '');
+  idColor = idColor || color.replace('#', '');
   side = side || 'right';
   // this is a sneaky d3 way to select the element if present
   // or create the element if it isn't
@@ -352,7 +352,12 @@ var SlopeGraphFsm = machina.Fsm.extend({
       return false;
     });
 
+    var highlightColor = '#D75B5B';
+    var activeColor = '#B13631';
+
     group.select('line.item')
+      .classed('blind-left', function(d) { return isBlind(d, 'left'); })
+      .classed('blind-right', function(d) { return isBlind(d, 'right'); })
       .transition().duration(250)
       .attr('x1', leftSide)
       .attr('x2', rightSide)
@@ -360,10 +365,14 @@ var SlopeGraphFsm = machina.Fsm.extend({
       .attr('y2', rightFn)
       .attr('stroke', function(d) {
         if(isBlind(d, 'left')) {
+          generateBlindGradient(self.svg, highlightColor, 'left', 'highlight');
+          generateBlindGradient(self.svg, activeColor, 'left', 'active');
           return 'url(#' +
             generateBlindGradient(self.svg, colorFn(d), 'left') +
             ')';
         } else if(isBlind(d, 'right')) {
+          generateBlindGradient(self.svg, highlightColor, 'right', 'highlight');
+          generateBlindGradient(self.svg, activeColor, 'right', 'active');
           return 'url(#' +
             generateBlindGradient(self.svg, colorFn(d), 'right') +
             ')';

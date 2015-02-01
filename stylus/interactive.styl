@@ -107,10 +107,24 @@ font-feature-settings(prop, value=1) {
   
   .highlight & {
     stroke : c_Highlight;
+    
+    &.blind-left {
+      stroke : url('#gradient-highlight-left');
+    }
+    &.blind-right {
+      stroke : url('#gradient-highlight-right');
+    }
   }
   
   .active & {
     stroke: c_Active;
+    
+    &.blind-left {
+      stroke : url('#gradient-active-left');
+    }
+    &.blind-right {
+      stroke : url('#gradient-active-right');
+    }
   }
 }
 
