@@ -104,9 +104,12 @@ function generateBlindGradient(svg, color, side) {
   gradient.enter().append('svg:linearGradient')
     .attr('id', id);
 
+  var emptyColor = 'rgba('+chroma(color).alpha(0).rgba().join(',')+')';
+
   var colors = [
-    { offset : '50%', color : '#DFE2E6' },
-    { offset : side === 'left' ? '100%' : '0%', color : color }
+    { offset : '0%' , color : side === 'left' ? emptyColor : color },
+    { offset : '50%', color : color },
+    { offset : '100%', color : side === 'left' ? color : emptyColor }
   ];
   var stops = gradient.selectAll('stop').data(colors);
   stops.enter().append('svg:stop');
