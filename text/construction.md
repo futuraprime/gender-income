@@ -1,1 +1,1 @@
-Test here <a href="#" data-active="VD373" class="graph-active constructiongraph-active">Roof bolters</a>
+Construction and mining are male-dominated fields--so much so that there are too few women <a href="#" data-active="VD373" class="graph-active constructiongraph-active">roof bolters</a> to even estimate their salary or its relation to men's earnings in the profession.
