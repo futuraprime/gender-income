@@ -769,6 +769,8 @@ var ProfessionFsm = SlopeGraphFsm.extend({
     this.svg = d3.select('#'+this.focusGroup).append('svg');
     this.svgElement = this.svg.node();
 
+    if(!this.svgElement) { return; }
+
     var svgBBox = this.svgElement.getBoundingClientRect();
     this.width = svgBBox.width;
     this.height = svgBBox.height;
